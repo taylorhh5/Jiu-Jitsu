@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+.Nav {
+  display: flex;
+  justify-content: space-around;
+  background: lightblue;
+  border: 1px solid black;
+  text-decoration: none;
+}
+a{
+  color:grey;
+  /* text-decoration: none; */
+}
+a.active{
+  /* color:red; */
+}
+
+ul {
+  list-style-type: none;
+}
