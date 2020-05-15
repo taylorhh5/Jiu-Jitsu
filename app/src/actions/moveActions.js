@@ -59,6 +59,21 @@ export const fetchGuard = () => {
     };
 };
 
+export const fetchMount = () => {
+    return dispatch => {
+        dispatch({ type: MOUNT_FETCHING });
+
+        axios
+            .get('http://localhost:5000/api/moves/mount')
+            // .then(response => console.log (response.data, "From GUARD API"))
+            .then(response => dispatch({ type: MOUNT_SUCCESS, payload: response.data })
+            )
+            
+        .catch(error => dispatch({ type: MOUNT_FAILURE, payload: error.response }))
+
+    };
+};
+
 
 // export const addTakedown = (inputs) => {
 //     return dispatch => {

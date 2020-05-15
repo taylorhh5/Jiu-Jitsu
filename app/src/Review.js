@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import TakedownList from "./TakedownList.js";
 import GuardList from "./GuardList.js";
-import Mount from "./Mount.js";
+import MountList from "./MountList.js";
 import Sidemount from "./Sidemount.js";
 import Back from "./Back.js";
 
@@ -24,7 +24,7 @@ const Review = () => {
           <Link to="/guardlist">Guard</Link>
         </li>
         <li>
-          <Link to="/Mount">Mount</Link>
+          <Link to="/Mountlist">Mount</Link>
         </li>
         <li>
           <Link to="/Sidemount">Sidemount</Link>

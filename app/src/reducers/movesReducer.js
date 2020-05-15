@@ -4,7 +4,10 @@ import {
   TAKEDOWN_FAILURE,
   GUARD_FETCHING,
   GUARD_SUCCESS,
-  GUARD_FAILURE
+  GUARD_FAILURE,
+  MOUNT_FETCHING,
+  MOUNT_SUCCESS,
+  MOUNT_FAILURE
   // POST_START,
   // POST_SUCCESS,
   // POST_FAILURE,
@@ -67,6 +70,27 @@ const reducer = (state = initialState, action) => {
         loading: false,
         error: action.payload,
       };
+
+      case MOUNT_FETCHING:
+        return {
+          ...state,
+          loading: true,
+          error: "",
+        };
+      case MOUNT_SUCCESS:
+        return {
+          ...state,
+          loading: false,
+          error: "",
+          mount: action.payload,
+        };
+  
+      case MOUNT_FAILURE:
+        return {
+          ...state,
+          loading: false,
+          error: action.payload,
+        };
     // case POST_START:
     //   return {
     //     ...state,

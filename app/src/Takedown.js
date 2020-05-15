@@ -27,10 +27,10 @@ const TakedownCard = (props) => {
           return (
             <div key={takedown.id}>
               <h2>{takedown.name}</h2>
-
+   <img src={takedown.image_url}  />
               <p>{takedown.description}</p>
 
-              <img src={takedown.image_url}  />
+           
             </div>
           );
         })}
