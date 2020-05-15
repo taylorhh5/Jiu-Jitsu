@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
-import Takedowns from "./Takedowns.js";
+import TakedownList from "./TakedownList.js";
 import Guard from "./Guard.js";
 import Mount from "./Mount.js";
 import Sidemount from "./Sidemount.js";
