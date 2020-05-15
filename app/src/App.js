@@ -7,7 +7,8 @@ import GuardList from "./GuardList.js";
 import Guard from './Guard.js';
 import MountList from './MountList.js';
 import Mount from "./Mount.js";
-import Sidemount from "./Sidemount.js";
+import SidemountList from "./SidemountList.js";
+import Sidemount from './Sidemount.js'
 import Back from './Back.js'
 import BackList from "./BackList.js";
 import Review from './Review.js'
@@ -32,13 +33,15 @@ function App() {
             <Route path="/guard/:id" component={Guard}></Route>
             <Route path="/mount/:id" component={Mount}></Route>
             <Route path="/back/:id" component={Back}></Route>
+            <Route path="/sidemount/:id" component={Sidemount}></Route>
+
 
 
 
 
       <Route path="/guardlist" component={GuardList}></Route>
       <Route path="/Mountlist" component={MountList}></Route>
-      <Route path="/Sidemount" component={Sidemount}></Route>
+      <Route path="/SidemountList" component={SidemountList}></Route>
       <Route path="/BackControl" component={BackList}></Route>
     </div>
   );

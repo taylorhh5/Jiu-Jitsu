@@ -91,6 +91,21 @@ export const fetchBack = () => {
 };
 
 
+export const fetchSidemount = () => {
+    return dispatch => {
+        dispatch({ type: SIDEMOUNT_FETCHING });
+
+        axios
+            .get('http://localhost:5000/api/moves/sidemount')
+            // .then(response => console.log (response.data, "From GUARD API"))
+            .then(response => dispatch({ type: SIDEMOUNT_SUCCESS, payload: response.data })
+            )
+            
+        .catch(error => dispatch({ type: SIDEMOUNT_FAILURE, payload: error.response }))
+
+    };
+};
+
 // export const addTakedown = (inputs) => {
 //     return dispatch => {
 //         dispatch({ type: POST_START });
