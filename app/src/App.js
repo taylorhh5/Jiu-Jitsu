@@ -3,7 +3,8 @@ import "./App.css";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import TakedownList from './TakedownList.js'
 import Takedown from './Takedown.js'
-import Guard from "./Guard.js";
+import GuardList from "./GuardList.js";
+import Guard from './Guard.js'
 import Mount from "./Mount.js";
 import Sidemount from "./Sidemount.js";
 import Back from "./Back.js";
@@ -19,14 +20,18 @@ function App() {
 
       <Route exact path="/" component={Review}></Route>
       <Route path="/Takedowns" component={TakedownList}></Route>
-      <Route
-        path="/takedown/:id"
+      {/* <Route
+        path=
         render={props => {
           return <Takedown {...props} />;
         }}
-      />
+      /> */}
+            <Route path="/takedown/:id" component={Takedown}></Route>
+            <Route path="/guard/:id" component={Guard}></Route>
 
-      <Route path="/Guard" component={Guard}></Route>
+
+
+      <Route path="/guardlist" component={GuardList}></Route>
       <Route path="/Mount" component={Mount}></Route>
       <Route path="/Sidemount" component={Sidemount}></Route>
       <Route path="/Back" component={Back}></Route>

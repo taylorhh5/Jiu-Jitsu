@@ -3,6 +3,7 @@ import { fetchTakedown } from "./actions/moveActions.js";
 import { connect } from "react-redux";
 import Takedown from "./Takedown.js";
 import { withRouter } from "react-router";
+
 const TakedownCard = (props) => {
   console.log(props, "props in single");
 
@@ -10,24 +11,26 @@ const TakedownCard = (props) => {
     props.fetchTakedown();
   }, []);
 
-  const paramsmove = props.moves.moves.filter(
+  if (props.loading) {
+    return <h1>Loading...</h1>
+  }
+
+  const chosenTakedown = props.moves.takedown.filter(
     (data) => `${data.id}` === props.match.params.id
   );
-  console.log(paramsmove, "params");
+  console.log(chosenTakedown, "params");
 
   return (
     <div>
       <section>
-        {paramsmove.map((takedown) => {
+        {chosenTakedown.map((takedown) => {
           return (
-            <div>
+            <div key={takedown.id}>
               <h2>{takedown.name}</h2>
-             
-              <p>{takedown.description}</p>
-              
-              
-              <img src={takedown.image_url} wrapped ui={false} />
 
+              <p>{takedown.description}</p>
+
+              <img src={takedown.image_url}  />
             </div>
           );
         })}
@@ -39,8 +42,8 @@ const TakedownCard = (props) => {
 const mapStateToProps = (state) => {
   return {
     moves: state.reducer,
-    // loading: state.loading,
-    // error: state.error
+    loading: state.loading,
+    error: state.error
   };
 };
 export default connect(mapStateToProps, { fetchTakedown })(

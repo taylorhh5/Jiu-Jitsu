@@ -1,7 +1,10 @@
 import {
-  START_FETCHING,
-  FETCH_SUCCESS,
-  FETCH_FAILURE,
+  TAKEDOWN_FETCHING,
+  TAKEDOWN_SUCCESS,
+  TAKEDOWN_FAILURE,
+  GUARD_FETCHING,
+  GUARD_SUCCESS,
+  GUARD_FAILURE
   // POST_START,
   // POST_SUCCESS,
   // POST_FAILURE,
@@ -9,35 +12,56 @@ import {
   // DELETE_START,
   // EDIT_START,
   // EDIT_SUCCESS,
-  
 } from "../actions/moveActions.js";
 
 const initialState = {
-  moves: [],
+  
+  takedown:[],
+  guard:[],
+  mount:[],
+  back:[],
+  sidemount:[],
   loading: false,
   error: "",
 };
 
 const reducer = (state = initialState, action) => {
-  console.log(state, "takedown reducer state")
   switch (action.type) {
-    case START_FETCHING:
+    case TAKEDOWN_FETCHING:
       return {
         ...state,
         loading: true,
         error: "",
       };
-    case FETCH_SUCCESS:
+    case TAKEDOWN_SUCCESS:
       return {
         ...state,
         loading: false,
         error: "",
-        moves: action.payload,
-      
+        takedown: action.payload,
       };
-      
 
-    case FETCH_FAILURE:
+    case TAKEDOWN_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+      case GUARD_FETCHING:
+      return {
+        ...state,
+        loading: true,
+        error: "",
+      };
+    case GUARD_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        error: "",
+        guard: action.payload,
+      };
+
+    case GUARD_FAILURE:
       return {
         ...state,
         loading: false,
