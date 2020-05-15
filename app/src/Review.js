@@ -4,7 +4,7 @@ import TakedownList from "./TakedownList.js";
 import GuardList from "./GuardList.js";
 import MountList from "./MountList.js";
 import Sidemount from "./Sidemount.js";
-import Back from "./Back.js";
+import BackList from "./BackList.js";
 
 const Review = () => {
   return (
@@ -30,7 +30,7 @@ const Review = () => {
           <Link to="/Sidemount">Sidemount</Link>
         </li>
         <li>
-          <Link to="/Back">Back</Link>
+          <Link to="/BackControl">Back</Link>
         </li>
       </ul>
     </div>

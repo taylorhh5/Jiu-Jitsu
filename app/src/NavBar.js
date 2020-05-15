@@ -8,7 +8,7 @@ const NavBar = () => {
             <NavLink  to="/Guardlist">Guard</NavLink>
             <NavLink  to="/MountList">Mount</NavLink>
             <NavLink  to="/Sidemount">Sidemount</NavLink>
-            <NavLink  to="/Back">Back Control</NavLink>
+            <NavLink  to="/BackControl">Back Control</NavLink>
             <NavLink  to="/">Home</NavLink>
 
             
