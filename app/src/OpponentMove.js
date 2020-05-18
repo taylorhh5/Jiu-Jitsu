@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const OpponentMove = () => {
-  const [num, setNum] = useState(Math.round(Math.random()*3 ));
+  const [num, setNum] = useState((Math.random()*4 ));
 
- 
+
   return (
     <div>
       <h1>{num}</h1>
       <div>
         {(() => {
-          if (num ===0) {
+          if (num <1) {
             return (
               <div>
                 {" "}
@@ -18,14 +18,14 @@ const OpponentMove = () => {
                   Your opponent tries to take you down but you manage to get
                   them in your guard.Nice work!
                 </h3>
-                <Link to={`/backcontrol`}>
+                <Link to={`/guardlist`}>
                   <h3>Go to guard moves</h3>
                 </Link>
                 
                 <h3>Or if you don't like where you've ended up, you can always <Link to={`/simulation`}>TAP OUT</Link> and start over</h3>
               </div>
             );
-          } else if (num ===1) {
+          } else if (num >1 && num <2) {
             return (
               <div>
                 {" "}
@@ -34,7 +34,7 @@ const OpponentMove = () => {
                   and land on top of them. From here you spin around and end up
                   on the ground behind them. Good work!
                 </h3>
-                <Link to={`/mountlist`}>
+                <Link to={`/backcontrol`}>
                   <h3>Go to moves to use in back control</h3>
                 </Link>
 
@@ -45,14 +45,14 @@ const OpponentMove = () => {
               </div>
             );
           }
-          else if (num ===2) {
+          else if (num > 2 && num <3) {
             return (
               <div>
                 {" "}
                 <h3>
                   Your opponent shoots in and tries to take you down but they lose their balance and you end up on top of them in side control. Nice!
                 </h3>
-                <Link to={`/side`}>
+                <Link to={`/sidemountlist`}>
                   <h3>Go to moves to use in side control</h3>
                 </Link>
 
@@ -63,14 +63,14 @@ const OpponentMove = () => {
               </div>
             );
           }
-          else if (num ===3) {
+          else if (num >3) {
             return (
               <div>
                 {" "}
                 <h3>
                   Your opponent tries to pull you into their guard but instead you land directly on top of them in mount. Great work!
                 </h3>
-                <Link to={`/mount`}>
+                <Link to={`/mountlist`}>
                   <h3>Go to moves to use in mount</h3>
                 </Link>
 

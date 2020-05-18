@@ -21,6 +21,10 @@ export const SIDEMOUNT_FETCHING = "SIDEMOUNT_FETCHING"
 export const SIDEMOUNT_SUCCESS = "SIDEMOUNT_SUCCESS"
 export const SIDEMOUNT_FAILURE = "SIDEMOUNT_FAILURE"
 
+export const POST_TAKEDOWN_START = "POST_TAKEDOWN_START"
+export const POST_TAKEDOWN_SUCCESS = "POST_TAKEDOWN_SUCCESS"
+export const POST_TAKEDOWN_FAILURE = "POST_TAKEDOWN_FAILURE"
+
 // export const POST_START = "FETCH_START"
 // export const POST_SUCCESS = "TAKEDOWN_SUCCESS"
 // export const POST_FAILURE = "TAKEDOWN_FAILURE"
@@ -106,22 +110,22 @@ export const fetchSidemount = () => {
     };
 };
 
-// export const addTakedown = (inputs) => {
-//     return dispatch => {
-//         dispatch({ type: POST_START });
+export const addTakedown = (inputs) => {
+    return dispatch => {
+        dispatch({ type: POST_TAKEDOWN_START });
 
-//         // axiosWithAuth()
-//         axios
-//             .post('http://localhost:5000/api/moves/takedown/add', inputs)
-//             .then((response) => {
-//                 // console.log(response, 'd r')
-//                 window.location.reload();
-//             })
-//         // .then(response => dispatch({ type: POST_SUCCESS, payload: response.data }))
-//         // .catch(error => dispatch({ type: POST_FAILURE, payload: error.response }))
+        // axiosWithAuth()
+        axios
+            .post('http://localhost:5000/api/moves/takedown/add', inputs)
+            .then((response) => {
+                console.log(response, 'POST takedown')
+                // window.location.reload();
+            })
+        // .then(response => dispatch({ type: POST_TAKEDOWN_SUCCESS, payload: response.data }))
+        .catch(error => dispatch({ type: POST_TAKEDOWN_FAILURE, payload: error.response }))
 
-//     };
-// };
+    };
+};
 
 
 // export const deleteCase = (id) => {
