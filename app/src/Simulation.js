@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+
 const Simulation = () => {
   const [num, setNum] = useState();
 
@@ -35,15 +36,18 @@ const Simulation = () => {
         </li>
         <li>
           {" "}
-          <button onClick={randomNum}>
-            <h2>Let your opponent make the first move</h2>
-          </button>
+          {/* <button onClick={randomNum}> */}
+          <Link to={`/opponentmove`}>
+             <h2>Let your opponent make the first move</h2>
+          </Link>
+        
+          {/* </button> */}
         </li>
         {/* your opponent shoots in but you sprawl and land on top of them from here you spin and gain back control.
               Your opponent tries to take you down but you manage to get him in your guard.
               Math.random decide which one. Cmponent state changes based on which is picked. Onclick does htis. */}
                  <div>
-      {(() => {
+      {/* {(() => {
         if (num >= 2) {
           return (
             <div>        <h3>Your opponent tries to take you down but you manage to get them in your guard.Nice work!</h3>
@@ -54,10 +58,10 @@ const Simulation = () => {
             <div> <h3>
             Your opponent shoots and tries to take you down but you sprawl and land on top of them. From here you spin around and end up on the ground behind them Good work!.
           </h3>
-          <Link to={`/mountlist`}><h3>Go to back control moves</h3></Link></div>
+          <Link to={`/mountlist`}><h3>Go to moves to use in back control</h3></Link></div>
           )
         }
-      })()}
+      })()} */}
     </div>
 
         <h1>{num}</h1>
