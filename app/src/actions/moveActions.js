@@ -110,13 +110,15 @@ export const fetchSidemount = () => {
     };
 };
 
-export const addTakedown = (inputs) => {
+//POSTS
+
+export const addTakedown = (form) => {
     return dispatch => {
         dispatch({ type: POST_TAKEDOWN_START });
 
         // axiosWithAuth()
         axios
-            .post('http://localhost:5000/api/moves/takedown/add', inputs)
+            .post('http://localhost:5000/api/moves/takedown', form)
             .then((response) => {
                 console.log(response, 'POST takedown')
                 // window.location.reload();

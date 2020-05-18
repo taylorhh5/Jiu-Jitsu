@@ -15,6 +15,7 @@ import Review from './Review.js'
 import NavBar from './NavBar.js'
 import Simulation from './Simulation.js'
 import opponentMove from './OpponentMove.js'
+import PostTakedown from './PostTakedown.js'
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             <Route path="/sidemount/:id" component={Sidemount}></Route>
             <Route path="/simulation" component={Simulation}></Route>
             <Route path="/opponentmove" component={opponentMove}></Route>
+            <Route path="/posttakedown" component={PostTakedown}></Route>
 
 
 
