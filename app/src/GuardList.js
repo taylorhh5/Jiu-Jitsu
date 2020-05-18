@@ -26,6 +26,8 @@ const GuardList = (props) => {
     <div>
          <h1>You have your opponent in guard!</h1>
             <p>Explain guard overview</p>
+            <h2>Choose your move...</h2>
+
       <section>
         {props.moves.guard.map((guard) => {
           return (

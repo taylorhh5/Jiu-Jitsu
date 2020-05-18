@@ -26,6 +26,8 @@ const MountList = (props) => {
   return (
     <div>
              <h1>You have your opponent in mount!</h1>
+             <h2>Choose your move...</h2>
+
       <section>
         {props.moves.mount.map((mount) => {
           return (

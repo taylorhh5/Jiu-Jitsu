@@ -25,6 +25,8 @@ const BackList = (props) => {
   return (
     <div>
   <h1>You have taken your opponents back!</h1>
+  <h2>Choose your move...</h2>
+
       <section>
         {props.moves.back.map((back) => {
           return (

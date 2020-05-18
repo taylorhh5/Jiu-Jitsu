@@ -25,7 +25,8 @@ const SidemountList = (props) => {
   }
   return (
     <div>
-             <h1>You have your opponent in sidemount!</h1>
+             <h1>You have side control of your opponent!</h1>
+             <h2>Choose your move...</h2>
       <section>
         {props.moves.sidemount.map((sidemount) => {
           return (

@@ -13,7 +13,7 @@ import Back from './Back.js'
 import BackList from "./BackList.js";
 import Review from './Review.js'
 import NavBar from './NavBar.js'
-
+import Simulation from './Simulation.js'
 
 function App() {
   return (
@@ -34,6 +34,8 @@ function App() {
             <Route path="/mount/:id" component={Mount}></Route>
             <Route path="/back/:id" component={Back}></Route>
             <Route path="/sidemount/:id" component={Sidemount}></Route>
+            <Route path="/simulation" component={Simulation}></Route>
+
 
 
 

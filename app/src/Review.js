@@ -11,7 +11,8 @@ const Review = () => {
     <div>
       <h1> Welcome to virtual Jiu Jitsu trainer</h1>
 
-      <h3>Get on the mat</h3>
+      
+      <Link to="/simulation"><h3>Get on the mat</h3></Link>
       {/* link */}
 
       <h3>Review Moves</h3>
@@ -33,6 +34,8 @@ const Review = () => {
           <Link to="/BackControl">Back</Link>
         </li>
       </ul>
+
+      
     </div>
   );
 };
