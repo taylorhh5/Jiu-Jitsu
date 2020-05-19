@@ -92,7 +92,9 @@ const PostMove = (props) => {
                 placeholder="Move Name"
                 
                 />
+                <br/>
                      <textarea
+                     rows="20" cols="50"
                 type="text"
                 name="description"
                 value={form.description}
@@ -100,13 +102,13 @@ const PostMove = (props) => {
                 placeholder="Move description"
                 
                 />
+                <br/>
                      <input
                 type="text"
                 name="image_url"
                 value={form.image_url}
                 onChange={handleChange}
-                placeholder="Url of move picture"
-                
+                placeholder="Url of move picture"               
                 />
                         {/* <button onClick={(e) => { if (props.form.name===1) { 
    alert("Text cannot be blank.")}else

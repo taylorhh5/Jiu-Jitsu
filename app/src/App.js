@@ -14,8 +14,10 @@ import BackList from "./BackList.js";
 import Review from './Review.js'
 import NavBar from './NavBar.js'
 import Simulation from './Simulation.js'
-import opponentMove from './OpponentMove.js'
+import OpponentMove from './OpponentMove.js'
 import PostMove from './PostMove.js'
+import Register from './Register.js'
+import Login from './Login.js'
 
 function App() {
   return (
@@ -37,8 +39,10 @@ function App() {
             <Route path="/back/:id" component={Back}></Route>
             <Route path="/sidemount/:id" component={Sidemount}></Route>
             <Route path="/simulation" component={Simulation}></Route>
-            <Route path="/opponentmove" component={opponentMove}></Route>
+            <Route path="/opponentmove" component={OpponentMove}></Route>
             <Route path="/postmove" component={PostMove}></Route>
+            <Route path="/register" component={Register}></Route>
+            <Route path="/login" component={Login}></Route>
 
 
 
