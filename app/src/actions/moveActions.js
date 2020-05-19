@@ -25,6 +25,10 @@ export const POST_TAKEDOWN_START = "POST_TAKEDOWN_START"
 export const POST_TAKEDOWN_SUCCESS = "POST_TAKEDOWN_SUCCESS"
 export const POST_TAKEDOWN_FAILURE = "POST_TAKEDOWN_FAILURE"
 
+export const POST_GUARD_START = "POST_GUARD_START"
+export const POST_GUARD_SUCCESS = "POST_GUARD_SUCCESS"
+export const POST_GUARD_FAILURE = "POST_GUARD_FAILURE"
+
 // export const POST_START = "FETCH_START"
 // export const POST_SUCCESS = "TAKEDOWN_SUCCESS"
 // export const POST_FAILURE = "TAKEDOWN_FAILURE"
@@ -119,15 +123,33 @@ export const addTakedown = (form) => {
         // axiosWithAuth()
         axios
             .post('http://localhost:5000/api/moves/takedown', form)
-            .then((response) => {
-                console.log(response, 'POST takedown')
-                // window.location.reload();
-            })
-        // .then(response => dispatch({ type: POST_TAKEDOWN_SUCCESS, payload: response.data }))
+            // .then((response) => {
+            //     console.log(response, 'POST takedown')
+            //     // window.location.reload();
+            // })
+        .then(response => dispatch({ type: POST_TAKEDOWN_SUCCESS, payload: response.data }))
         .catch(error => dispatch({ type: POST_TAKEDOWN_FAILURE, payload: error.response }))
 
     };
 };
+
+export const addGuard = (form) => {
+    return dispatch => {
+        dispatch({ type: POST_GUARD_START });
+
+        // axiosWithAuth()
+        axios
+            .post('http://localhost:5000/api/moves/guard', form)
+            // .then((response) => {
+            //     console.log(response, 'POST takedown')
+            //     // window.location.reload();
+            // })
+        .then(response => dispatch({ type: POST_GUARD_SUCCESS, payload: response.data }))
+        .catch(error => dispatch({ type: POST_GUARD_FAILURE, payload: error.response }))
+
+    };
+};
+
 
 
 // export const deleteCase = (id) => {

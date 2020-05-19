@@ -16,7 +16,10 @@ import {
   SIDEMOUNT_FAILURE,
   POST_TAKEDOWN_START,
   POST_TAKEDOWN_SUCCESS,
-  POST_TAKEDOWN_FAILURE
+  POST_TAKEDOWN_FAILURE,
+  POST_GUARD_START,
+  POST_GUARD_SUCCESS,
+  POST_GUARD_FAILURE
   // POST_START,
   // POST_SUCCESS,
   // POST_FAILURE,
@@ -157,7 +160,28 @@ const reducer = (state = initialState, action) => {
             ...state,
             loading: false,
             error: "",
-            moves:[...state.moves, action.payload]
+            moves:[...state.takedown, action.payload]
+          };
+    
+        case POST_GUARD_FAILURE:
+          return {
+            ...state,
+            loading: false,
+            error: action.payload,
+          };
+
+          case POST_GUARD_START:
+          return {
+            ...state,
+            loading: true,
+            error: "",
+          };
+        case POST_GUARD_SUCCESS:
+          return {
+            ...state,
+            loading: false,
+            error: "",
+            moves:[...state.guard, action.payload]
           };
     
         case POST_TAKEDOWN_FAILURE:
