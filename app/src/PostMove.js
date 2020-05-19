@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { addTakedown, addGuard } from "./actions/moveActions.js";
+import { addTakedown, addGuard, addMount, addSidemount, addBack } from "./actions/moveActions.js";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 
@@ -45,7 +45,20 @@ const PostMove = (props) => {
         event.preventDefault();
         console.log(form,"in form")
         props.addGuard(form);
-      }}
+      }else if (drop.move ==="Mount"){
+        event.preventDefault();
+        console.log(form,"in form")
+        props.addMount(form);
+      }else if (drop.move ==="Sidemount"){
+        event.preventDefault();
+        console.log(form,"in form")
+        props.addSidemount(form);
+      }else if (drop.move ==="Back"){
+        event.preventDefault();
+        console.log(form,"in form")
+        props.addBack(form);
+      }
+    }
 
 
 
@@ -65,7 +78,8 @@ const PostMove = (props) => {
                 >
                     <option value="Takedown">Takedown</option>
                     <option value="Guard">Guard Move</option>
-                    <option value="Side">Side Control Move</option>
+                    <option value="Mount">Mount</option>
+                    <option value="Sidemount">Side Control Move</option>
                     <option value="Back">Back Control Move</option>
                 </select>
                 <br/>
@@ -78,7 +92,7 @@ const PostMove = (props) => {
                 placeholder="Move Name"
                 
                 />
-                     <input
+                     <textarea
                 type="text"
                 name="description"
                 value={form.description}
@@ -114,7 +128,7 @@ const mapStateToProps = (state) => {
       error: state.error,
     };
   };
-export default connect(mapStateToProps, { addTakedown, addGuard })(
+export default connect(mapStateToProps, { addTakedown, addGuard, addMount, addSidemount, addBack })(
     withRouter(PostMove)
   );
   

@@ -19,7 +19,16 @@ import {
   POST_TAKEDOWN_FAILURE,
   POST_GUARD_START,
   POST_GUARD_SUCCESS,
-  POST_GUARD_FAILURE
+  POST_GUARD_FAILURE,
+  POST_MOUNT_START,
+  POST_MOUNT_SUCCESS,
+  POST_MOUNT_FAILURE,
+  POST_SIDEMOUNT_START,
+  POST_SIDEMOUNT_SUCCESS,
+  POST_SIDEMOUNT_FAILURE,
+  POST_BACK_START,
+  POST_BACK_SUCCESS,
+  POST_BACK_FAILURE
   // POST_START,
   // POST_SUCCESS,
   // POST_FAILURE,
@@ -163,7 +172,7 @@ const reducer = (state = initialState, action) => {
             moves:[...state.takedown, action.payload]
           };
     
-        case POST_GUARD_FAILURE:
+        case POST_TAKEDOWN_FAILURE:
           return {
             ...state,
             loading: false,
@@ -184,12 +193,76 @@ const reducer = (state = initialState, action) => {
             moves:[...state.guard, action.payload]
           };
     
-        case POST_TAKEDOWN_FAILURE:
+        case POST_GUARD_FAILURE:
           return {
             ...state,
             loading: false,
             error: action.payload,
           };
+
+          case POST_MOUNT_START:
+            return {
+              ...state,
+              loading: true,
+              error: "",
+            };
+          case POST_MOUNT_SUCCESS:
+            return {
+              ...state,
+              loading: false,
+              error: "",
+              moves:[...state.mount, action.payload]
+            };
+      
+          case POST_MOUNT_FAILURE:
+            return {
+              ...state,
+              loading: false,
+              error: action.payload,
+            };
+
+            case POST_SIDEMOUNT_START:
+              return {
+                ...state,
+                loading: true,
+                error: "",
+              };
+            case POST_SIDEMOUNT_SUCCESS:
+              return {
+                ...state,
+                loading: false,
+                error: "",
+                moves:[...state.sidemount, action.payload]
+              };
+        
+            case POST_SIDEMOUNT_FAILURE:
+              return {
+                ...state,
+                loading: false,
+                error: action.payload,
+              };
+
+              case POST_BACK_START:
+                return {
+                  ...state,
+                  loading: true,
+                  error: "",
+                };
+              case POST_BACK_SUCCESS:
+                return {
+                  ...state,
+                  loading: false,
+                  error: "",
+                  moves:[...state.back, action.payload]
+                };
+          
+              case POST_BACK_FAILURE:
+                return {
+                  ...state,
+                  loading: false,
+                  error: action.payload,
+                };
+          
     // case POST_START:
     //   return {
     //     ...state,

@@ -29,6 +29,18 @@ export const POST_GUARD_START = "POST_GUARD_START"
 export const POST_GUARD_SUCCESS = "POST_GUARD_SUCCESS"
 export const POST_GUARD_FAILURE = "POST_GUARD_FAILURE"
 
+export const POST_MOUNT_START = "POST_MOUNT_START"
+export const POST_MOUNT_SUCCESS = "POST_MOUNT_SUCCESS"
+export const POST_MOUNT_FAILURE = "POST_MOUNT_FAILURE"
+
+export const POST_SIDEMOUNT_START = "POST_SIDEMOUNT_START"
+export const POST_SIDEMOUNT_SUCCESS = "POST_SIDEMOUNT_SUCCESS"
+export const POST_SIDEMOUNT_FAILURE = "POST_SIDEMOUNT_FAILURE"
+
+export const POST_BACK_START = "POST_BACK_START"
+export const POST_BACK_SUCCESS = "POST_BACK_SUCCESS"
+export const POST_BACK_FAILURE = "POST_BACK_FAILURE"
+
 // export const POST_START = "FETCH_START"
 // export const POST_SUCCESS = "TAKEDOWN_SUCCESS"
 // export const POST_FAILURE = "TAKEDOWN_FAILURE"
@@ -150,7 +162,56 @@ export const addGuard = (form) => {
     };
 };
 
+export const addMount = (form) => {
+    return dispatch => {
+        dispatch({ type: POST_MOUNT_START });
 
+        // axiosWithAuth()
+        axios
+            .post('http://localhost:5000/api/moves/mount', form)
+            // .then((response) => {
+            //     console.log(response, 'POST takedown')
+            //     // window.location.reload();
+            // })
+        .then(response => dispatch({ type: POST_MOUNT_SUCCESS, payload: response.data }))
+        .catch(error => dispatch({ type: POST_MOUNT_FAILURE, payload: error.response }))
+
+    };
+};
+
+export const addSidemount = (form) => {
+    return dispatch => {
+        dispatch({ type: POST_SIDEMOUNT_START });
+
+        // axiosWithAuth()
+        axios
+            .post('http://localhost:5000/api/moves/sidemount', form)
+            // .then((response) => {
+            //     console.log(response, 'POST takedown')
+            //     // window.location.reload();
+            // })
+        .then(response => dispatch({ type: POST_SIDEMOUNT_SUCCESS, payload: response.data }))
+        .catch(error => dispatch({ type: POST_SIDEMOUNT_FAILURE, payload: error.response }))
+
+    };
+};
+
+export const addBack = (form) => {
+    return dispatch => {
+        dispatch({ type: POST_BACK_START });
+
+        // axiosWithAuth()
+        axios
+            .post('http://localhost:5000/api/moves/back', form)
+            // .then((response) => {
+            //     console.log(response, 'POST takedown')
+            //     // window.location.reload();
+            // })
+        .then(response => dispatch({ type: POST_BACK_SUCCESS, payload: response.data }))
+        .catch(error => dispatch({ type: POST_BACK_FAILURE, payload: error.response }))
+
+    };
+};
 
 // export const deleteCase = (id) => {
 //     return dispatch => {
