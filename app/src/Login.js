@@ -21,7 +21,6 @@ const Login = (props) => {
         
           event.preventDefault();
           console.log(login,"in login")
-        //   dispatch(login(login, props.history))
           props.login(login, props.history);
       
     }

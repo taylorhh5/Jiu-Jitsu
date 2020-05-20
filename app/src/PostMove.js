@@ -12,11 +12,14 @@ const PostMove = (props) => {
     move:"Takedown"
   });
 
+  const user_id = localStorage.getItem('user_id')
+  console.log(user_id, "uid")
 
     const [form, setForm]=useState({
         name:"",
         description:"",
         image_url:"",
+        user_id:user_id
         
 
     });

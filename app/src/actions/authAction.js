@@ -25,7 +25,10 @@ export const register = (form, history) => {
          history.push('/login')
     })
 
-        .catch(error => dispatch({ type: REGISTER_FAILURE, payload: error.response }))
+        .catch(error => {dispatch({ type: REGISTER_FAILURE, payload: error.response })
+        alert("Please try registering with a different username and password.")
+
+    })
 
     };
 };
@@ -49,7 +52,7 @@ export const login = (form, history) => {
          history.push('/')
     })
         .catch(error => {dispatch({ type: LOGIN_FAILURE, payload: error.response })
-        alert("Incorrect username or password")
+        alert("Incorrect username or password.")
     })
 
     };
