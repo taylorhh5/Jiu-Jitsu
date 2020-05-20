@@ -21,9 +21,13 @@ const Login = (props) => {
         
           event.preventDefault();
           console.log(login,"in login")
-          props.login(login);
+        //   dispatch(login(login, props.history))
+          props.login(login, props.history);
       
     }
+    // if(props.moves.error.data){
+    //     alert("Make sure you're logged in")
+    //    }
       return (
         <>
         

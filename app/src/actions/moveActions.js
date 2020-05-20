@@ -1,5 +1,6 @@
 import axios from 'axios'
-// import { axiosWithAuth } from '../utils/axiosWithAuth.js'
+import { axiosWithAuth } from '../utils/axiosWithAuth.js'
+
 
 export const TAKEDOWN_FETCHING = "TAKEDOWN_FETCHING"
 export const TAKEDOWN_SUCCESS = "TAKEDOWN_SUCCESS"
@@ -132,8 +133,8 @@ export const addTakedown = (form) => {
     return dispatch => {
         dispatch({ type: POST_TAKEDOWN_START });
 
-        // axiosWithAuth()
-        axios
+        axiosWithAuth()
+        
             .post('http://localhost:5000/api/moves/takedown', form)
             // .then((response) => {
             //     console.log(response, 'POST takedown')
@@ -149,8 +150,8 @@ export const addGuard = (form) => {
     return dispatch => {
         dispatch({ type: POST_GUARD_START });
 
-        // axiosWithAuth()
-        axios
+        axiosWithAuth()
+        
             .post('http://localhost:5000/api/moves/guard', form)
             // .then((response) => {
             //     console.log(response, 'POST takedown')
@@ -166,8 +167,8 @@ export const addMount = (form) => {
     return dispatch => {
         dispatch({ type: POST_MOUNT_START });
 
-        // axiosWithAuth()
-        axios
+        axiosWithAuth()
+        
             .post('http://localhost:5000/api/moves/mount', form)
             // .then((response) => {
             //     console.log(response, 'POST takedown')
@@ -183,8 +184,8 @@ export const addSidemount = (form) => {
     return dispatch => {
         dispatch({ type: POST_SIDEMOUNT_START });
 
-        // axiosWithAuth()
-        axios
+        axiosWithAuth()
+        
             .post('http://localhost:5000/api/moves/sidemount', form)
             // .then((response) => {
             //     console.log(response, 'POST takedown')
@@ -200,8 +201,8 @@ export const addBack = (form) => {
     return dispatch => {
         dispatch({ type: POST_BACK_START });
 
-        // axiosWithAuth()
-        axios
+        axiosWithAuth()
+        
             .post('http://localhost:5000/api/moves/back', form)
             // .then((response) => {
             //     console.log(response, 'POST takedown')

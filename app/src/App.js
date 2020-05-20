@@ -18,6 +18,7 @@ import OpponentMove from './OpponentMove.js'
 import PostMove from './PostMove.js'
 import Register from './Register.js'
 import Login from './Login.js'
+import Profile from './Profile.js'
 
 function App() {
   return (
@@ -43,6 +44,8 @@ function App() {
             <Route path="/postmove" component={PostMove}></Route>
             <Route path="/register" component={Register}></Route>
             <Route path="/login" component={Login}></Route>
+            <Route path="/profile" component={Profile}></Route>
+
 
 
 

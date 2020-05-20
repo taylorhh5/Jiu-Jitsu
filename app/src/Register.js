@@ -21,7 +21,7 @@ const Register = (props) => {
         
           event.preventDefault();
           console.log(signUp,"in signup")
-          props.register(signUp);
+          props.register(signUp, props.history);
       
     }
       return (

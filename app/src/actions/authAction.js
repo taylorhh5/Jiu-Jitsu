@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { axiosWithAuth } from '../utils/axiosWithAuth.js'
 
 
 
@@ -11,7 +10,7 @@ export const LOGIN_START = "LOGIN_START"
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
 export const LOGIN_FAILURE = "LOGIN_FAILURE"
 
-export const register = (form) => {
+export const register = (form, history) => {
     return dispatch => {
         dispatch({ type: REGISTER_START });
 
@@ -22,8 +21,9 @@ export const register = (form) => {
             //     console.log(response, 'POST takedown')
             //     // window.location.reload();
             // })
-        .then(response => dispatch({ type: REGISTER_SUCCESS, payload: response.data }))
-      
+            .then(response =>{ dispatch({ type: REGISTER_SUCCESS, payload: response.data })
+         history.push('/login')
+    })
 
         .catch(error => dispatch({ type: REGISTER_FAILURE, payload: error.response }))
 
@@ -31,11 +31,11 @@ export const register = (form) => {
 };
 
 
-export const login = (form) => {
+export const login = (form, history) => {
     return dispatch => {
         dispatch({ type: LOGIN_START });
 
-        axiosWithAuth()
+        axios
         
             .post('http://localhost:5000/api/users/login', form)
             // .then((response) => {
@@ -44,8 +44,13 @@ export const login = (form) => {
             // })
         .then(response =>{ dispatch({ type: LOGIN_SUCCESS, payload: response.data })
         localStorage.setItem('token', response.data.token)
+            localStorage.setItem('user_id', response.data.id)
+
+         history.push('/')
     })
-        .catch(error => dispatch({ type: LOGIN_FAILURE, payload: error.response }))
+        .catch(error => {dispatch({ type: LOGIN_FAILURE, payload: error.response })
+        alert("Incorrect username or password")
+    })
 
     };
 };

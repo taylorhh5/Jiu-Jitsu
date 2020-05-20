@@ -6,6 +6,7 @@ import { withRouter } from "react-router";
 
 
 const PostMove = (props) => {
+  console.log(props.moves.error.data,"props in post")
 
   const [drop, setDrop]=useState({
     move:"Takedown"
@@ -61,10 +62,13 @@ const PostMove = (props) => {
     }
 
 
-
+    // if(props.moves.error.data){
+    //   alert("Make sure you're logged in")
+    //  }
       
     return (
         <div>
+          
           <h1>Move: {drop.move}</h1>
             <form>
               <h3>Select move type</h3>
