@@ -47,8 +47,10 @@ export const POST_BACK_FAILURE = "POST_BACK_FAILURE"
 // export const POST_FAILURE = "TAKEDOWN_FAILURE"
 // export const DELETE_SUCCESS = "DELETE_SUCCESS"
 // export const DELETE_START = "DELETE_START"
-// export const EDIT_SUCCESS = "EDIT_SUCCESS"
-// export const EDIT_START = "EDIT_START"
+export const EDIT_TAKEDOWN_START = "EDIT_TAKEDOWN_START"
+export const EDIT_TAKEDOWN_SUCCESS = "EDIT_TAKEDOWN_SUCCESS"
+export const EDIT_TAKEDOWN_FAILURE = "EDIT_TAKEDOWN_FAILURE"
+
 
 export const fetchTakedown = () => {
     return dispatch => {
@@ -214,6 +216,20 @@ export const addBack = (form) => {
     };
 };
 
+export const editTakedown = (form) => {
+    // console.log(editTakedown,"edit in action")
+    return dispatch => {
+
+    
+
+        axiosWithAuth()
+            .put(`http://localhost:5000/api/moves/takedown/${form.id}`, form)
+            // .then(response => console.log (form, "edit"))
+            .then(response => dispatch({ type: EDIT_TAKEDOWN_SUCCESS, payload:response.data }))
+        // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
+
+    };
+};
 // export const deleteCase = (id) => {
 //     return dispatch => {
 //         dispatch({ type: DELETE_START });
@@ -231,15 +247,3 @@ export const addBack = (form) => {
 // };
 
 
-// export const editCase = (info) => {
-//     return dispatch => {
-//         dispatch({ type: EDIT_START });
-
-//         axiosWithAuth()
-//             .put(`https://lindseyacason-miraclemessages.herokuapp.com/socialCases/socialCase/${info.socialCaseId}, info`)
-//             // .then(response => console.log (response, "edit"))
-//             .then(response => dispatch({ type: EDIT_SUCCESS, payload: info }))
-//         // .catch(error => dispatch({ type: DELETE_FAILURE, payload: error.response }))
-
-//     };
-// };

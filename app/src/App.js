@@ -19,6 +19,7 @@ import PostMove from './PostMove.js'
 import Register from './Register.js'
 import Login from './Login.js'
 import Profile from './Profile.js'
+import EditMove from './EditMove.js'
 
 function App() {
   return (
@@ -45,6 +46,8 @@ function App() {
             <Route path="/register" component={Register}></Route>
             <Route path="/login" component={Login}></Route>
             <Route path="/profile" component={Profile}></Route>
+            <Route path="/edit/:id" component={EditMove}></Route>
+
 
 
 
