@@ -58,12 +58,53 @@ const EditMove = (props) => {
 
     });
 
-    useEffect(() => {
-        const caseToEdit = props.moves.takedown.find(
-          data => `${data.id}` === props.match.params.id
-        );
-        if (caseToEdit) setForm(caseToEdit);
-      }, [props])
+    
+
+      useEffect(() => {
+
+
+        if(move ==="Takedown"){
+            const caseToEdit = props.moves.takedown.find(
+                data => `${data.id}` === props.match.params.id
+              );
+    
+              if (caseToEdit) setForm(caseToEdit);
+          return;
+        }else if (move ==="Guard"){
+       
+            const caseToEdit = props.moves.guard.find(
+                data => `${data.id}` === props.match.params.id
+              );
+    
+              if (caseToEdit) setForm(caseToEdit);
+            return;
+        }else if (move ==="Mount"){
+       
+            const caseToEdit = props.moves.mount.find(
+                data => `${data.id}` === props.match.params.id
+              );
+    
+              if (caseToEdit) setForm(caseToEdit);
+            return;
+        }else if (move ==="Sidemount"){
+       
+            const caseToEdit = props.moves.sidemount.find(
+                data => `${data.id}` === props.match.params.id
+              );
+    
+              if (caseToEdit) setForm(caseToEdit);
+            return;
+        }else if (move ==="Back"){
+       
+            const caseToEdit = props.moves.back.find(
+                data => `${data.id}` === props.match.params.id
+              );
+    
+              if (caseToEdit) setForm(caseToEdit);
+            return;
+        }
+    
+    }, [props]);
     
     const handleChange = event =>{
         setForm({
