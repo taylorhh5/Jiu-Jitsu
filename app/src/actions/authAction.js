@@ -48,6 +48,8 @@ export const login = (form, history) => {
         .then(response =>{ dispatch({ type: LOGIN_SUCCESS, payload: response.data })
         localStorage.setItem('token', response.data.token)
             localStorage.setItem('user_id', response.data.id)
+            localStorage.setItem('email', response.data.email)
+
 
          history.push('/')
     })

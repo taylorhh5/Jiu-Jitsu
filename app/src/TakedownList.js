@@ -31,7 +31,7 @@ const TakedownList = (props) => {
         {props.moves.takedown.map((takedown) => {
           return (
             <div>
-              <Link to={`/edit/${takedown.id}`}>
+              <Link to={`/takedown/${takedown.id}`}>
                 <h1> {takedown.name}</h1>
               </Link>
             </div>

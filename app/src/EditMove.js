@@ -21,10 +21,10 @@ const EditMove = (props) => {
   console.log(user_id, "uid")
 
     const [form, setForm]=useState({
-        name:"yoyo",
+        name:"",
         description:"",
         image_url:"",
-        user_id:user_id
+        
         
 
     });

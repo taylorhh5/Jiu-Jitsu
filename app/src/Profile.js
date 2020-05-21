@@ -3,6 +3,8 @@ import { fetchTakedown, fetchBack, fetchGuard, fetchSidemount, fetchMount } from
 import { connect } from "react-redux";
 import Takedown from "./Takedown.js";
 import { withRouter } from "react-router";
+import { Link } from "react-router-dom";
+
 
 const Profile = (props) => {
   console.log(props, "props in single");
@@ -57,42 +59,28 @@ const Profile = (props) => {
   const chosenback = props.moves.back.filter(
     (data) => `${data.user_id}` === user_id
   );
+ const email = localStorage.getItem("email")
 
   return (
     <div>
-        <h1>profile</h1>
+        <h1>{`Welcome to your profile, ${email}!`}</h1>
 
-        <h2>Moves you've added</h2>
+        <h2>These are the moves you've added.</h2>
 
-
-        {/* {(() => {
-          if (guarddata) {
-            return (
-              <div>
-                {" "}
-                <h3>
-                  Your opponent tries to take you down but you manage to get
-                  them in your guard.Nice work!
-                </h3>
-          
-                
-                <h3>Or if you don't like where you've ended up, you can always  and start over</h3>
-              </div>
-            );
-          }
-
-        })()} */}
 
         
       <section>
         {chosenTakedown.map((takedown) => {
           return (
             <div key={takedown.id}>
+                <h1>Takedowns</h1>
               <h2>{takedown.name}</h2>
    <img src={takedown.image_url}  />
               <p>{takedown.description}</p>
 
-           
+            <Link to={`/edit/${takedown.id}`}>
+            <h1> Edit this move</h1>
+          </Link>
             </div>
           );
         })}
@@ -103,10 +91,13 @@ const Profile = (props) => {
         {chosenguard.map((guard) => {
           return (
             <div key={guard.id}>
+                <h1>Guard Moves</h1>
               <h2>{guard.name}</h2>
    <img src={guard.image_url}  />
               <p>{guard.description}</p>
-
+              <Link to={`/edit/${guard.id}`}>
+              <h1> Edit this move</h1>
+          </Link>
            
             </div>
           );
@@ -116,12 +107,16 @@ const Profile = (props) => {
       <section>
         {chosenmount.map((mount) => {
           return (
-            <div key={mount.id}>
+            
+            <div key={mount.id}> 
+             <h1>Mount Moves</h1>
               <h2>{mount.name}</h2>
    <img src={mount.image_url}  />
               <p>{mount.description}</p>
 
-           
+              <Link to={`/edit/${mount.id}`}>
+              <h1> Edit this move</h1>
+          </Link>
             </div>
           );
         })}
@@ -130,12 +125,16 @@ const Profile = (props) => {
       <section>
         {chosensidemount.map((sidemount) => {
           return (
+              
             <div key={sidemount.id}>
+                <h1>Side Control Moves</h1>
               <h2>{sidemount.name}</h2>
    <img src={sidemount.image_url}  />
               <p>{sidemount.description}</p>
 
-           
+              <Link to={`/edit/${sidemount.id}`}>
+              <h1> Edit this move</h1>
+          </Link>
             </div>
           );
         })}
@@ -145,10 +144,13 @@ const Profile = (props) => {
         {chosenback.map((back) => {
           return (
             <div key={back.id}>
+                <h1>Back Control Moves</h1>
               <h2>{back.name}</h2>
    <img src={back.image_url}  />
               <p>{back.description}</p>
-
+              <Link to={`/edit/${back.id}`}>
+              <h1> Edit this move</h1>
+          </Link>
            
             </div>
           );

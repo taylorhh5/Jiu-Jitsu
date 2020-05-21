@@ -67,6 +67,7 @@ export const fetchTakedown = () => {
     };
 };
 
+
 export const fetchGuard = () => {
     return dispatch => {
         dispatch({ type: GUARD_FETCHING });

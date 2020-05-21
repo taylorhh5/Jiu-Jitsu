@@ -14,7 +14,8 @@ const PostMove = (props) => {
 
   const user_id = localStorage.getItem('user_id')
   console.log(user_id, "uid")
-
+//when posting a move we are hardcoding the user id that is saved in local storage from login
+//this way we can get all moves with the users specific id for their profile page
     const [form, setForm]=useState({
         name:"",
         description:"",
@@ -72,10 +73,9 @@ const PostMove = (props) => {
     return (
         <div>
           
-          <h1>Move: {drop.move}</h1>
+          <h1>Move type: {drop.move}</h1>
             <form>
-              <h3>Select move type</h3>
-            <label>Type of move: </label>
+            <label>Select move type: </label>
                 <select 
                     value={drop.move}
                     onChange={handleDrop}
