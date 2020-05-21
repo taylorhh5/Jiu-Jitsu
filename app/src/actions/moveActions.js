@@ -51,6 +51,22 @@ export const EDIT_TAKEDOWN_START = "EDIT_TAKEDOWN_START"
 export const EDIT_TAKEDOWN_SUCCESS = "EDIT_TAKEDOWN_SUCCESS"
 export const EDIT_TAKEDOWN_FAILURE = "EDIT_TAKEDOWN_FAILURE"
 
+export const EDIT_GUARD_START = "EDIT_GUARD_START"
+export const EDIT_GUARD_SUCCESS = "EDIT_GUARD_SUCCESS"
+export const EDIT_GUARD_FAILURE = "EDIT_GUARD_FAILURE"
+
+export const EDIT_MOUNT_START = "EDIT_MOUNT_START"
+export const EDIT_MOUNT_SUCCESS = "EDIT_MOUNT_SUCCESS"
+export const EDIT_MOUNT_FAILURE = "EDIT_MOUNT_FAILURE"
+
+export const EDIT_SIDEMOUNT_START = "EDIT_SIDEMOUNT_START"
+export const EDIT_SIDEMOUNT_SUCCESS = "EDIT_SIDEMOUNT_SUCCESS"
+export const EDIT_SIDEMOUNT_FAILURE = "EDIT_SIDEMOUNT_FAILURE"
+
+export const EDIT_BACK_START = "EDIT_BACK_START"
+export const EDIT_BACK_SUCCESS = "EDIT_BACK_SUCCESS"
+export const EDIT_BACK_FAILURE = "EDIT_BACK_FAILURE"
+
 
 export const fetchTakedown = () => {
     return dispatch => {
@@ -227,6 +243,66 @@ export const editTakedown = (form) => {
             .put(`http://localhost:5000/api/moves/takedown/${form.id}`, form)
             // .then(response => console.log (form, "edit"))
             .then(response => dispatch({ type: EDIT_TAKEDOWN_SUCCESS, payload:response.data }))
+        // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
+
+    };
+};
+
+
+export const editGuard = (form) => {
+    // console.log(editTakedown,"edit in action")
+    return dispatch => {
+
+    
+
+        axiosWithAuth()
+            .put(`http://localhost:5000/api/moves/guard/${form.id}`, form)
+            // .then(response => console.log (form, "edit"))
+            .then(response => dispatch({ type: EDIT_GUARD_SUCCESS, payload:response.data }))
+        // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
+
+    };
+};
+
+export const editMount = (form) => {
+    // console.log(editTakedown,"edit in action")
+    return dispatch => {
+
+    
+
+        axiosWithAuth()
+            .put(`http://localhost:5000/api/moves/mount/${form.id}`, form)
+            // .then(response => console.log (form, "edit"))
+            .then(response => dispatch({ type: EDIT_MOUNT_SUCCESS, payload:response.data }))
+        // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
+
+    };
+};
+
+export const editSidemount = (form) => {
+    // console.log(editTakedown,"edit in action")
+    return dispatch => {
+
+    
+
+        axiosWithAuth()
+            .put(`http://localhost:5000/api/moves/sidemount/${form.id}`, form)
+            // .then(response => console.log (form, "edit"))
+            .then(response => dispatch({ type: EDIT_SIDEMOUNT_SUCCESS, payload:response.data }))
+        // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
+
+    };
+};
+export const editBack = (form) => {
+    // console.log(editTakedown,"edit in action")
+    return dispatch => {
+
+    
+
+        axiosWithAuth()
+            .put(`http://localhost:5000/api/moves/back/${form.id}`, form)
+            // .then(response => console.log (form, "edit"))
+            .then(response => dispatch({ type: EDIT_BACK_SUCCESS, payload:response.data }))
         // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
 
     };

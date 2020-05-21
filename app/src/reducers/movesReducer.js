@@ -31,7 +31,19 @@ import {
   POST_BACK_FAILURE,
   EDIT_TAKEDOWN_START,
   EDIT_TAKEDOWN_SUCCESS,
-  EDIT_TAKEDOWN_FAILURE
+  EDIT_TAKEDOWN_FAILURE,
+  EDIT_BACK_START,
+  EDIT_BACK_SUCCESS,
+  EDIT_BACK_FAILURE,
+  EDIT_GUARD_START,
+  EDIT_GUARD_SUCCESS,
+  EDIT_GUARD_FAILURE,
+  EDIT_MOUNT_START,
+  EDIT_MOUNT_SUCCESS,
+  EDIT_MOUNT_FAILURE,
+  EDIT_SIDEMOUNT_START,
+  EDIT_SIDEMOUNT_SUCCESS,
+  EDIT_SIDEMOUNT_FAILURE
   // POST_START,
   // POST_SUCCESS,
   // POST_FAILURE,
@@ -287,6 +299,63 @@ const reducer = (state = initialState, action) => {
                   loading: false,
                   error: action.payload,
                 };
+
+                case EDIT_GUARD_SUCCESS:
+                  return {
+                    ...state,
+                    loading: false,
+                    error: "",
+                    moves:[...state.guard, action.payload]
+                  };
+            
+                case EDIT_GUARD_FAILURE:
+                  return {
+                    ...state,
+                    loading: false,
+                    error: action.payload,
+                  };
+                  case EDIT_MOUNT_SUCCESS:
+                    return {
+                      ...state,
+                      loading: false,
+                      error: "",
+                      moves:[...state.mount, action.payload]
+                    };
+              
+                  case EDIT_MOUNT_FAILURE:
+                    return {
+                      ...state,
+                      loading: false,
+                      error: action.payload,
+                    };
+                    case EDIT_SIDEMOUNT_SUCCESS:
+                      return {
+                        ...state,
+                        loading: false,
+                        error: "",
+                        moves:[...state.sidemount, action.payload]
+                      };
+                
+                    case EDIT_SIDEMOUNT_FAILURE:
+                      return {
+                        ...state,
+                        loading: false,
+                        error: action.payload,
+                      };
+                      case EDIT_BACK_SUCCESS:
+                        return {
+                          ...state,
+                          loading: false,
+                          error: "",
+                          moves:[...state.back, action.payload]
+                        };
+                  
+                      case EDIT_BACK_FAILURE:
+                        return {
+                          ...state,
+                          loading: false,
+                          error: action.payload,
+                        };
           
     // case POST_START:
     //   return {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { editTakedown, fetchTakedown} from "./actions/moveActions.js";
+import { editTakedown, fetchTakedown, fetchBack, fetchSidemount, fetchMount,fetchGuard, editBack, editGuard, editMount, editSidemount} from "./actions/moveActions.js";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 
@@ -8,10 +8,39 @@ import { withRouter } from "react-router";
 const EditMove = (props) => {
   console.log(props,"props in edit")
 
-  
+  const move = localStorage.getItem("edit_type")
+    
   useEffect(() => {
-    props.fetchTakedown();
-  }, []);
+
+
+    if(move ==="Takedown"){
+        props.fetchTakedown();
+
+      
+      return;
+    }else if (move ==="Guard"){
+   
+        props.fetchGuard();
+        return;
+    }else if (move ==="Mount"){
+   
+        props.fetchMount();
+        return;
+    }else if (move ==="Sidemount"){
+   
+        props.fetchSidemount();
+        return;
+    }else if (move ==="Back"){
+   
+        props.fetchBack();
+        return;
+    }
+
+}, []);
+//   useEffect(() => {
+//     props.fetchTakedown();
+    
+//   }, []);
 
 //   const [drop, setDrop]=useState({
 //     move:"Takedown"
@@ -34,7 +63,7 @@ const EditMove = (props) => {
           data => `${data.id}` === props.match.params.id
         );
         if (caseToEdit) setForm(caseToEdit);
-      }, [])
+      }, [props])
     
     const handleChange = event =>{
         setForm({
@@ -53,8 +82,40 @@ const EditMove = (props) => {
 //   }
 
       const handleSubmit = event => {
-          event.preventDefault();
-          props.editTakedown(form);
+        event.preventDefault();
+
+        if(move ==="Takedown"){
+            props.editTakedown(form);
+            props.history.push('/profile')
+    
+          
+          return;
+        }else if (move ==="Guard"){
+            event.preventDefault();
+
+            props.editGuard(form);
+            props.history.push('/profile')
+            return;
+        }else if (move ==="Mount"){
+            event.preventDefault();
+
+            props.editMount(form);
+            props.history.push('/profile')
+            return;
+        }else if (move ==="Sidemount"){
+            event.preventDefault();
+
+            props.editSidemount(form);
+            props.history.push('/profile')
+            return;
+        }else if (move ==="Back"){
+            event.preventDefault();
+
+            props.editBack(form);
+            props.history.push('/profile')
+            return;
+        }
+
        
     
     }
@@ -132,7 +193,7 @@ const mapStateToProps = (state) => {
       error: state.error,
     };
   };
-export default connect(mapStateToProps, { editTakedown,fetchTakedown})(
+export default connect(mapStateToProps, { editTakedown,fetchTakedown, fetchBack, fetchSidemount, fetchMount,fetchGuard, editBack, editGuard, editMount, editSidemount})(
     withRouter(EditMove)
   );
   

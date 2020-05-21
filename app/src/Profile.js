@@ -79,7 +79,7 @@ const Profile = (props) => {
               <p>{takedown.description}</p>
 
             <Link to={`/edit/${takedown.id}`}>
-            <h1> Edit this move</h1>
+            <button onClick={localStorage.setItem('edit_type', "Takedown")}>Edit this move</button>
           </Link>
             </div>
           );
