@@ -61,6 +61,7 @@ const Profile = (props) => {
   );
  const email = localStorage.getItem("email")
 
+
   return (
     <div>
         <h1>{`Welcome to your profile, ${email}!`}</h1>
@@ -78,8 +79,12 @@ const Profile = (props) => {
    <img src={takedown.image_url}  />
               <p>{takedown.description}</p>
 
+              <Link to={`/delete/${takedown.id}`}>
+            <button onClick={e =>localStorage.setItem('edit_type', "Takedown")}>Delete this move</button>
+          </Link>
+
             <Link to={`/edit/${takedown.id}`}>
-            <button onClick={localStorage.setItem('edit_type', "Takedown")}>Edit this move</button>
+            <button onClick={e =>localStorage.setItem('edit_type', "Takedown")}>Edit this move</button>
           </Link>
             </div>
           );
@@ -95,8 +100,13 @@ const Profile = (props) => {
               <h2>{guard.name}</h2>
    <img src={guard.image_url}  />
               <p>{guard.description}</p>
+
+              
+              <Link to={`/delete/${guard.id}`}>
+            <button onClick={e =>localStorage.setItem('edit_type', "Guard")}>Delete this move</button>
+          </Link>
               <Link to={`/edit/${guard.id}`}>
-              <button onClick={localStorage.setItem('edit_type', "Guard")}>Edit this move</button>
+              <button onClick={e => localStorage.setItem('edit_type', "Guard")}>Edit this move</button>
           </Link>
            
             </div>
@@ -114,8 +124,11 @@ const Profile = (props) => {
    <img src={mount.image_url}  />
               <p>{mount.description}</p>
 
+              <Link to={`/delete/${mount.id}`}>
+            <button onClick={e =>localStorage.setItem('edit_type', "Mount")}>Delete this move</button>
+          </Link>
               <Link to={`/edit/${mount.id}`}>
-              <button onClick={localStorage.setItem('edit_type', "Mount")}>Edit this move</button>
+              <button onClick={e =>localStorage.setItem('edit_type', "Mount")}>Edit this move</button>
           </Link>
             </div>
           );
@@ -132,8 +145,11 @@ const Profile = (props) => {
    <img src={sidemount.image_url}  />
               <p>{sidemount.description}</p>
 
+              <Link to={`/delete/${sidemount.id}`}>
+            <button onClick={e =>localStorage.setItem('edit_type', "Sidemount")}>Delete this move</button>
+          </Link>
               <Link to={`/edit/${sidemount.id}`}>
-              <button onClick={localStorage.setItem('edit_type', "Sidemount")}>Edit this move</button>
+              <button onClick={ e =>localStorage.setItem('edit_type', "Sidemount")}>Edit this move</button>
           </Link>
             </div>
           );
@@ -148,8 +164,12 @@ const Profile = (props) => {
               <h2>{back.name}</h2>
    <img src={back.image_url}  />
               <p>{back.description}</p>
+              
+              <Link to={`/delete/${back.id}`}>
+            <button onClick={e =>localStorage.setItem('edit_type', "Back")}>Delete this move</button>
+          </Link>
               <Link to={`/edit/${back.id}`}>
-              <button onClick={localStorage.setItem('edit_type', "Back")}>Edit this move</button>
+              <button onClick={e =>localStorage.setItem('edit_type', "Back")}>Edit this move</button>
           </Link>
            
             </div>

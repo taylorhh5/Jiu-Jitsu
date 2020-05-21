@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { editTakedown, fetchTakedown, fetchBack, fetchSidemount, fetchMount,fetchGuard, editBack, editGuard, editMount, editSidemount} from "./actions/moveActions.js";
+import {fetchTakedown, fetchBack, fetchSidemount, fetchMount,fetchGuard, deleteTakedown, deleteBack, deleteGuard, deleteMount, deleteSidemount } from "./actions/moveActions.js";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 
 
 
-const EditMove = (props) => {
+const DeleteMove = (props) => {
   console.log(props,"props in edit")
 
   const move = localStorage.getItem("edit_type")
@@ -41,17 +41,10 @@ const EditMove = (props) => {
 
   
 
-    const [form, setForm]=useState({
-        name:"",
-        description:"",
-        image_url:"",
-        
-        
-
-    });
+    const [form, setForm]=useState();
+    console.log(form,"formmmmm")
 
     
-
       useEffect(() => {
 
 
@@ -97,14 +90,6 @@ const EditMove = (props) => {
         }
     
     }, [props]);
-    
-    const handleChange = event =>{
-        setForm({
-            ...form,
-            [event.target.name]: event.target.value
-        })
-
-    }
 
 //     const handleDrop = event =>{
 //       setDrop({
@@ -118,7 +103,7 @@ const EditMove = (props) => {
         event.preventDefault();
 
         if(move ==="Takedown"){
-            props.editTakedown(form);
+            props.deleteTakedown(props.match.params.id);
             props.history.push('/profile')
     
           
@@ -126,25 +111,25 @@ const EditMove = (props) => {
         }else if (move ==="Guard"){
             event.preventDefault();
 
-            props.editGuard(form);
+            props.deleteGuard(props.match.params.id);
             props.history.push('/profile')
             return;
         }else if (move ==="Mount"){
             event.preventDefault();
 
-            props.editMount(form);
+            props.deleteMount(props.match.params.id);
             props.history.push('/profile')
             return;
         }else if (move ==="Sidemount"){
             event.preventDefault();
 
-            props.editSidemount(form);
+            props.deleteSidemount(props.match.params.id);
             props.history.push('/profile')
             return;
         }else if (move ==="Back"){
             event.preventDefault();
 
-            props.editBack(form);
+            props.deleteBack(props.match.params.id);
             props.history.push('/profile')
             return;
         }
@@ -159,48 +144,28 @@ const EditMove = (props) => {
     // if(props.moves.error.data){
     //   alert("Make sure you're logged in")
     //  }
+    if(!form){
+        return <h1>loading...</h1>
+    }
+
       
     return (
         <div>
-          
-            <form>
-     
-<h4>Move Name</h4>
-                <input
-                type="text"
-                name="name"
-                value={form.name}
-                onChange={handleChange}
-                placeholder="Move Name"
-                
-                />
-                <br/>
-                <h4>Move Description</h4>
-                     <textarea
-                     rows="20" cols="50"
-                type="text"
-                name="description"
-                value={form.description}
-                onChange={handleChange}
-                placeholder="Move description"
-                
-                />
-                <br/>
-                <h4>Move image url</h4>
-                     <input
-                type="text"
-                name="image_url"
-                value={form.image_url}
-                onChange={handleChange}
-                placeholder="Url of move picture"               
-                />
-     
-                        <button onClick={e => {  handleSubmit(e) }}>Add</button>
+
+            <h1>Are you sure you want to delete this move?</h1>
+            <button onClick={e => {  handleSubmit(e) }}>Delete Move</button>
+
+              <h2>{form.name}</h2>
+
+              <p>{form.description}</p>
+
+              <img src={form.image_url}  />
+            </div>
 
 
-            </form>
+
             
-        </div>
+            
     )
 }
 
@@ -211,7 +176,7 @@ const mapStateToProps = (state) => {
       error: state.error,
     };
   };
-export default connect(mapStateToProps, { editTakedown,fetchTakedown, fetchBack, fetchSidemount, fetchMount,fetchGuard, editBack, editGuard, editMount, editSidemount})(
-    withRouter(EditMove)
+export default connect(mapStateToProps, {fetchTakedown, fetchBack, fetchSidemount, fetchMount,fetchGuard, deleteTakedown, deleteBack, deleteGuard, deleteMount, deleteSidemount})(
+    withRouter(DeleteMove)
   );
   

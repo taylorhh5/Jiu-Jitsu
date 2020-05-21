@@ -20,6 +20,7 @@ import Register from './Register.js'
 import Login from './Login.js'
 import Profile from './Profile.js'
 import EditMove from './EditMove.js'
+import DeleteMove from './DeleteMove.js'
 
 function App() {
   return (
@@ -47,6 +48,8 @@ function App() {
             <Route path="/login" component={Login}></Route>
             <Route path="/profile" component={Profile}></Route>
             <Route path="/edit/:id" component={EditMove}></Route>
+            <Route path="/delete/:id" component={DeleteMove}></Route>
+
 
 
 

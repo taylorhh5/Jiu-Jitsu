@@ -307,20 +307,80 @@ export const editBack = (form) => {
 
     };
 };
-// export const deleteCase = (id) => {
-//     return dispatch => {
-//         dispatch({ type: DELETE_START });
+export const deleteTakedown = (id) => {
+    return dispatch => {
+        // dispatch({ type: DELETE_TAKEDOWN_START });
 
-//         axiosWithAuth()
-//             .delete(`https://lindseyacason-miraclemessages.herokuapp.com/socialCases/socialCases/${id}`)
-//             .then((response) => {
-//                 // console.log(response, 'd r')
-//                 window.location.reload();
+        axiosWithAuth()
+            .delete(`http://localhost:5000/api/moves/takedown/${id}`)
+            .then((response) => {
+                // console.log(response, 'd r')
+                window.location.reload();
 
-//                 // .then(response => dispatch({ type: DELETE_SUCCESS, payload: response.data }))
-//                 // .catch(error => dispatch({ type: DELETE_FAILURE, payload: error.response }))
-//             })
-//     };
-// };
+                // .then(response => dispatch({ type: DELETE_SUCCESS, payload: response.data }))
+                // .catch(error => dispatch({ type: DELETE_FAILURE, payload: error.response }))
+            })
+    };
+};
 
+export const deleteGuard = (id) => {
+    return dispatch => {
+        // dispatch({ type: DELETE_TAKEDOWN_START });
+
+        axiosWithAuth()
+            .delete(`http://localhost:5000/api/moves/guard/${id}`)
+            .then((response) => {
+                // console.log(response, 'd r')
+                window.location.reload();
+
+                // .then(response => dispatch({ type: DELETE_SUCCESS, payload: response.data }))
+                // .catch(error => dispatch({ type: DELETE_FAILURE, payload: error.response }))
+            })
+    };
+};
+export const deleteMount = (id) => {
+    return dispatch => {
+        // dispatch({ type: DELETE_TAKEDOWN_START });
+
+        axiosWithAuth()
+            .delete(`http://localhost:5000/api/moves/mount/${id}`)
+            .then((response) => {
+                // console.log(response, 'd r')
+                window.location.reload();
+
+                // .then(response => dispatch({ type: DELETE_SUCCESS, payload: response.data }))
+                // .catch(error => dispatch({ type: DELETE_FAILURE, payload: error.response }))
+            })
+    };
+};
+export const deleteSidemount = (id) => {
+    return dispatch => {
+        // dispatch({ type: DELETE_TAKEDOWN_START });
+
+        axiosWithAuth()
+            .delete(`http://localhost:5000/api/moves/sidemount/${id}`)
+            .then((response) => {
+                // console.log(response, 'd r')
+                window.location.reload();
+
+                // .then(response => dispatch({ type: DELETE_SUCCESS, payload: response.data }))
+                // .catch(error => dispatch({ type: DELETE_FAILURE, payload: error.response }))
+            })
+    };
+};
+export const deleteBack = (id) => {
+    return dispatch => {
+        // dispatch({ type: DELETE_TAKEDOWN_START });
+
+        axiosWithAuth()
+            .delete(`http://localhost:5000/api/moves/back/${id}`)
+            .then((response) => {
+                // console.log(response, 'd r')
+                window.location.reload();
+
+                // .then(response => dispatch({ type: DELETE_SUCCESS, payload: response.data }))
+                // .catch(error => dispatch({ type: DELETE_FAILURE, payload: error.response }))
+            })
+    };
+};
 
