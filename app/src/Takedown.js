@@ -20,6 +20,7 @@ const TakedownCard = (props) => {
   );
   console.log(chosenTakedown, "params");
 
+
   return (
     <div>
       <section>

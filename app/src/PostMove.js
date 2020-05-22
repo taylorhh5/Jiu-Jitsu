@@ -45,23 +45,33 @@ const PostMove = (props) => {
           event.preventDefault();
           console.log(form,"in form")
           props.addTakedown(form);
+          props.history.push('/profile')
+
           return;
         }else if (drop.move ==="Guard"){
         event.preventDefault();
         console.log(form,"in form")
         props.addGuard(form);
+        props.history.push('/profile')
+
       }else if (drop.move ==="Mount"){
         event.preventDefault();
         console.log(form,"in form")
         props.addMount(form);
+        props.history.push('/profile')
+
       }else if (drop.move ==="Sidemount"){
         event.preventDefault();
         console.log(form,"in form")
         props.addSidemount(form);
+        props.history.push('/profile')
+
       }else if (drop.move ==="Back"){
         event.preventDefault();
         console.log(form,"in form")
         props.addBack(form);
+        props.history.push('/profile')
+
       }
     }
 

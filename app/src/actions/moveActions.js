@@ -302,7 +302,7 @@ export const editBack = (form) => {
         axiosWithAuth()
             .put(`http://localhost:5000/api/moves/back/${form.id}`, form)
             // .then(response => console.log (form, "edit"))
-            .then(response => dispatch({ type: EDIT_BACK_SUCCESS, payload:response.data }))
+            .then(response => {dispatch({ type: EDIT_BACK_SUCCESS, payload:response.data })})
         // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
 
     };
@@ -314,8 +314,7 @@ export const deleteTakedown = (id) => {
         axiosWithAuth()
             .delete(`http://localhost:5000/api/moves/takedown/${id}`)
             .then((response) => {
-                // console.log(response, 'd r')
-                window.location.reload();
+                console.log(response, 'd r')
 
                 // .then(response => dispatch({ type: DELETE_SUCCESS, payload: response.data }))
                 // .catch(error => dispatch({ type: DELETE_FAILURE, payload: error.response }))
@@ -330,8 +329,7 @@ export const deleteGuard = (id) => {
         axiosWithAuth()
             .delete(`http://localhost:5000/api/moves/guard/${id}`)
             .then((response) => {
-                // console.log(response, 'd r')
-                window.location.reload();
+                console.log(response, 'd r')
 
                 // .then(response => dispatch({ type: DELETE_SUCCESS, payload: response.data }))
                 // .catch(error => dispatch({ type: DELETE_FAILURE, payload: error.response }))
@@ -345,8 +343,7 @@ export const deleteMount = (id) => {
         axiosWithAuth()
             .delete(`http://localhost:5000/api/moves/mount/${id}`)
             .then((response) => {
-                // console.log(response, 'd r')
-                window.location.reload();
+                console.log(response, 'd r')
 
                 // .then(response => dispatch({ type: DELETE_SUCCESS, payload: response.data }))
                 // .catch(error => dispatch({ type: DELETE_FAILURE, payload: error.response }))
@@ -360,8 +357,7 @@ export const deleteSidemount = (id) => {
         axiosWithAuth()
             .delete(`http://localhost:5000/api/moves/sidemount/${id}`)
             .then((response) => {
-                // console.log(response, 'd r')
-                window.location.reload();
+                console.log(response, 'd r')
 
                 // .then(response => dispatch({ type: DELETE_SUCCESS, payload: response.data }))
                 // .catch(error => dispatch({ type: DELETE_FAILURE, payload: error.response }))
@@ -375,8 +371,7 @@ export const deleteBack = (id) => {
         axiosWithAuth()
             .delete(`http://localhost:5000/api/moves/back/${id}`)
             .then((response) => {
-                // console.log(response, 'd r')
-                window.location.reload();
+                console.log(response, 'd r')
 
                 // .then(response => dispatch({ type: DELETE_SUCCESS, payload: response.data }))
                 // .catch(error => dispatch({ type: DELETE_FAILURE, payload: error.response }))

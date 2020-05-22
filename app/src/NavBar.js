@@ -1,7 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import {withRouter} from 'react-router-dom'
 
-const NavBar = () => {
+const NavBar = (props) => {
+    console.log(props,"propsinnav")
+
+    const handleLogout = () =>{
+        localStorage.removeItem('token')
+        localStorage.removeItem('user_id')
+        localStorage.removeItem('email')
+        localStorage.removeItem('edit_type')
+        props.history.push('/')
+    }
   return (
     <div className="Nav">
       <NavLink to="/Takedowns">Takedowns</NavLink>
@@ -14,8 +24,9 @@ const NavBar = () => {
       <NavLink to="/profile">Profile</NavLink>
 
       <NavLink to="/">Home</NavLink>
+      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 };
 
-export default NavBar;
+export default withRouter(NavBar);

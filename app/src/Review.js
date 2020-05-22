@@ -36,11 +36,9 @@ const Review = () => {
       </ul>
 
       <h2> Add your own move <Link to="/postmove">here.</Link></h2>
-
       
-
+      </div>
       
-    </div>
   );
 };
 
