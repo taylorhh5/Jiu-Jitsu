@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import {login} from "./actions/authAction.js"
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
+import "./Register.scss"
+
 
 const Login = (props) => {
     const credentials = {
@@ -47,7 +49,7 @@ const Login = (props) => {
               placeholder="Password"
             />
       
-            <button>Sign up</button>
+            <button className="signup-button">Login</button>
             {/* <Link to="/login">Already a member?</Link> */}
           </form>
         </>

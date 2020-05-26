@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import {register} from "./actions/authAction.js"
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
+import "./Register.scss"
 
 const Register = (props) => {
     const credentials = {
@@ -28,7 +29,7 @@ const Register = (props) => {
         <>
         
           <form onSubmit={handleLogin}>
-            <h1>Sign up</h1>
+            <h1 className="signup">Sign up</h1>
             <input
               type="text"
               name="email"
@@ -44,7 +45,7 @@ const Register = (props) => {
               placeholder="Password"
             />
       
-            <button>Sign up</button>
+            <button className="signup-button">Sign up</button>
             {/* <Link to="/login">Already a member?</Link> */}
           </form>
         </>

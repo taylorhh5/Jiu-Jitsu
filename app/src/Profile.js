@@ -74,7 +74,7 @@ const Profile = (props) => {
         {chosenTakedown.map((takedown) => {
           return (
             <div key={takedown.id}>
-                <h1>Takedowns</h1>
+                {/* <h1>Takedowns</h1> */}
               <h2>{takedown.name}</h2>
    <img src={takedown.image_url}  />
               <p>{takedown.description}</p>
@@ -96,7 +96,7 @@ const Profile = (props) => {
         {chosenguard.map((guard) => {
           return (
             <div key={guard.id}>
-                <h1>Guard Moves</h1>
+                {/* <h1>Guard Moves</h1> */}
               <h2>{guard.name}</h2>
    <img src={guard.image_url}  />
               <p>{guard.description}</p>
@@ -119,7 +119,7 @@ const Profile = (props) => {
           return (
             
             <div key={mount.id}> 
-             <h1>Mount Moves</h1>
+             {/* <h1>Mount Moves</h1> */}
               <h2>{mount.name}</h2>
    <img src={mount.image_url}  />
               <p>{mount.description}</p>
@@ -140,7 +140,7 @@ const Profile = (props) => {
           return (
               
             <div key={sidemount.id}>
-                <h1>Side Control Moves</h1>
+                {/* <h1>Side Control Moves</h1> */}
               <h2>{sidemount.name}</h2>
    <img src={sidemount.image_url}  />
               <p>{sidemount.description}</p>
@@ -160,7 +160,7 @@ const Profile = (props) => {
         {chosenback.map((back) => {
           return (
             <div key={back.id}>
-                <h1>Back Control Moves</h1>
+                {/* <h1>Back Control Moves</h1> */}
               <h2>{back.name}</h2>
    <img src={back.image_url}  />
               <p>{back.description}</p>

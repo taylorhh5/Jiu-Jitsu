@@ -1,0 +1,73 @@
+form{
+    
+
+    display: flex;
+    flex-direction: column;
+    
+    width: 80%;
+    border-radius: 0.25rem;
+    margin: 0 auto;
+    height:80%;
+    background-color:rgb(249, 249, 250); 
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    padding-left: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 2px 4px -1px rgba(0, 0, 0, 0.1);
+    @media screen and (max-width: 800px) {
+    }
+}
+input{
+    
+    margin: 1rem;
+    width: 90%;
+    margin-bottom: 20px;
+    height: 3.125rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ced4da;
+     @media screen and (max-width: 500px) { 
+     }
+}
+
+.signup{
+    font-family: "Open Sans Condensed", sans-serif;
+
+    text-align: left;
+    padding-bottom: 0px;
+    padding-left: 1.7rem;
+    padding-top: 20px;
+    font-size: 2rem;
+    font-family: "Roboto Condensed", serif;
+    font-weight: 400;
+    color:black;
+    @media screen and (max-width: 500px){
+    }
+    
+}
+.signup-button{
+    font-family: "Open Sans Condensed", sans-serif;
+
+    align-self: center;
+    padding: 15px 15px;
+  background-color: #2da561;
+  color: #fff;
+  width: 60%;
+  border: 1px solid #2A3439;
+  padding: 1rem;
+  line-height: 1;
+  background-color: #2A3439;
+  margin: 30 40 40 0;
+  border-radius: 4px;
+  font-size: 2rem;
+  @media screen and (max-width: 500px) {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 1.5rem;
+  }
+  :hover {
+    cursor: pointer;
+    background-color: white;
+    color: #2da562;
+    border: 1px solid #2da562;
+  }
+}

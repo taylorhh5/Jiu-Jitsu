@@ -22,13 +22,15 @@ import Profile from "./Profile.js";
 import EditMove from "./EditMove.js";
 import DeleteMove from "./DeleteMove.js";
 import PrivateRoute from "./utils/PrivateRoute.js";
-
+import Home from './Home.js'
 function App() {
   return (
     <div className="App">
       <NavBar />
 
-      <Route exact path="/" component={Review}></Route>
+      <Route exact path="/" component={Home}></Route>
+      <Route exact path="/review" component={Review}></Route>
+
       <Route path="/Takedowns" component={TakedownList}></Route>
       {/* <Route
         path=

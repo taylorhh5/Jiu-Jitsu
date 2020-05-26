@@ -1,10 +1,15 @@
 .App {
   text-align: center;
   list-style: inside;
+  height: 90%;
+}
+.root{
+  height:100%
 }
 
+
 .App-logo {
-  height: 40vmin;
+  height: 4vmin;
   pointer-events: none;
 }
 
@@ -37,17 +42,7 @@
     transform: rotate(360deg);
   }
 }
-.Nav {
-  display: flex;
-  justify-content: space-around;
-  background: lightblue;
-  border: 1px solid black;
-  text-decoration: none;
-}
-a{
-  color:grey;
-  /* text-decoration: none; */
-}
+
 a.active{
   /* color:red; */
 }

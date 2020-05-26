@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import {withRouter} from 'react-router-dom'
+import './NavBar.scss'
 
 const NavBar = (props) => {
     console.log(props,"propsinnav")
@@ -14,17 +15,19 @@ const NavBar = (props) => {
     }
   return (
     <div className="Nav">
-      <NavLink to="/Takedowns">Takedowns</NavLink>
+      {/* <NavLink to="/Takedowns">Takedowns</NavLink>
       <NavLink to="/Guardlist">Guard</NavLink>
       <NavLink to="/MountList">Mount</NavLink>
       <NavLink to="/SidemountList">Side Control</NavLink>
-      <NavLink to="/BackControl">Back Control</NavLink>
-      <NavLink to="/login">Login</NavLink>
-      <NavLink to="/register">Register</NavLink>
+      <NavLink to="/BackControl">Back Control</NavLink> */}
+        <NavLink to="/review">Home</NavLink>
       <NavLink to="/profile">Profile</NavLink>
 
-      <NavLink to="/">Home</NavLink>
-      <button onClick={handleLogout}>Logout</button>
+      <NavLink to="/login">Login</NavLink>
+
+
+      
+      <NavLink to='/' onClick={handleLogout}>Logout</NavLink>
     </div>
   );
 };

@@ -51,7 +51,7 @@ export const login = (form, history) => {
             localStorage.setItem('email', response.data.email)
 
 
-         history.push('/')
+         history.push('/review')
     })
         .catch(error => {dispatch({ type: LOGIN_FAILURE, payload: error.response })
         alert("Incorrect username or password.")

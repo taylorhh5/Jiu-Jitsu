@@ -3,11 +3,8 @@ import { Link } from "react-router-dom";
 
 
 const Simulation = () => {
-  const [num, setNum] = useState();
 
-  function randomNum() {
-    setNum(Math.round(Math.random() *3) );
-  }
+  
   return (
     <div>
       <h1>Welcome to the simulation.</h1>
@@ -64,7 +61,7 @@ const Simulation = () => {
       })()} */}
     </div>
 
-        <h1>{num}</h1>
+       
    
    
       </ul>
