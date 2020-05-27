@@ -1,0 +1,35 @@
+.review-container{
+    border:1px solid blue;
+    display: flex;
+    justify-content: space-evenly;
+    height: 100vh;
+    // background-image: url("https://images.pexels.com/photos/220182/pexels-photo-220182.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+
+    // background-repeat: no-repeat;
+  
+    // background-size: cover;
+    
+}
+
+.review-left{
+    background-color: #757575;
+    width: 33%;
+border: 1px solid red;
+h3{
+    font-size: 2rem;
+}
+}
+
+.review-center{
+    width: 33%;
+// background-color: 	#B0B0B0;
+    border: 1px solid red;
+
+}
+
+.review-right{
+    width: 33%;
+// background-color: #888888	;
+    border: 1px solid red;
+
+}

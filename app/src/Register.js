@@ -28,21 +28,24 @@ const Register = (props) => {
       return (
         <>
         
-          <form onSubmit={handleLogin}>
+          <form className="registerForm" onSubmit={handleLogin}>
             <h1 className="signup">Sign up</h1>
+            <p className="signupP">It's quick and easy.</p>
             <input
+             className="registerInput"
               type="text"
               name="email"
               value={signUp.email}
               onChange={handleChange}
-              placeholder="Email"
+              placeholder=" Email"
             />
             <input
+            className="registerInput"
               type="password"
               name="password"
               value={signUp.password}
               onChange={handleChange}
-              placeholder="Password"
+              placeholder=" Password"
             />
       
             <button className="signup-button">Sign up</button>

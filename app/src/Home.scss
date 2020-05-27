@@ -1,16 +1,10 @@
-.intro {
-  font-family: "Open Sans Condensed", sans-serif;
-  font-size: 2rem;
-  text-align: center;
-}
-
 .container {
   font-family: "Open Sans Condensed", sans-serif;
   display: flex;
-//   height: 100vh;
-
-  padding-top: 10px;
-  padding-bottom: 80px;
+    // height: 58vh;
+// border:1px solid red;
+  padding-top: .7rem;
+  padding-bottom: 7.1rem;
   //   background-image: src={};
   background-image: url("https://images.pexels.com/photos/2253934/pexels-photo-2253934.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
 
@@ -26,14 +20,17 @@
   }
 }
 .home-right {
-//   border: 3px solid red;
-  width: 50%;
+  //   border: 3px solid red;
+  padding-left: 8rem;
+  width: 36%;
 
   .member {
-    padding-top: 0rem;
+    padding-top: .6rem;
+    // border:1px solid red;
+    // margin-bottom: 1.8rem;
     color: white;
     font-family: "Open Sans Condensed", sans-serif;
-    font-size: 2.6rem;
+    font-size: 2.5rem;
     text-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     @media screen and (max-width: 800px) {
       font-size: 1.6rem;
@@ -49,7 +46,7 @@
 }
 
 .home-left {
-//   border: 1px solid green;
+  //   border: 1px solid green;
   width: 50%;
   margin-block-end: 0em;
   text-align: center;
@@ -57,10 +54,10 @@
   .quote {
     padding-top: 20rem;
 
-      width:20rem;
-      background-color: rgba(0, 0, 0, 0.39);
+    width: 20rem;
+    background-color: rgba(0, 0, 0, 0.39);
     margin: 0rem;
-    
+
     font-size: 1.9rem;
     @media screen and (max-width: 800px) {
       background-color: rgba(37, 35, 35, 0.479);
@@ -85,4 +82,27 @@
     padding-top: 2px;
     width: 100%;
   }
+}
+.top-home {
+  // border:2px solid red;
+  margin-top: .3rem;
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+  margin-left: 33%;
+  @media screen and (max-width: 800px) {
+  flex-direction: column;
+    margin-left: 0%;
+    padding-bottom: 2rem;
+
+  }
+}
+.intro {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 2.6rem;
+  text-align: center;
+  align-items: center;
+  align-content: center;
 }

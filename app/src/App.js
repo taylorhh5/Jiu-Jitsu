@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, Link, withRouter } from "react-router-dom";
 import TakedownList from "./TakedownList.js";
 import Takedown from "./Takedown.js";
 import GuardList from "./GuardList.js";
@@ -23,10 +23,25 @@ import EditMove from "./EditMove.js";
 import DeleteMove from "./DeleteMove.js";
 import PrivateRoute from "./utils/PrivateRoute.js";
 import Home from './Home.js'
-function App() {
+function App(props) {
+
+  const [navShow, setnavShow] = useState(true)
+
+  console.log(props,"propsinapp")
+   const token = localStorage.getItem("token")
+
+// console.log (token,"token")
+//   useEffect(() => {
+//     if (token === null){
+//       setnavShow(false)
+//     }else{
+//       setnavShow(true)
+//     }
+//   }, [window.location.pathn]);
   return (
     <div className="App">
-      <NavBar />
+
+     <NavBar />
 
       <Route exact path="/" component={Home}></Route>
       <Route exact path="/review" component={Review}></Route>

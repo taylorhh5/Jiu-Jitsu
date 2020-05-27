@@ -1,14 +1,20 @@
 import React from 'react'
 import Register from './Register.js'
+import Login from './Login'
 import './Home.scss'
+import { withRouter } from "react-router";
 
 
 
-const Home = () => {
+
+const Home = (props) => {
+    console.log(props.location.pathname,"props in home")
     return (
         <div>
-                    <h1 className="intro">Welcome to Jiu-Jitsu Trainer</h1>
-
+            <div className="top-home">
+                    <h1 className="intro">Brazilian Jiu-Jitsu Trainer</h1>
+                    < Login/>
+</div>
         <div className= "container">
             <div className="home-left">
                 {/* <p className="quote">There is no losing in jiu-jitsu.
@@ -24,6 +30,7 @@ const Home = () => {
             </div>
             
         </div>
+        
         </div>
     )
 }

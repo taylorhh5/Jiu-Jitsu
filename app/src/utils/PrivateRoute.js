@@ -12,7 +12,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
         } else {
             alert("You must be logged in to do that!")
 
-           return<Redirect to="/login" />;
+           return<Redirect to="/" />;
         }
       }}
     />

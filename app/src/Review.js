@@ -5,17 +5,16 @@ import GuardList from "./GuardList.js";
 import MountList from "./MountList.js";
 import Sidemount from "./SidemountList.js";
 import BackList from "./BackList.js";
+import PostMove from './PostMove.js'
+import "./Review.scss"
 
 const Review = () => {
   return (
-    <div>
-      <h1> Welcome to virtual Jiu Jitsu trainer</h1>
+    <div className="review-container">
+      <div className="review-left">
+    
 
-      
-      <Link to="/simulation"><h3>Get on the mat</h3></Link>
-      {/* link */}
-
-      <h3>Review Moves</h3>
+      <h3 className="left-title">Review Moves</h3>
       {/* //links/routes to components, takedowns/ mount/ guard/ escapes */}
       <ul>
         <li>
@@ -34,9 +33,22 @@ const Review = () => {
           <Link to="/BackControl">Back</Link>
         </li>
       </ul>
+      </div>
 
-      <h2> Add your own move <Link to="/postmove">here.</Link></h2>
+      <div className="review-center">
+      <h1> Welcome to virtual Jiu Jitsu trainer</h1>
+
       
+<Link to="/simulation"><h3>Get on the mat</h3></Link>
+
+
+      </div>
+      <div className="review-right">
+        <h2>Want to contribute?</h2>
+        <p>Add your own move.</p>
+      {/* <h2> You can add your own move <Link to="/postmove">here.</Link></h2> */}
+      <PostMove/>
+      </div>
       </div>
       
   );
