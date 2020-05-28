@@ -3,6 +3,8 @@ import { fetchGuard } from "./actions/moveActions.js";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
+import "./MoveList.scss"
+
 
 const GuardList = (props) => {
   console.log(props, "propsin");
@@ -23,17 +25,17 @@ const GuardList = (props) => {
     return <h1>Loading...</h1>
   }
   return (
-    <div>
-         <h1>You have your opponent in guard!</h1>
+    <div className="list-container">
+         <h1 className="h1title">You have your opponent in guard!</h1>
             <p>Explain guard overview</p>
             <h2>Choose your move...</h2>
 
-      <section>
+      <section className="movelist-section">
         {props.moves.guard.map((guard) => {
           return (
-            <div>
-              <Link to={`/guard/${guard.id}`}>
-                <h1> {guard.name}</h1>
+            <div className="movelist-move">
+              <Link className="movelist-link" to={`/guard/${guard.id}`}>
+                <h1 className="movelist-name"> {guard.name}</h1>
               </Link>
             </div>
           );

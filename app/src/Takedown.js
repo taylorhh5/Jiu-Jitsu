@@ -3,7 +3,7 @@ import { fetchTakedown } from "./actions/moveActions.js";
 import { connect } from "react-redux";
 import Takedown from "./Takedown.js";
 import { withRouter } from "react-router";
-import "./MoveList.scss"
+import "./MoveCard.scss"
 
 
 const TakedownCard = (props) => {
@@ -25,13 +25,13 @@ const TakedownCard = (props) => {
 
   return (
     <div>
-      <section >
+      <section className="move-card-section" >
         {chosenTakedown.map((takedown) => {
           return (
-            <div key={takedown.id}>
-              <h2>{takedown.name}</h2>
-   <img src={takedown.image_url}  />
-              <p>{takedown.description}</p>
+            <div className="move-card-div" key={takedown.id}>
+              <h1 className="move-card-name">{takedown.name}</h1>
+   <img className="move-card-img" src={takedown.image_url}  />
+              <p className="move-card-description" >{takedown.description}</p>
 
            
             </div>

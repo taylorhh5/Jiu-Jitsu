@@ -4,6 +4,7 @@ import { fetchSidemount } from "./actions/moveActions.js";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
+import "./MoveList.scss"
 
 const SidemountList = (props) => {
   console.log(props, "propsin");
@@ -24,15 +25,15 @@ const SidemountList = (props) => {
     return <h1>Loading...</h1>
   }
   return (
-    <div>
-             <h1>You have side control of your opponent!</h1>
+    <div className="list-container">
+             <h1 className="h1title">You have side control of your opponent!</h1>
              <h2>Choose your move...</h2>
-      <section>
+      <section className="movelist-section">
         {props.moves.sidemount.map((sidemount) => {
           return (
-            <div>
-              <Link to={`/sidemount/${sidemount.id}`}>
-                <h1> {sidemount.name}</h1>
+            <div className="movelist-move">
+              <Link className="movelist-link" to={`/sidemount/${sidemount.id}`}>
+                <h1 className="movelist-name"> {sidemount.name}</h1>
               </Link>
             </div>
           );

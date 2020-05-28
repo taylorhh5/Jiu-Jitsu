@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { fetchBack } from "./actions/moveActions.js";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
+import "./MoveCard.scss"
+
 
 const Back = (props) => {
   console.log(props, "props in single");
@@ -21,15 +23,15 @@ const Back = (props) => {
 
   return (
     <div>
-      <section>
+      <section className="move-card-section">
         {chosenBack.map((back) => {
           return (
-            <div key={back.id}>
-              <h2>{back.name}</h2>
+            <div className="move-card-div" key={back.id}>
+              <h1 className="move-card-name">{back.name}</h1>
+              <img className="move-card-img"src={back.image_url}  />
 
-              <p>{back.description}</p>
+              <p className="move-card-description">{back.description}</p>
 
-              <img src={back.image_url}  />
             </div>
           );
         })}

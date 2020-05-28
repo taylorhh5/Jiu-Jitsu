@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { fetchSidemount } from "./actions/moveActions.js";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
+import "./MoveCard.scss"
+
 
 const Sidemount = (props) => {
   console.log(props, "props in single");
@@ -21,13 +23,13 @@ const Sidemount = (props) => {
 
   return (
     <div>
-      <section>
+      <section className="move-card-section">
         {chosensidemount.map((sidemount) => {
           return (
-            <div key={sidemount.id}>
-              <h2>{sidemount.name}</h2>
-   <img src={sidemount.image_url}  />
-              <p>{sidemount.description}</p>
+            <div className="move-card-div" key={sidemount.id}>
+              <h1 className="move-card-name">{sidemount.name}</h1>
+   <img className="move-card-img" src={sidemount.image_url}  />
+              <p className="move-card-description">{sidemount.description}</p>
 
            
             </div>

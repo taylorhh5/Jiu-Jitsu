@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { fetchGuard } from "./actions/moveActions.js";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
+import "./MoveCard.scss";
 
 const Guard = (props) => {
   console.log(props, "props in single");
@@ -11,7 +12,7 @@ const Guard = (props) => {
   }, []);
 
   if (props.loading) {
-    return <h1>Loading...</h1>
+    return <h1>Loading...</h1>;
   }
 
   const chosenGuard = props.moves.guard.filter(
@@ -21,15 +22,13 @@ const Guard = (props) => {
 
   return (
     <div>
-      <section>
+      <section className="move-card-section">
         {chosenGuard.map((guard) => {
           return (
-            <div key={guard.id}>
-              <h2>{guard.name}</h2>
-
-              <p>{guard.description}</p>
-
-              <img src={guard.image_url}  />
+            <div className="move-card-div" key={guard.id}>
+              <h1 className="move-card-name">{guard.name}</h1>
+              <img className="move-card-img" src={guard.image_url} />
+              <p className="move-card-description">{guard.description}</p>
             </div>
           );
         })}
@@ -42,9 +41,7 @@ const mapStateToProps = (state) => {
   return {
     moves: state.reducer,
     loading: state.loading,
-    error: state.error
+    error: state.error,
   };
 };
-export default connect(mapStateToProps, { fetchGuard })(
-  withRouter(Guard)
-);
+export default connect(mapStateToProps, { fetchGuard })(withRouter(Guard));

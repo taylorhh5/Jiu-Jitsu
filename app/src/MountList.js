@@ -4,6 +4,7 @@ import { fetchMount } from "./actions/moveActions.js";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
+import "./MoveList.scss"
 
 const MountList = (props) => {
   console.log(props, "propsin");
@@ -24,16 +25,16 @@ const MountList = (props) => {
     return <h1>Loading...</h1>
   }
   return (
-    <div>
-             <h1>You have your opponent in mount!</h1>
+    <div className="list-container">
+             <h1 className="h1title">You have your opponent in mount!</h1>
              <h2>Choose your move...</h2>
 
-      <section>
+      <section className="movelist-section">
         {props.moves.mount.map((mount) => {
           return (
-            <div>
-              <Link to={`/mount/${mount.id}`}>
-                <h1> {mount.name}</h1>
+            <div  className="movelist-move">
+              <Link className="movelist-link" to={`/mount/${mount.id}`}>
+                <h1 className="movelist-name"> {mount.name}</h1>
               </Link>
             </div>
           );

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { fetchMount } from "./actions/moveActions.js";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
+import "./MoveCard.scss"
 
 const MountCard = (props) => {
   console.log(props, "props in mount");
@@ -21,13 +22,13 @@ const MountCard = (props) => {
 
   return (
     <div>
-      <section>
+      <section className="move-card-section">
         {chosenmount.map((mount) => {
           return (
-            <div key={mount.id}>
-              <h2>{mount.name}</h2>
-   <img src={mount.image_url}  />
-              <p>{mount.description}</p>
+            <div className="move-card-div" key={mount.id}>
+              <h1 className="move-card-name">{mount.name}</h1>
+   <img className="move-card-img" src={mount.image_url}  />
+              <p className="move-card-description">{mount.description}</p>
 
            
             </div>

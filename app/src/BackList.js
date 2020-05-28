@@ -3,6 +3,7 @@ import { fetchBack } from "./actions/moveActions.js";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
+import "./MoveList.scss"
 
 const BackList = (props) => {
   console.log(props, "propsin");
@@ -23,16 +24,16 @@ const BackList = (props) => {
     return <h1>Loading...</h1>
   }
   return (
-    <div>
-  <h1>You have taken your opponents back!</h1>
-  <h2>Choose your move...</h2>
+    <div className="list-container"> 
+  <h1 className="h1title">You have taken your opponents back!</h1>
+  <h2 >Choose your move...</h2>
 
-      <section>
+      <section className="movelist-section">
         {props.moves.back.map((back) => {
           return (
-            <div>
-              <Link to={`/back/${back.id}`}>
-                <h1> {back.name}</h1>
+            <div className="movelist-move">
+              <Link className="movelist-link" to={`/back/${back.id}`}>
+                <h1 className="movelist-name"> {back.name}</h1>
               </Link>
             </div>
           );
