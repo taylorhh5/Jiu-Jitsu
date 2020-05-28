@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Takedown from "./Takedown.js";
 import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
+import "./MoveList.scss"
 
 const TakedownList = (props) => {
   console.log(props, "propsin");
@@ -24,15 +25,18 @@ const TakedownList = (props) => {
     return <h1>Loading...</h1>
   }
   return (
-    <div>
-      <h1>You have chosen to take down your opponent!</h1>
-      <h2>Choose your takedown...</h2>
-      <section>
+    <div className="list-container">
+      <h1 className="h1title">You have chosen to take down your opponent!</h1>
+
+      <h2>Choose the type of takedown you'd like to use.</h2>
+      <section className="movelist-section">
         {props.moves.takedown.map((takedown) => {
           return (
-            <div>
-              <Link to={`/takedown/${takedown.id}`}>
-                <h1> {takedown.name}</h1>
+            <div className="movelist-move">
+              <Link className="movelist-link" to={`/takedown/${takedown.id}`}>
+              <img className="movelist-img"  src={takedown.image_url}  />
+
+                <h1 className="movelist-name"> {takedown.name}</h1>
               </Link>
             </div>
           );

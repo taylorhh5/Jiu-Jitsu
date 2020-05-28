@@ -3,6 +3,8 @@ import { fetchTakedown } from "./actions/moveActions.js";
 import { connect } from "react-redux";
 import Takedown from "./Takedown.js";
 import { withRouter } from "react-router";
+import "./MoveList.scss"
+
 
 const TakedownCard = (props) => {
   console.log(props, "props in single");
@@ -23,7 +25,7 @@ const TakedownCard = (props) => {
 
   return (
     <div>
-      <section>
+      <section >
         {chosenTakedown.map((takedown) => {
           return (
             <div key={takedown.id}>

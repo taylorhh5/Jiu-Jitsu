@@ -16,6 +16,7 @@ import gismall from './images/gismall.jpg'
 import gooriginal from './images/gooriginal.jpg'
 import gismalls from './images/gismalls.jpg'
 import gismallbr from './images/gismallbr.jpg'
+import bflag from './images/bflag.jpg'
 
 
 
@@ -55,7 +56,7 @@ const Review = () => {
       <div className="review-center">
       <h1>Welcome to the virtual Jiu-Jitsu Trainer.</h1>
       <Link to="/simulation">
-      <img src={gismallbr} alt="A BJJ gi" />
+      <img src={gooriginal} alt="A BJJ gi" />
       </Link>
 <Link to="/simulation"><h3>Get on the mat</h3></Link>
 

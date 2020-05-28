@@ -25,6 +25,7 @@ const Register = (props) => {
           props.register(signUp, props.history);
       
     }
+    
       return (
         <>
         

@@ -126,13 +126,13 @@ const PostMove = (props) => {
                 name="image_url"
                 value={form.image_url}
                 onChange={handleChange}
-                placeholder=" Url of move picture -optional"               
+                placeholder=" Picture URL -optional"               
                 />
                         {/* <button onClick={(e) => { if (props.form.name===1) { 
    alert("Text cannot be blank.")}else
    handleSubmit(e)  }}>Add</button>
   */}
-                        <button onClick={e => {  handleSubmit(e) }}>Add</button>
+                        <button className="postButton" onClick={e => {  handleSubmit(e) }}>Post Move</button>
 
 
             </form>
