@@ -12,7 +12,7 @@
     font-family: "Roboto Condensed", serif;
     text-decoration: none;
   background-color: #2a3439;
-;
+  background-color: rgba(0, 0, 0, 0.774);
 
 }
 
@@ -25,3 +25,33 @@
 
     /* text-decoration: none; */
   }
+  .navright{
+      display: flex;
+      border: 1px solid red;
+      align-items: flex-end;
+      
+
+    }
+.navleft{
+    // border: 1px solid red;
+    font-family: "Open Sans Condensed", sans-serif;
+font-size: 1.1rem;
+// color: rgba(255, 0, 0, 0.808);
+color: rgba(184, 182, 182, 0.986);
+color: rgba(211, 209, 209, 0.986);
+// color: rgba(223, 219, 219, 0.986);
+
+// color: rgba(219, 215, 215, 0.986);
+
+
+    margin-right: 24rem;
+    .quote{
+        // font-weight: 600;
+        text-align: start;
+        margin:0rem;
+    } 
+     .quote2{
+        margin:0rem;
+        // font-weight: 600;
+    }
+}

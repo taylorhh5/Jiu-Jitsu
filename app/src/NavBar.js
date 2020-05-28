@@ -26,12 +26,19 @@ const NavBar = (props) => {
     <div>
       {navShow ? (
         <div className="Nav">
+          <div className="navleft">
+          <p className="quote">There is no losing in jiu-jitsu.</p>
+                <p className="quote2">You either win or you learn. -Carlos Gracie </p>
+               
+            </div>
+          {/* <div className="navright">  */}
           <NavLink to="/review">Home</NavLink>
           <NavLink to="/profile">Profile</NavLink>
 
           <NavLink to="/" onClick={handleLogout}>
             Logout
           </NavLink>
+          {/* </div> */}
         </div>
       ) : null}
     </div>

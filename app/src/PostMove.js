@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { addTakedown, addGuard, addMount, addSidemount, addBack } from "./actions/moveActions.js";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
+import "./PostMove.scss"
 
 
 
@@ -83,9 +84,9 @@ const PostMove = (props) => {
     return (
         <div>
           
-          <h1>Move type: {drop.move}</h1>
-            <form>
-            <label>Select move type: </label>
+          {/* <h1>Adding: {drop.move}</h1> */}
+            <form className="postform">
+            <label className="movelabel"> Select move type: </label>
                 <select 
                     value={drop.move}
                     onChange={handleDrop}
@@ -106,12 +107,12 @@ const PostMove = (props) => {
                 name="name"
                 value={form.name}
                 onChange={handleChange}
-                placeholder="Move Name"
+                placeholder=" Move Name"
                 
                 />
                 <br/>
                      <textarea
-                     rows="20" cols="50"
+                     rows="10" cols="20"
                 type="text"
                 name="description"
                 value={form.description}
@@ -125,7 +126,7 @@ const PostMove = (props) => {
                 name="image_url"
                 value={form.image_url}
                 onChange={handleChange}
-                placeholder="Url of move picture"               
+                placeholder=" Url of move picture -optional"               
                 />
                         {/* <button onClick={(e) => { if (props.form.name===1) { 
    alert("Text cannot be blank.")}else

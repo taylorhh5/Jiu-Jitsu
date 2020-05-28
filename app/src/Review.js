@@ -63,7 +63,7 @@ const Review = () => {
       </div>
       <div className="review-right">
         <h2>Want to contribute?</h2>
-        <h3>Add your own move.</h3>
+        <p>Add your own move.</p>
       {/* <h2> You can add your own move <Link to="/postmove">here.</Link></h2> */}
       <PostMove/>
       </div>
