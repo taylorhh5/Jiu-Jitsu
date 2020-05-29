@@ -85,6 +85,7 @@
 }
 .top-home {
   // border:2px solid red;
+  padding-right: .5rem;
   margin-top: .3rem;
   margin-bottom: 1.1rem;
   display: flex;
@@ -93,10 +94,11 @@
   justify-content: space-around;
   margin-left: 33%;
   @media screen and (max-width: 900px) {
+      
   flex-direction: column;
     margin-left: 0%;
     padding-bottom: 2rem;
-
+    padding-right: .5rem;
   }
   @media screen and (max-width: 900px) {
     padding-bottom: 0rem;

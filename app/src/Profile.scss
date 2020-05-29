@@ -1,0 +1,85 @@
+.profile-container{
+// border: 1px solid red;
+margin-top: 2rem;
+font-family: "Open Sans Condensed", sans-serif;
+border-top: 1px solid black;
+
+}
+.profile-inner-container{
+    // display: grid;  
+    //   border: 1px solid blue;
+      align-items: center;
+// flex-direction: column;
+// justify-content: space-around;
+}
+.profile-greeting{
+    // border: 1px solid red;
+    color: blue;
+    font-size: 2.34em;
+}
+.profile-h2{
+    // border: 1px solid red;
+    font-size: 1.9rem;
+}
+.profile-move-div{
+    align-content: center;
+
+    border-top: 1px dashed black;
+    // border-bottom: 3px solid black;
+
+    margin: 2rem 0rem;
+    width: 100%;
+    height: auto;
+}
+.profile-move-name{
+    // border: 1px solid red;
+    font-size: 1.7rem;
+}
+.profile-move-img{
+    // border: 1px solid red;
+    width: 40%;
+    border: 2px solid black;
+    box-shadow: 5px 1px 20px #111;
+
+}
+.profile-move-description{
+    // border: 1px solid red;
+    font-size: 1.4rem;
+}
+.edit-button{
+    font-family: "Open Sans Condensed", sans-serif;
+height: 30%;
+ 
+    margin: 1rem;
+    font-family: "Open Sans Condensed", sans-serif;
+color: white;
+padding: .5rem;
+  // width: %;
+  // height:17%;
+  border: 1px solid #2a3439;
+  // padding: 1rem;
+  // line-height: 1;
+  background-color: #2a3439;
+  // margin: 30 40 40 0;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.delete-button{
+    font-weight: 600;
+
+    margin: 1rem;
+      font-family: "Open Sans Condensed", sans-serif;
+color: white;
+padding: .5rem;
+    // width: %;
+    // height:17%;
+    border: 1px solid #2a3439;
+    // padding: 1rem;
+    // line-height: 1;
+    background-color: #2a3439;
+    // margin: 30 40 40 0;
+    border-radius: 4px;
+    font-size: 1rem;
+    
+}

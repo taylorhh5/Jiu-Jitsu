@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Takedown from "./Takedown.js";
 import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
+import './Profile.scss'
 
 
 const Profile = (props) => {
@@ -63,28 +64,29 @@ const Profile = (props) => {
 
 
   return (
-    <div>
-        <h1>{`Welcome to your profile, ${email}!`}</h1>
+    <div className="profile-container">
+    
+        <h1 className='profile-greeting'>{`Welcome to your profile, ${email}!`}</h1>
 
-        <h2>These are the moves you've added.</h2>
-
+        <h2 className="profile-h2">Here are the moves you've added.</h2>
+  <div className="profile-inner-container">
 
         
       <section>
         {chosenTakedown.map((takedown) => {
           return (
-            <div key={takedown.id}>
+            <div className="profile-move-div" key={takedown.id}>
                 {/* <h1>Takedowns</h1> */}
-              <h2>{takedown.name}</h2>
-   <img src={takedown.image_url}  />
-              <p>{takedown.description}</p>
+              <h2 className="profile-move-name">{takedown.name}</h2>
+   <img className="profile-move-img" src={takedown.image_url}  />
+              <p className="profile-move-description">{takedown.description}</p>
 
               <Link to={`/delete/${takedown.id}`}>
-            <button onClick={e =>localStorage.setItem('edit_type', "Takedown")}>Delete this move</button>
+            <button className="delete-button" onClick={e =>localStorage.setItem('edit_type', "Takedown")}>Delete this move</button>
           </Link>
 
             <Link to={`/edit/${takedown.id}`}>
-            <button onClick={e =>localStorage.setItem('edit_type', "Takedown")}>Edit this move</button>
+            <button className="edit-button" onClick={e =>localStorage.setItem('edit_type', "Takedown")}>Edit this move</button>
           </Link>
             </div>
           );
@@ -95,18 +97,18 @@ const Profile = (props) => {
          
         {chosenguard.map((guard) => {
           return (
-            <div key={guard.id}>
+            <div className="profile-move-div" key={guard.id}>
                 {/* <h1>Guard Moves</h1> */}
-              <h2>{guard.name}</h2>
-   <img src={guard.image_url}  />
-              <p>{guard.description}</p>
+              <h2 lassName="profile-move-name">{guard.name}</h2>
+   <img className="profile-move-img" src={guard.image_url}  />
+              <p className="profile-move-description">{guard.description}</p>
 
               
               <Link to={`/delete/${guard.id}`}>
-            <button onClick={e =>localStorage.setItem('edit_type', "Guard")}>Delete this move</button>
+            <button className="delete-button" onClick={e =>localStorage.setItem('edit_type', "Guard")}>Delete this move</button>
           </Link>
               <Link to={`/edit/${guard.id}`}>
-              <button onClick={e => localStorage.setItem('edit_type', "Guard")}>Edit this move</button>
+              <button className="edit-button" onClick={e => localStorage.setItem('edit_type', "Guard")}>Edit this move</button>
           </Link>
            
             </div>
@@ -118,17 +120,17 @@ const Profile = (props) => {
         {chosenmount.map((mount) => {
           return (
             
-            <div key={mount.id}> 
+            <div className="profile-move-div" key={mount.id}> 
              {/* <h1>Mount Moves</h1> */}
-              <h2>{mount.name}</h2>
-   <img src={mount.image_url}  />
-              <p>{mount.description}</p>
+              <h2 lassName="profile-move-name">{mount.name}</h2>
+   <img className="profile-move-img" className="profile-move-img" src={mount.image_url}  />
+              <p className="profile-move-description">{mount.description}</p>
 
               <Link to={`/delete/${mount.id}`}>
-            <button onClick={e =>localStorage.setItem('edit_type', "Mount")}>Delete this move</button>
+            <button className="delete-button" onClick={e =>localStorage.setItem('edit_type', "Mount")}>Delete this move</button>
           </Link>
               <Link to={`/edit/${mount.id}`}>
-              <button onClick={e =>localStorage.setItem('edit_type', "Mount")}>Edit this move</button>
+              <button className="edit-button" onClick={e =>localStorage.setItem('edit_type', "Mount")}>Edit this move</button>
           </Link>
             </div>
           );
@@ -139,17 +141,17 @@ const Profile = (props) => {
         {chosensidemount.map((sidemount) => {
           return (
               
-            <div key={sidemount.id}>
+            <div className="profile-move-div" key={sidemount.id}>
                 {/* <h1>Side Control Moves</h1> */}
-              <h2>{sidemount.name}</h2>
-   <img src={sidemount.image_url}  />
-              <p>{sidemount.description}</p>
+              <h2 lassName="profile-move-name">{sidemount.name}</h2>
+   <img className="profile-move-img" src={sidemount.image_url}  />
+              <p className="profile-move-description">{sidemount.description}</p>
 
               <Link to={`/delete/${sidemount.id}`}>
-            <button onClick={e =>localStorage.setItem('edit_type', "Sidemount")}>Delete this move</button>
+            <button className="delete-button" onClick={e =>localStorage.setItem('edit_type', "Sidemount")}>Delete this move</button>
           </Link>
               <Link to={`/edit/${sidemount.id}`}>
-              <button onClick={ e =>localStorage.setItem('edit_type', "Sidemount")}>Edit this move</button>
+              <button className="edit-button" onClick={ e =>localStorage.setItem('edit_type', "Sidemount")}>Edit this move</button>
           </Link>
             </div>
           );
@@ -159,23 +161,24 @@ const Profile = (props) => {
       <section>
         {chosenback.map((back) => {
           return (
-            <div key={back.id}>
+            <div className="profile-move-div" key={back.id}>
                 {/* <h1>Back Control Moves</h1> */}
-              <h2>{back.name}</h2>
-   <img src={back.image_url}  />
-              <p>{back.description}</p>
+              <h2 lassName="profile-move-name">{back.name}</h2>
+   <img className="profile-move-img" src={back.image_url}  />
+              <p className="profile-move-description">{back.description}</p>
               
               <Link to={`/delete/${back.id}`}>
-            <button onClick={e =>localStorage.setItem('edit_type', "Back")}>Delete this move</button>
+            <button className="delete-button" onClick={e =>localStorage.setItem('edit_type', "Back")}>Delete this move</button>
           </Link>
               <Link to={`/edit/${back.id}`}>
-              <button onClick={e =>localStorage.setItem('edit_type', "Back")}>Edit this move</button>
+              <button className="edit-button" onClick={e =>localStorage.setItem('edit_type', "Back")}>Edit this move</button>
           </Link>
            
             </div>
           );
         })}
       </section>
+      </div>
     </div>
   );
 };
