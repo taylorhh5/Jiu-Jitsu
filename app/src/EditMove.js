@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { editTakedown, fetchTakedown, fetchBack, fetchSidemount, fetchMount,fetchGuard, editBack, editGuard, editMount, editSidemount} from "./actions/moveActions.js";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
-
+import "./EditMove.scss"
 
 
 const EditMove = (props) => {
@@ -161,9 +161,9 @@ const EditMove = (props) => {
     //  }
       
     return (
-        <div>
+        <div className="edit-container">
           
-            <form>
+            <form className="edit-form"> 
      
 <h4>Move Name</h4>
                 <input
@@ -177,7 +177,8 @@ const EditMove = (props) => {
                 <br/>
                 <h4>Move Description</h4>
                      <textarea
-                     rows="20" cols="50"
+                     rows="10" cols="35"
+                     className="edit-description"
                 type="text"
                 name="description"
                 value={form.description}
@@ -188,14 +189,16 @@ const EditMove = (props) => {
                 <br/>
                 <h4>Move image url</h4>
                      <input
+                className="edit-input"     
                 type="text"
                 name="image_url"
                 value={form.image_url}
                 onChange={handleChange}
                 placeholder="Url of move picture"               
                 />
+                <br/>
      
-                        <button onClick={e => {  handleSubmit(e) }}>Add</button>
+                        <button className="edit-form-button" onClick={e => {  handleSubmit(e) }}>Edit</button>
 
 
             </form>

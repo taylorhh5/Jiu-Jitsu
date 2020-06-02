@@ -23,6 +23,7 @@ import EditMove from "./EditMove.js";
 import DeleteMove from "./DeleteMove.js";
 import PrivateRoute from "./utils/PrivateRoute.js";
 import Home from './Home.js'
+import EditTest from './EditModal.js'
 function App(props) {
 
   const [navShow, setnavShow] = useState(true)
@@ -60,6 +61,7 @@ function App(props) {
       <Route path="/sidemount/:id" component={Sidemount}></Route>
       <Route path="/simulation" component={Simulation}></Route>
       <Route path="/opponentmove" component={OpponentMove}></Route>
+      <Route path="/edittest" component={EditTest}></Route>
 
       <PrivateRoute path="/postmove" component={PostMove} />
    
