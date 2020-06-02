@@ -7,7 +7,7 @@ const Simulation = () => {
   
   return (
     <div className="sim-container">
-      <h1 className="sim-title">Welcome to the simulation.</h1>
+      <h1 className="sim-title">Training begins now.</h1>
       {/* <p className="sim-description">Here you get to choose your choose your moves against your opponent.</p> */}
 
       <div className="sim-intro-container">
@@ -17,7 +17,7 @@ const Simulation = () => {
         to begin. You have three options...
       </h3>
    
-      <h3 className="sim-choose">What do you choose?</h3>
+      {/* <h3 className="sim-choose">What do you choose?</h3> */}
 
       <div className="sim-move-container">
       <ul className="sim-move">

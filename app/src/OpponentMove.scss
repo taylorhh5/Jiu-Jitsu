@@ -1,0 +1,30 @@
+.oppo-container{
+    // background-image: url("https://images.pexels.com/photos/1089438/pexels-photo-1089438.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+
+    // background-repeat: no-repeat;
+    // height: 100vh;
+    // background-size: cover;
+    font-family: "Open Sans Condensed", sans-serif;
+    border-top: 1px solid black;
+    margin-top: 1rem;
+    padding:1rem;
+    font-size: 1.3rem;
+
+    h2{
+        // color: red;
+        font-style: italic;
+        font-size: 2.1rem;
+    }
+
+    a{
+        h2{        color: blue;
+            font-style: normal;
+
+ text-decoration: underline;
+
+        }
+        text-decoration: underline;
+        color: blue;
+    }
+    
+}
