@@ -73,7 +73,7 @@ export const fetchTakedown = () => {
         dispatch({ type: TAKEDOWN_FETCHING });
 
         axios
-            .get('http://localhost:5000/api/moves/takedown')
+            .get('https://jiujitsux.herokuapp.com/api/moves/takedown')
             // .then(response => console.log (response.data, "From API"))
             .then(response => dispatch({ type: TAKEDOWN_SUCCESS, payload: response.data })
             )
@@ -89,7 +89,7 @@ export const fetchGuard = () => {
         dispatch({ type: GUARD_FETCHING });
 
         axios
-            .get('http://localhost:5000/api/moves/guard')
+            .get('https://jiujitsux.herokuapp.com/api/moves/guard')
             // .then(response => console.log (response.data, "From GUARD API"))
             .then(response => dispatch({ type: GUARD_SUCCESS, payload: response.data })
             )
@@ -104,7 +104,7 @@ export const fetchMount = () => {
         dispatch({ type: MOUNT_FETCHING });
 
         axios
-            .get('http://localhost:5000/api/moves/mount')
+            .get('https://jiujitsux.herokuapp.com/api/moves/mount')
             // .then(response => console.log (response.data, "From GUARD API"))
             .then(response => dispatch({ type: MOUNT_SUCCESS, payload: response.data })
             )
@@ -120,7 +120,7 @@ export const fetchBack = () => {
         dispatch({ type: BACK_FETCHING });
 
         axios
-            .get('http://localhost:5000/api/moves/back')
+            .get('https://jiujitsux.herokuapp.com/api/moves/back')
             // .then(response => console.log (response.data, "From GUARD API"))
             .then(response => dispatch({ type: BACK_SUCCESS, payload: response.data })
             )
@@ -136,7 +136,7 @@ export const fetchSidemount = () => {
         dispatch({ type: SIDEMOUNT_FETCHING });
 
         axios
-            .get('http://localhost:5000/api/moves/sidemount')
+            .get('https://jiujitsux.herokuapp.com/api/moves/sidemount')
             // .then(response => console.log (response.data, "From GUARD API"))
             .then(response => dispatch({ type: SIDEMOUNT_SUCCESS, payload: response.data })
             )
@@ -154,7 +154,7 @@ export const addTakedown = (form) => {
 
         axiosWithAuth()
         
-            .post('http://localhost:5000/api/moves/takedown', form)
+            .post('https://jiujitsux.herokuapp.com/api/moves/takedown', form)
             // .then((response) => {
             //     console.log(response, 'POST takedown')
             //     // window.location.reload();
@@ -171,7 +171,7 @@ export const addGuard = (form) => {
 
         axiosWithAuth()
         
-            .post('http://localhost:5000/api/moves/guard', form)
+            .post('https://jiujitsux.herokuapp.com/api/moves/guard', form)
             // .then((response) => {
             //     console.log(response, 'POST takedown')
             //     // window.location.reload();
@@ -188,7 +188,7 @@ export const addMount = (form) => {
 
         axiosWithAuth()
         
-            .post('http://localhost:5000/api/moves/mount', form)
+            .post('https://jiujitsux.herokuapp.com/api/moves/mount', form)
             // .then((response) => {
             //     console.log(response, 'POST takedown')
             //     // window.location.reload();
@@ -205,7 +205,7 @@ export const addSidemount = (form) => {
 
         axiosWithAuth()
         
-            .post('http://localhost:5000/api/moves/sidemount', form)
+            .post('https://jiujitsux.herokuapp.com/api/moves/sidemount', form)
             // .then((response) => {
             //     console.log(response, 'POST takedown')
             //     // window.location.reload();
@@ -222,7 +222,7 @@ export const addBack = (form) => {
 
         axiosWithAuth()
         
-            .post('http://localhost:5000/api/moves/back', form)
+            .post('https://jiujitsux.herokuapp.com/api/moves/back', form)
             // .then((response) => {
             //     console.log(response, 'POST takedown')
             //     // window.location.reload();
@@ -240,7 +240,7 @@ export const editTakedown = (form) => {
     
 
         axiosWithAuth()
-            .put(`http://localhost:5000/api/moves/takedown/${form.id}`, form)
+            .put(`https://jiujitsux.herokuapp.com/api/moves/takedown/${form.id}`, form)
             // .then(response => console.log (form, "edit"))
             .then(response => dispatch({ type: EDIT_TAKEDOWN_SUCCESS, payload:response.data }))
         // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
@@ -256,7 +256,7 @@ export const editGuard = (form) => {
     
 
         axiosWithAuth()
-            .put(`http://localhost:5000/api/moves/guard/${form.id}`, form)
+            .put(`https://jiujitsux.herokuapp.com/api/moves/guard/${form.id}`, form)
             // .then(response => console.log (form, "edit"))
             .then(response => dispatch({ type: EDIT_GUARD_SUCCESS, payload:response.data }))
         // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
@@ -271,7 +271,7 @@ export const editMount = (form) => {
     
 
         axiosWithAuth()
-            .put(`http://localhost:5000/api/moves/mount/${form.id}`, form)
+            .put(`https://jiujitsux.herokuapp.com/api/moves/mount/${form.id}`, form)
             // .then(response => console.log (form, "edit"))
             .then(response => dispatch({ type: EDIT_MOUNT_SUCCESS, payload:response.data }))
         // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
@@ -286,7 +286,7 @@ export const editSidemount = (form) => {
     
 
         axiosWithAuth()
-            .put(`http://localhost:5000/api/moves/sidemount/${form.id}`, form)
+            .put(`https://jiujitsux.herokuapp.com/api/moves/sidemount/${form.id}`, form)
             // .then(response => console.log (form, "edit"))
             .then(response => dispatch({ type: EDIT_SIDEMOUNT_SUCCESS, payload:response.data }))
         // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
@@ -300,7 +300,7 @@ export const editBack = (form) => {
     
 
         axiosWithAuth()
-            .put(`http://localhost:5000/api/moves/back/${form.id}`, form)
+            .put(`https://jiujitsux.herokuapp.com/api/moves/back/${form.id}`, form)
             // .then(response => console.log (form, "edit"))
             .then(response => {dispatch({ type: EDIT_BACK_SUCCESS, payload:response.data })})
         // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
@@ -312,7 +312,7 @@ export const deleteTakedown = (id) => {
         // dispatch({ type: DELETE_TAKEDOWN_START });
 
         axiosWithAuth()
-            .delete(`http://localhost:5000/api/moves/takedown/${id}`)
+            .delete(`https://jiujitsux.herokuapp.com/api/moves/takedown/${id}`)
             .then((response) => {
                 console.log(response, 'd r')
 
@@ -327,7 +327,7 @@ export const deleteGuard = (id) => {
         // dispatch({ type: DELETE_TAKEDOWN_START });
 
         axiosWithAuth()
-            .delete(`http://localhost:5000/api/moves/guard/${id}`)
+            .delete(`https://jiujitsux.herokuapp.com/api/moves/guard/${id}`)
             .then((response) => {
                 console.log(response, 'd r')
 
@@ -341,7 +341,7 @@ export const deleteMount = (id) => {
         // dispatch({ type: DELETE_TAKEDOWN_START });
 
         axiosWithAuth()
-            .delete(`http://localhost:5000/api/moves/mount/${id}`)
+            .delete(`https://jiujitsux.herokuapp.com/api/moves/mount/${id}`)
             .then((response) => {
                 console.log(response, 'd r')
 
@@ -355,7 +355,7 @@ export const deleteSidemount = (id) => {
         // dispatch({ type: DELETE_TAKEDOWN_START });
 
         axiosWithAuth()
-            .delete(`http://localhost:5000/api/moves/sidemount/${id}`)
+            .delete(`https://jiujitsux.herokuapp.com/api/moves/sidemount/${id}`)
             .then((response) => {
                 console.log(response, 'd r')
 
@@ -369,7 +369,7 @@ export const deleteBack = (id) => {
         // dispatch({ type: DELETE_TAKEDOWN_START });
 
         axiosWithAuth()
-            .delete(`http://localhost:5000/api/moves/back/${id}`)
+            .delete(`https://jiujitsux.herokuapp.com/api/moves/back/${id}`)
             .then((response) => {
                 console.log(response, 'd r')
 

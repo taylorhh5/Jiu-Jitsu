@@ -16,7 +16,7 @@ export const register = (form, history) => {
 
         // axiosWithAuth()
         axios
-            .post('http://localhost:5000/api/users/register', form)
+            .post('https://jiujitsux.herokuapp.com/api/users/register', form)
             // .then((response) => {
             //     console.log(response, 'POST takedown')
             //     // window.location.reload();
@@ -40,7 +40,7 @@ export const login = (form, history) => {
 
         axios
         
-            .post('http://localhost:5000/api/users/login', form)
+            .post('https://jiujitsux.herokuapp.com/api/users/login', form)
             // .then((response) => {
             //     console.log(response, 'response')
             //     // window.location.reload();

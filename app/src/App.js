@@ -60,7 +60,6 @@ function App(props) {
       <Route path="/sidemount/:id" component={Sidemount}></Route>
       <Route path="/simulation" component={Simulation}></Route>
       <Route path="/opponentmove" component={OpponentMove}></Route>
-      <Route path="/edittest" component={EditTest}></Route>
 
       <PrivateRoute path="/postmove" component={PostMove} />
    
