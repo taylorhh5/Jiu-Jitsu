@@ -25,6 +25,10 @@ const Home = (props) => {
             </div>
             <div className="home-right">
                 <h1 className="member">Not a member?</h1>
+{/*                 
+                <p className="memberQuote">There is no losing in jiu-jitsu.
+                You either win or you learn.
+               -Carlos Gracie</p>  */}
                 <Register/>
 
             </div>
