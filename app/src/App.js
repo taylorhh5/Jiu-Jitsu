@@ -23,7 +23,6 @@ import EditMove from "./EditMove.js";
 import DeleteMove from "./DeleteMove.js";
 import PrivateRoute from "./utils/PrivateRoute.js";
 import Home from './Home.js'
-import EditTest from './EditModal.js'
 function App(props) {
 
   const [navShow, setnavShow] = useState(true)
