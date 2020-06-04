@@ -148,7 +148,7 @@ export const fetchSidemount = () => {
 
 //POSTS
 
-export const addTakedown = (form) => {
+export const addTakedown = (form, history) => {
     return dispatch => {
         dispatch({ type: POST_TAKEDOWN_START });
 
@@ -159,13 +159,16 @@ export const addTakedown = (form) => {
             //     console.log(response, 'POST takedown')
             //     // window.location.reload();
             // })
-        .then(response => dispatch({ type: POST_TAKEDOWN_SUCCESS, payload: response.data }))
+        .then(response => {dispatch({ type: POST_TAKEDOWN_SUCCESS, payload: response.data })
+        history.push("/profile");
+
+    })
         .catch(error => dispatch({ type: POST_TAKEDOWN_FAILURE, payload: error.response }))
 
     };
 };
 
-export const addGuard = (form) => {
+export const addGuard = (form, history) => {
     return dispatch => {
         dispatch({ type: POST_GUARD_START });
 
@@ -176,13 +179,16 @@ export const addGuard = (form) => {
             //     console.log(response, 'POST takedown')
             //     // window.location.reload();
             // })
-        .then(response => dispatch({ type: POST_GUARD_SUCCESS, payload: response.data }))
+        .then(response => {dispatch({ type: POST_GUARD_SUCCESS, payload: response.data })
+        history.push("/profile");
+
+    })
         .catch(error => dispatch({ type: POST_GUARD_FAILURE, payload: error.response }))
 
     };
 };
 
-export const addMount = (form) => {
+export const addMount = (form, history) => {
     return dispatch => {
         dispatch({ type: POST_MOUNT_START });
 
@@ -193,13 +199,16 @@ export const addMount = (form) => {
             //     console.log(response, 'POST takedown')
             //     // window.location.reload();
             // })
-        .then(response => dispatch({ type: POST_MOUNT_SUCCESS, payload: response.data }))
+        .then(response => {dispatch({ type: POST_MOUNT_SUCCESS, payload: response.data })
+        history.push("/profile");
+
+    })
         .catch(error => dispatch({ type: POST_MOUNT_FAILURE, payload: error.response }))
 
     };
 };
 
-export const addSidemount = (form) => {
+export const addSidemount = (form, history) => {
     return dispatch => {
         dispatch({ type: POST_SIDEMOUNT_START });
 
@@ -210,13 +219,16 @@ export const addSidemount = (form) => {
             //     console.log(response, 'POST takedown')
             //     // window.location.reload();
             // })
-        .then(response => dispatch({ type: POST_SIDEMOUNT_SUCCESS, payload: response.data }))
+        .then(response => {dispatch({ type: POST_SIDEMOUNT_SUCCESS, payload: response.data })
+        history.push("/profile");
+
+    })
         .catch(error => dispatch({ type: POST_SIDEMOUNT_FAILURE, payload: error.response }))
 
     };
 };
 
-export const addBack = (form) => {
+export const addBack = (form, history) => {
     return dispatch => {
         dispatch({ type: POST_BACK_START });
 
@@ -227,13 +239,16 @@ export const addBack = (form) => {
             //     console.log(response, 'POST takedown')
             //     // window.location.reload();
             // })
-        .then(response => dispatch({ type: POST_BACK_SUCCESS, payload: response.data }))
+        .then(response => {dispatch({ type: POST_BACK_SUCCESS, payload: response.data })
+        history.push("/profile");
+
+    })
         .catch(error => dispatch({ type: POST_BACK_FAILURE, payload: error.response }))
 
     };
 };
 
-export const editTakedown = (form) => {
+export const editTakedown = (form, history) => {
     // console.log(editTakedown,"edit in action")
     return dispatch => {
 
@@ -242,14 +257,17 @@ export const editTakedown = (form) => {
         axiosWithAuth()
             .put(`https://jiujitsux.herokuapp.com/api/moves/takedown/${form.id}`, form)
             // .then(response => console.log (form, "edit"))
-            .then(response => dispatch({ type: EDIT_TAKEDOWN_SUCCESS, payload:response.data }))
+            .then(response => {dispatch({ type: EDIT_TAKEDOWN_SUCCESS, payload:response.data })
+            history.push("/profile");
+
+        })
         // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
 
     };
 };
 
 
-export const editGuard = (form) => {
+export const editGuard = (form, history) => {
     // console.log(editTakedown,"edit in action")
     return dispatch => {
 
@@ -258,13 +276,16 @@ export const editGuard = (form) => {
         axiosWithAuth()
             .put(`https://jiujitsux.herokuapp.com/api/moves/guard/${form.id}`, form)
             // .then(response => console.log (form, "edit"))
-            .then(response => dispatch({ type: EDIT_GUARD_SUCCESS, payload:response.data }))
+            .then(response => {dispatch({ type: EDIT_GUARD_SUCCESS, payload:response.data })
+            history.push("/profile");
+
+        })
         // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
 
     };
 };
 
-export const editMount = (form) => {
+export const editMount = (form, history) => {
     // console.log(editTakedown,"edit in action")
     return dispatch => {
 
@@ -273,13 +294,16 @@ export const editMount = (form) => {
         axiosWithAuth()
             .put(`https://jiujitsux.herokuapp.com/api/moves/mount/${form.id}`, form)
             // .then(response => console.log (form, "edit"))
-            .then(response => dispatch({ type: EDIT_MOUNT_SUCCESS, payload:response.data }))
+            .then(response => {dispatch({ type: EDIT_MOUNT_SUCCESS, payload:response.data })
+            history.push("/profile");
+
+        })
         // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
 
     };
 };
 
-export const editSidemount = (form) => {
+export const editSidemount = (form, history) => {
     // console.log(editTakedown,"edit in action")
     return dispatch => {
 
@@ -288,12 +312,15 @@ export const editSidemount = (form) => {
         axiosWithAuth()
             .put(`https://jiujitsux.herokuapp.com/api/moves/sidemount/${form.id}`, form)
             // .then(response => console.log (form, "edit"))
-            .then(response => dispatch({ type: EDIT_SIDEMOUNT_SUCCESS, payload:response.data }))
+            .then(response => {dispatch({ type: EDIT_SIDEMOUNT_SUCCESS, payload:response.data })
+            history.push("/profile");
+
+        })
         // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
 
     };
 };
-export const editBack = (form) => {
+export const editBack = (form, history) => {
     // console.log(editTakedown,"edit in action")
     return dispatch => {
 
@@ -302,12 +329,15 @@ export const editBack = (form) => {
         axiosWithAuth()
             .put(`https://jiujitsux.herokuapp.com/api/moves/back/${form.id}`, form)
             // .then(response => console.log (form, "edit"))
-            .then(response => {dispatch({ type: EDIT_BACK_SUCCESS, payload:response.data })})
+            .then(response => {dispatch({ type: EDIT_BACK_SUCCESS, payload:response.data })
+            history.push("/profile");
+
+        })
         // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
 
     };
 };
-export const deleteTakedown = (id) => {
+export const deleteTakedown = (id, history) => {
     return dispatch => {
         // dispatch({ type: DELETE_TAKEDOWN_START });
 
@@ -315,6 +345,8 @@ export const deleteTakedown = (id) => {
             .delete(`https://jiujitsux.herokuapp.com/api/moves/takedown/${id}`)
             .then((response) => {
                 console.log(response, 'd r')
+                history.push("/profile");
+
 
                 // .then(response => dispatch({ type: DELETE_SUCCESS, payload: response.data }))
                 // .catch(error => dispatch({ type: DELETE_FAILURE, payload: error.response }))
@@ -322,7 +354,7 @@ export const deleteTakedown = (id) => {
     };
 };
 
-export const deleteGuard = (id) => {
+export const deleteGuard = (id, history) => {
     return dispatch => {
         // dispatch({ type: DELETE_TAKEDOWN_START });
 
@@ -330,13 +362,16 @@ export const deleteGuard = (id) => {
             .delete(`https://jiujitsux.herokuapp.com/api/moves/guard/${id}`)
             .then((response) => {
                 console.log(response, 'd r')
+                history.push("/profile");
 
-                // .then(response => dispatch({ type: DELETE_SUCCESS, payload: response.data }))
-                // .catch(error => dispatch({ type: DELETE_FAILURE, payload: error.response }))
+            //     .then(response =>{ dispatch({ type: DELETE_SUCCESS, payload: response.data })
+            //     props.history.push("/profile");
+            // })
+            //     .catch(error => dispatch({ type: DELETE_FAILURE, payload: error.response }))
             })
     };
 };
-export const deleteMount = (id) => {
+export const deleteMount = (id, history) => {
     return dispatch => {
         // dispatch({ type: DELETE_TAKEDOWN_START });
 
@@ -344,13 +379,15 @@ export const deleteMount = (id) => {
             .delete(`https://jiujitsux.herokuapp.com/api/moves/mount/${id}`)
             .then((response) => {
                 console.log(response, 'd r')
+                history.push("/profile");
+
 
                 // .then(response => dispatch({ type: DELETE_SUCCESS, payload: response.data }))
                 // .catch(error => dispatch({ type: DELETE_FAILURE, payload: error.response }))
             })
     };
 };
-export const deleteSidemount = (id) => {
+export const deleteSidemount = (id, history) => {
     return dispatch => {
         // dispatch({ type: DELETE_TAKEDOWN_START });
 
@@ -358,13 +395,15 @@ export const deleteSidemount = (id) => {
             .delete(`https://jiujitsux.herokuapp.com/api/moves/sidemount/${id}`)
             .then((response) => {
                 console.log(response, 'd r')
+                history.push("/profile");
+
 
                 // .then(response => dispatch({ type: DELETE_SUCCESS, payload: response.data }))
                 // .catch(error => dispatch({ type: DELETE_FAILURE, payload: error.response }))
             })
     };
 };
-export const deleteBack = (id) => {
+export const deleteBack = (id, history) => {
     return dispatch => {
         // dispatch({ type: DELETE_TAKEDOWN_START });
 
@@ -372,6 +411,8 @@ export const deleteBack = (id) => {
             .delete(`https://jiujitsux.herokuapp.com/api/moves/back/${id}`)
             .then((response) => {
                 console.log(response, 'd r')
+                history.push("/profile");
+
 
                 // .then(response => dispatch({ type: DELETE_SUCCESS, payload: response.data }))
                 // .catch(error => dispatch({ type: DELETE_FAILURE, payload: error.response }))

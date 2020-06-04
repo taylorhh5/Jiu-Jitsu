@@ -118,34 +118,29 @@ const EditMove = (props) => {
         event.preventDefault();
 
         if(move ==="Takedown"){
-            props.editTakedown(form);
-            props.history.push('/profile')
+            props.editTakedown(form, props.history);
     
           
           return;
         }else if (move ==="Guard"){
             event.preventDefault();
 
-            props.editGuard(form);
-            props.history.push('/profile')
+            props.editGuard(form, props.history);
             return;
         }else if (move ==="Mount"){
             event.preventDefault();
 
-            props.editMount(form);
-            props.history.push('/profile')
+            props.editMount(form, props.history);
             return;
         }else if (move ==="Sidemount"){
             event.preventDefault();
 
-            props.editSidemount(form);
-            props.history.push('/profile')
+            props.editSidemount(form, props.history);
             return;
         }else if (move ==="Back"){
             event.preventDefault();
 
-            props.editBack(form);
-            props.history.push('/profile')
+            props.editBack(form, props.history);
             return;
         }
 

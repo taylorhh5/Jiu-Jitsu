@@ -94,33 +94,33 @@ const DeleteMove = (props) => {
     event.preventDefault();
 
     if (move === "Takedown") {
-      props.deleteTakedown(props.match.params.id);
-      props.history.push("/profile");
+      props.deleteTakedown(props.match.params.id, props.history);
+      // props.history.push("/profile");
 
       return;
     } else if (move === "Guard") {
       event.preventDefault();
 
-      props.deleteGuard(props.match.params.id);
-      props.history.push("/profile");
+      props.deleteGuard(props.match.params.id, props.history);
+      // props.history.push("/profile");
       return;
     } else if (move === "Mount") {
       event.preventDefault();
 
-      props.deleteMount(props.match.params.id);
-      props.history.push("/profile");
+      props.deleteMount(props.match.params.id, props.history);
+      // props.history.push("/profile");
       return;
     } else if (move === "Sidemount") {
       event.preventDefault();
 
-      props.deleteSidemount(props.match.params.id);
-      props.history.push("/profile");
+      props.deleteSidemount(props.match.params.id, props.history);
+      // props.history.push("/profile");
       return;
     } else if (move === "Back") {
       event.preventDefault();
 
-      props.deleteBack(props.match.params.id);
-      props.history.push("/profile");
+      props.deleteBack(props.match.params.id, props.history);
+      // props.history.push("/profile");
       return;
     }
   };
@@ -134,13 +134,10 @@ const DeleteMove = (props) => {
 
   return (
     <div className="delete-container">
-      <div  className="delete-button-div">
-     
-        <h1>
-          Are you sure you want to delete this move?
-        </h1>
+      <div className="delete-button-div">
+        <h1>Are you sure you want to delete this move?</h1>
         <button
-        className="delete-button"
+          className="delete-button"
           onClick={(e) => {
             handleSubmit(e);
           }}
