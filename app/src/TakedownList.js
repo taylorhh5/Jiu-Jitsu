@@ -13,24 +13,42 @@ const TakedownList = (props) => {
     props.fetchTakedown();
   }, []);
 
-  const [takedowns, setTakedowns] = useState([]);
-  console.log(takedowns, "takedown component state");
-  console.log(props.moves, "moves");
+  const [takedowns, setTakedowns] = useState('');
+  // console.log(takedowns, "takedown component state");
+  // console.log(props.moves, "moves");
 
-  useEffect(() => {
-    setTakedowns(props.moves.moves);
-  }, [props.moves]);
-
+  // useEffect(() => {
+  //   setTakedowns(props.moves.moves);
+  // }, [props.moves]); 
+  
   if (props.loading) {
     return <h1>Loading...</h1>
   }
+
+  const handleChange = event => {
+    setTakedowns(event.target.value)
+  }
+
+  const filteredTakedowns = props.moves.takedown.filter(takedown =>
+    takedown.name.toLowerCase().includes(takedowns.toLowerCase())
+  )
+
+ 
   return (
     <div className="list-container">
       <h1 className="h1title">You have chosen to take down your opponent!</h1>
+      <input
+          className='search-input'
+          type='text'
+          name='takedown.name'
+          value={filteredTakedowns.name}
+          onChange={handleChange}
+          placeholder='Search Takedowns'
+        />
 
       <h2>Choose the type of takedown you'd like to use.</h2>
       <section className="movelist-section">
-        {props.moves.takedown.map((takedown) => {
+        {filteredTakedowns.map((takedown) => {
           return (
             <div className="movelist-move">
               <Link className="movelist-link" to={`/takedown/${takedown.id}`}>
