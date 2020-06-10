@@ -22,7 +22,7 @@ export const register = (form, history) => {
             //     // window.location.reload();
             // })
             .then(response =>{ dispatch({ type: REGISTER_SUCCESS, payload: response.data })
-         history.push('/login')
+         history.push('/')
     })
 
         .catch(error => {dispatch({ type: REGISTER_FAILURE, payload: error.response })
