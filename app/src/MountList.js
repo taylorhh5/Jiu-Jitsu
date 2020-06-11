@@ -13,13 +13,15 @@ const MountList = (props) => {
     props.fetchMount();
   }, []);
 
-  const [mount, setMount] = useState([]);
-  console.log(mount, "mount component state");
-  console.log(props.moves, "moves");
+  const [mount, setMount] = useState('');
 
-  useEffect(() => {
-    setMount(props.moves.moves);
-  }, [props.moves]);
+  const handleChange = event => {
+    setMount(event.target.value)
+  }
+
+  const filteredMount = props.moves.mount.filter(item =>
+    item.name.toLowerCase().includes(mount.toLowerCase())
+  )
 
   if (props.loading) {
     return <h1>Loading...</h1>
@@ -27,10 +29,19 @@ const MountList = (props) => {
   return (
     <div className="list-container">
              <h1 className="h1title">You have your opponent in mount!</h1>
+
+             <input
+          className='search-input'
+          type='text'
+          name='takedown.name'
+          value={filteredMount.name}
+          onChange={handleChange}
+          placeholder='Search Takedowns'
+        />
              <h2>Choose your move...</h2>
 
       <section className="movelist-section">
-        {props.moves.mount.map((mount) => {
+        {filteredMount.map((mount) => {
           return (
             <div  className="movelist-move">
               <Link className="movelist-link" to={`/mount/${mount.id}`}>
