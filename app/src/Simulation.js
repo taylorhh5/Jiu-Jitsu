@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Simulation.scss"
+import jjopponent from './images/jjopponent.jpg'
+
 
 const Simulation = () => {
 
@@ -9,15 +11,17 @@ const Simulation = () => {
     <div className="sim-container">
       <h1 className="sim-title">Training begins now.</h1>
       {/* <p className="sim-description">Here you get to choose your choose your moves against your opponent.</p> */}
+      <img className="sim-img" src={jjopponent} alt="A man in a BJJ gi" />
 
       <div className="sim-intro-container">
       <h3 className="sim-intro">
+        
 
         You step onto the mat and shake your opponents hand. The match is about
         to begin. You have three options...
       </h3>
+
    
-      {/* <h3 className="sim-choose">What do you choose?</h3> */}
 
       <div className="sim-move-container">
       <ul className="sim-move">

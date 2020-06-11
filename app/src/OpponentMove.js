@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./OpponentMove.scss"
+import bjjroll from './images/bjjroll2.jpg'
 
 const OpponentMove = () => {
   const [num, setNum] = useState((Math.random()*4 ));
@@ -10,6 +11,8 @@ const OpponentMove = () => {
     <div>
       {/* <h1>{num}</h1> */}
       <div className="oppo-container">
+      <img className="sim-img" src={bjjroll} alt="A man in a BJJ gi" />
+
         {(() => {
           if (num <1) {
             return (
