@@ -13,13 +13,16 @@ const SidemountList = (props) => {
     props.fetchSidemount();
   }, []);
 
-  const [sidemount, setsidemount] = useState([]);
-  console.log(sidemount, "sidemount component state");
-  console.log(props.moves, "moves");
+  const [sidemount, setsidemount] = useState('');
 
-  useEffect(() => {
-    setsidemount(props.moves.moves);
-  }, [props.moves]);
+  const handleChange = event => {
+    setsidemount(event.target.value)
+  }
+
+  const filteredSidemount = props.moves.sidemount.filter(items =>
+    items.name.toLowerCase().includes(sidemount.toLowerCase())
+  )
+
 
   if (props.loading) {
     return <h1>Loading...</h1>
@@ -27,9 +30,18 @@ const SidemountList = (props) => {
   return (
     <div className="list-container">
              <h1 className="h1title">You have side control of your opponent!</h1>
+
+             <input
+          className='search-input'
+          type='text'
+          name='takedown.name'
+          value={filteredSidemount.name}
+          onChange={handleChange}
+          placeholder='Search Takedowns'
+        />
              <h2>Choose your move...</h2>
       <section className="movelist-section">
-        {props.moves.sidemount.map((sidemount) => {
+        {filteredSidemount.map((sidemount) => {
           return (
             <div className="movelist-move">
               <Link className="movelist-link" to={`/sidemount/${sidemount.id}`}>

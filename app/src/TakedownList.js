@@ -14,12 +14,7 @@ const TakedownList = (props) => {
   }, []);
 
   const [takedowns, setTakedowns] = useState('');
-  // console.log(takedowns, "takedown component state");
-  // console.log(props.moves, "moves");
-
-  // useEffect(() => {
-  //   setTakedowns(props.moves.moves);
-  // }, [props.moves]); 
+ 
   
   if (props.loading) {
     return <h1>Loading...</h1>
