@@ -344,7 +344,7 @@ export const deleteTakedown = (id, history) => {
         axiosWithAuth()
             .delete(`https://jiujitsux.herokuapp.com/api/moves/takedown/${id}`)
             .then((response) => {
-                console.log(response, 'd r')
+                // console.log(response, 'd r')
                 history.push("/profile");
 
 
@@ -361,7 +361,7 @@ export const deleteGuard = (id, history) => {
         axiosWithAuth()
             .delete(`https://jiujitsux.herokuapp.com/api/moves/guard/${id}`)
             .then((response) => {
-                console.log(response, 'd r')
+                // console.log(response, 'd r')
                 history.push("/profile");
 
             //     .then(response =>{ dispatch({ type: DELETE_SUCCESS, payload: response.data })
@@ -378,7 +378,7 @@ export const deleteMount = (id, history) => {
         axiosWithAuth()
             .delete(`https://jiujitsux.herokuapp.com/api/moves/mount/${id}`)
             .then((response) => {
-                console.log(response, 'd r')
+                // console.log(response, 'd r')
                 history.push("/profile");
 
 
@@ -394,7 +394,7 @@ export const deleteSidemount = (id, history) => {
         axiosWithAuth()
             .delete(`https://jiujitsux.herokuapp.com/api/moves/sidemount/${id}`)
             .then((response) => {
-                console.log(response, 'd r')
+                // console.log(response, 'd r')
                 history.push("/profile");
 
 
@@ -410,7 +410,7 @@ export const deleteBack = (id, history) => {
         axiosWithAuth()
             .delete(`https://jiujitsux.herokuapp.com/api/moves/back/${id}`)
             .then((response) => {
-                console.log(response, 'd r')
+                // console.log(response, 'd r')
                 history.push("/profile");
 
 

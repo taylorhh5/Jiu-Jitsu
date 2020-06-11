@@ -6,7 +6,6 @@ import "./MoveCard.scss"
 
 
 const Sidemount = (props) => {
-  console.log(props, "props in single");
 
   useEffect(() => {
     props.fetchSidemount();
@@ -19,7 +18,6 @@ const Sidemount = (props) => {
   const chosensidemount = props.moves.sidemount.filter(
     (data) => `${data.id}` === props.match.params.id
   );
-  console.log(chosensidemount, "params");
 
   return (
     <div>

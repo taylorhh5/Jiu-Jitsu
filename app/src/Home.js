@@ -8,7 +8,6 @@ import { withRouter } from "react-router";
 
 
 const Home = (props) => {
-    console.log(props.location.pathname,"props in home")
     return (
         <div>
             <div className="top-home">

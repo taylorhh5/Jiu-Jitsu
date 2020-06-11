@@ -28,6 +28,18 @@
     align-items: center;
     margin-top: 5.3rem;
     padding-top: 0.7rem;
+
+
+    // .review-container .review-left:nth-of-type(1) {
+    //   order: 3;
+    // }
+    // .review-container .review-center:nth-of-type(2) {
+    //   order: 2;
+    // }
+    // .review-container .review-right:nth-of-type(3) {
+    //   order: 1;
+    // }
+  
   }
   @media screen and (max-width: 500px) {
     // margin-right:0rem;
@@ -71,6 +83,7 @@
 
     // list-style-type: none;
     @media screen and (max-width: 900px) {
+      // order:2;
       margin-left: 20%;
     }
   }
@@ -146,6 +159,7 @@
     }
   }
   @media screen and (max-width: 900px) {
+    order: -1;
     width: 60%;
     margin-top: 1.2rem;
   }
@@ -181,6 +195,7 @@
     font-weight: 600;
   }
   @media screen and (max-width: 900px) {
+    // order: 3;
     width: 60%;
     margin-top: 1.2rem;
   }

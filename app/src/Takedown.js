@@ -7,7 +7,6 @@ import "./MoveCard.scss"
 
 
 const TakedownCard = (props) => {
-  console.log(props, "props in single");
 
   useEffect(() => {
     props.fetchTakedown();
@@ -20,7 +19,6 @@ const TakedownCard = (props) => {
   const chosenTakedown = props.moves.takedown.filter(
     (data) => `${data.id}` === props.match.params.id
   );
-  console.log(chosenTakedown, "params");
 
 
   return (

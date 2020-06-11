@@ -16,7 +16,6 @@ import { withRouter } from "react-router";
 import "./DeleteMove.scss";
 
 const DeleteMove = (props) => {
-  console.log(props, "props in edit");
 
   const move = localStorage.getItem("edit_type");
 
@@ -41,7 +40,6 @@ const DeleteMove = (props) => {
   }, []);
 
   const [form, setForm] = useState();
-  console.log(form, "formmmmm");
 
   useEffect(() => {
     if (move === "Takedown") {

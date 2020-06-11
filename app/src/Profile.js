@@ -8,7 +8,6 @@ import './Profile.scss'
 
 
 const Profile = (props) => {
-  console.log(props, "props in single");
 
   const user_id = localStorage.getItem('user_id')
 // const [takedowndata, settakedowndata]=useState()
@@ -24,16 +23,6 @@ const Profile = (props) => {
   }, []);
 
 
-//   useEffect(() => {
-//     const caseToEdit = props.caseInfo.find(
-//       data => `${data.socialCaseId}` === props.match.params.id
-//     );
-//     if (caseToEdit) setInfo(caseToEdit);
-//   }, [props.caseInfo, props.match.params.id])
-//   useEffect(() => {
-//     settakedowndata(props.moves.takedown);
-//   }, [props.moves.takedown]);
-//   console.log(takedowndata,"tttttttttttttt")
 
   if (props.loading) {
     return <h1>Loading...</h1>
@@ -46,7 +35,6 @@ const Profile = (props) => {
   const chosenTakedown = props.moves.takedown.filter(
     (data) => `${data.user_id}` === user_id
   );
-  console.log(chosenTakedown, "params");
   
   const chosenguard = props.moves.guard.filter(
     (data) => `${data.user_id}` === user_id

@@ -5,7 +5,6 @@ import { withRouter } from "react-router";
 import "./MoveCard.scss";
 
 const Guard = (props) => {
-  console.log(props, "props in single");
 
   useEffect(() => {
     props.fetchGuard();
@@ -18,7 +17,6 @@ const Guard = (props) => {
   const chosenGuard = props.moves.guard.filter(
     (data) => `${data.id}` === props.match.params.id
   );
-  console.log(chosenGuard, "params");
 
   return (
     <div>

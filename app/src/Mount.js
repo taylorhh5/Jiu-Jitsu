@@ -5,7 +5,6 @@ import { withRouter } from "react-router";
 import "./MoveCard.scss"
 
 const MountCard = (props) => {
-  console.log(props, "props in mount");
 
   useEffect(() => {
     props.fetchMount();
@@ -18,7 +17,6 @@ const MountCard = (props) => {
   const chosenmount = props.moves.mount.filter(
     (data) => `${data.id}` === props.match.params.id
   );
-  console.log(chosenmount, "params");
 
   return (
     <div>

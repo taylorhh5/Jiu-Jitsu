@@ -21,7 +21,6 @@ const Register = (props) => {
       const handleLogin = event => {
         
           event.preventDefault();
-          console.log(signUp,"in signup")
           props.register(signUp, props.history);
       
     }

@@ -7,7 +7,6 @@ import "./MoveList.scss"
 
 
 const GuardList = (props) => {
-  console.log(props, "propsin");
 
   useEffect(() => {
     props.fetchGuard();

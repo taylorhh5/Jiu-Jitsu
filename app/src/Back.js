@@ -6,7 +6,6 @@ import "./MoveCard.scss"
 
 
 const Back = (props) => {
-  console.log(props, "props in single");
 
   useEffect(() => {
     props.fetchBack();
@@ -19,7 +18,6 @@ const Back = (props) => {
   const chosenBack = props.moves.back.filter(
     (data) => `${data.id}` === props.match.params.id
   );
-  console.log(chosenBack, "params");
 
   return (
     <div>

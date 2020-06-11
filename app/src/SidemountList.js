@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import "./MoveList.scss"
 
 const SidemountList = (props) => {
-  console.log(props, "propsin");
 
   useEffect(() => {
     props.fetchSidemount();

@@ -27,7 +27,7 @@ function App(props) {
 
   const [navShow, setnavShow] = useState(true)
 
-  console.log(props,"propsinapp")
+  
    const token = localStorage.getItem("token")
 
 // console.log (token,"token")

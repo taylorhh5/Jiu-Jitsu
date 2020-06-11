@@ -6,7 +6,6 @@ import "./EditMove.scss"
 
 
 const EditMove = (props) => {
-  console.log(props,"props in edit")
 
   const move = localStorage.getItem("edit_type")
     

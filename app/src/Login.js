@@ -20,7 +20,6 @@ const Login = (props) => {
   };
   const handleLogin = (event) => {
     event.preventDefault();
-    console.log(login, "in login");
     props.login(login, props.history);
   };
   // if(props.moves.error.data){

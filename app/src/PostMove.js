@@ -11,14 +11,12 @@ import { withRouter } from "react-router";
 import "./PostMove.scss";
 
 const PostMove = (props) => {
-  console.log(props.moves.error.data, "props in post");
 
   const [drop, setDrop] = useState({
     move: "Takedown",
   });
 
   const user_id = localStorage.getItem("user_id");
-  console.log(user_id, "uid");
   //when posting a move we are hardcoding the user id that is saved in local storage from login
   //this way we can get all moves with the users specific id for their profile page
   const [form, setForm] = useState({
@@ -44,29 +42,24 @@ const PostMove = (props) => {
   const handleSubmit = (event) => {
     if (drop.move === "Takedown") {
       event.preventDefault();
-      console.log(form, "in form");
       props.addTakedown(form, props.history);
       // props.history.push("/profile");
 
       return;
     } else if (drop.move === "Guard") {
       event.preventDefault();
-      console.log(form, "in form");
       props.addGuard(form, props.history);
       // props.history.push("/profile");
     } else if (drop.move === "Mount") {
       event.preventDefault();
-      console.log(form, "in form");
       props.addMount(form, props.history);
       // props.history.push("/profile");
     } else if (drop.move === "Sidemount") {
       event.preventDefault();
-      console.log(form, "in form");
       props.addSidemount(form, props.history);
       // props.history.push("/profile");
     } else if (drop.move === "Back") {
       event.preventDefault();
-      console.log(form, "in form");
       props.addBack(form, props.history);
       // props.history.push("/profile");
     }

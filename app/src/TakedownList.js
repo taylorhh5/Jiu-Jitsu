@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import "./MoveList.scss"
 
 const TakedownList = (props) => {
-  console.log(props, "propsin");
 
   useEffect(() => {
     props.fetchTakedown();
@@ -24,8 +23,8 @@ const TakedownList = (props) => {
     setTakedowns(event.target.value)
   }
 
-  const filteredTakedowns = props.moves.takedown.filter(takedown =>
-    takedown.name.toLowerCase().includes(takedowns.toLowerCase())
+  const filteredTakedowns = props.moves.takedown.filter(item =>
+    item.name.toLowerCase().includes(takedowns.toLowerCase())
   )
 
  
