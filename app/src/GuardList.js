@@ -13,13 +13,17 @@ const GuardList = (props) => {
     props.fetchGuard();
   }, []);
 
-  const [guard, setGuard] = useState([]);
-  console.log(guard, "guard component state");
-  console.log(props.moves, "moves");
+  const [guard, setGuard] = useState('');
 
-  useEffect(() => {
-    setGuard(props.moves.moves);
-  }, [props.moves]);
+
+
+  const handleChange = event => {
+    setGuard(event.target.value)
+  }
+
+  const filteredGuard = props.moves.guard.filter(item =>
+    item.name.toLowerCase().includes(guard.toLowerCase())
+  )
 
   if (props.loading) {
     return <h1>Loading...</h1>
@@ -28,10 +32,19 @@ const GuardList = (props) => {
     <div className="list-container">
          <h1 className="h1title">You have your opponent in guard!</h1>
             <p>Explain guard overview</p>
+
+            <input
+          className='search-input'
+          type='text'
+          name='takedown.name'
+          value={filteredGuard.name}
+          onChange={handleChange}
+          placeholder='Search Takedowns'
+        />
             <h2>Choose your move...</h2>
 
       <section className="movelist-section">
-        {props.moves.guard.map((guard) => {
+        {filteredGuard.map((guard) => {
           return (
             <div className="movelist-move">
               <Link className="movelist-link" to={`/guard/${guard.id}`}>

@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import "./MoveList.scss"
 
 const BackList = (props) => {
-  console.log(props, "propsin");
 
   useEffect(() => {
     props.fetchBack();
@@ -21,9 +20,6 @@ const BackList = (props) => {
   const filteredBack = props.moves.back.filter(back =>
     back.name.toLowerCase().includes(backForm.toLowerCase())
   )
-  // useEffect(() => {
-  //   setback(props.moves.moves);
-  // }, [props.moves]);
 
   if (props.loading) {
     return <h1>Loading...</h1>
