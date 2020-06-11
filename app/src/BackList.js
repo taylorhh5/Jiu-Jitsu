@@ -12,13 +12,18 @@ const BackList = (props) => {
     props.fetchBack();
   }, []);
 
-  const [back, setback] = useState([]);
-  console.log(back, "back component state");
-  console.log(props.moves, "moves");
+  const [backForm, setbackForm] = useState('');
 
-  useEffect(() => {
-    setback(props.moves.moves);
-  }, [props.moves]);
+  const handleChange = event => {
+    setbackForm(event.target.value)
+  }
+
+  const filteredBack = props.moves.back.filter(back =>
+    back.name.toLowerCase().includes(backForm.toLowerCase())
+  )
+  // useEffect(() => {
+  //   setback(props.moves.moves);
+  // }, [props.moves]);
 
   if (props.loading) {
     return <h1>Loading...</h1>
@@ -26,10 +31,18 @@ const BackList = (props) => {
   return (
     <div className="list-container"> 
   <h1 className="h1title">You have taken your opponents back!</h1>
+  <input
+          className='search-input'
+          type='text'
+          name='takedown.name'
+          value={filteredBack.name}
+          onChange={handleChange}
+          placeholder='Search Takedowns'
+        />
   <h2 >Choose your move...</h2>
 
       <section className="movelist-section">
-        {props.moves.back.map((back) => {
+        {filteredBack.map((back) => {
           return (
             <div className="movelist-move">
               <Link className="movelist-link" to={`/back/${back.id}`}>
