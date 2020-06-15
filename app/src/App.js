@@ -47,12 +47,7 @@ function App(props) {
       <Route exact path="/review" component={Review}></Route>
 
       <Route path="/Takedowns" component={TakedownList}></Route>
-      {/* <Route
-        path=
-        render={props => {
-          return <Takedown {...props} />;
-        }}
-      /> */}
+  
       <Route path="/takedown/:id" component={Takedown}></Route>
       <Route path="/guard/:id" component={Guard}></Route>
       <Route path="/mount/:id" component={Mount}></Route>
@@ -69,7 +64,6 @@ function App(props) {
       <PrivateRoute path="/profile" component={Profile}/>
       <PrivateRoute path="/edit/:id" component={EditMove}/>
       <Route path="/delete/:id" component={DeleteMove}></Route>
-      {/* <Route path="/navbar" component={NavBar}></Route> */}
 
       <Route path="/guardlist" component={GuardList}></Route>
       <Route path="/Mountlist" component={MountList}></Route>

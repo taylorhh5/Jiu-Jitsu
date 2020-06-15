@@ -49,8 +49,7 @@ const BackList = (props) => {
         })}
       </section>
 
-      {/* list of mapped back */}
-      {/* post- get userid from local storage, saved from sign in */}
+
     </div>
   );
 };

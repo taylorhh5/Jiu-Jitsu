@@ -38,13 +38,11 @@ const Simulation = () => {
           </Link>
         </li>
         <li>
-          {" "}
-          {/* <button onClick={randomNum}> */}
+        
           <Link to={`/opponentmove`}>
              <h2>I want to let my opponent make the first move.</h2>
           </Link>
         
-          {/* </button> */}
         </li>
        
 
