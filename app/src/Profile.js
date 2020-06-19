@@ -64,7 +64,6 @@ const Profile = (props) => {
         {chosenTakedown.map((takedown) => {
           return (
             <div className="profile-move-div" key={takedown.id}>
-                {/* <h1>Takedowns</h1> */}
               <h2 className="profile-move-name">{takedown.name}</h2>
    <img className="profile-move-img" src={takedown.image_url}  />
               <p className="profile-move-description">{takedown.description}</p>

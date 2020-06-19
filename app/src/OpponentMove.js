@@ -9,7 +9,6 @@ const OpponentMove = () => {
 
   return (
     <div>
-      {/* <h1>{num}</h1> */}
       <div className="oppo-container">
       <img className="sim-img" src={bjjroll} alt="A man in a BJJ gi" />
 

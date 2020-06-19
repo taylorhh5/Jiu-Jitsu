@@ -54,8 +54,7 @@ const GuardList = (props) => {
         })}
       </section>
 
-      {/* list of mapped guard */}
-      {/* post- get userid from local storage, saved from sign in */}
+      
     </div>
   );
 };

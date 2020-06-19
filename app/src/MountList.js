@@ -51,8 +51,7 @@ const MountList = (props) => {
         })}
       </section>
 
-      {/* list of mapped mount */}
-      {/* post- get userid from local storage, saved from sign in */}
+
     </div>
   );
 };

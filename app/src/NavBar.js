@@ -31,14 +31,13 @@ const NavBar = (props) => {
                 <p className="quote2">You either win or you learn. -Carlos Gracie </p>
                
             </div>
-          {/* <div className="navright">  */}
           <NavLink to="/review">Home</NavLink>
           <NavLink to="/profile">Profile</NavLink>
 
           <NavLink to="/" onClick={handleLogout}>
             Logout
           </NavLink>
-          {/* </div> */}
+         
         </div>
       ) : null}
     </div>
