@@ -51,8 +51,7 @@ const SidemountList = (props) => {
         })}
       </section>
 
-      {/* list of mapped sidemount */}
-      {/* post- get userid from local storage, saved from sign in */}
+ 
     </div>
   );
 };

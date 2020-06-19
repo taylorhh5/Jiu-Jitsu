@@ -85,7 +85,6 @@ const Profile = (props) => {
         {chosenguard.map((guard) => {
           return (
             <div className="profile-move-div" key={guard.id}>
-                {/* <h1>Guard Moves</h1> */}
               <h2 lassName="profile-move-name">{guard.name}</h2>
    <img className="profile-move-img" src={guard.image_url}  />
               <p className="profile-move-description">{guard.description}</p>
@@ -108,7 +107,6 @@ const Profile = (props) => {
           return (
             
             <div className="profile-move-div" key={mount.id}> 
-             {/* <h1>Mount Moves</h1> */}
               <h2 lassName="profile-move-name">{mount.name}</h2>
    <img className="profile-move-img" className="profile-move-img" src={mount.image_url}  />
               <p className="profile-move-description">{mount.description}</p>
@@ -129,7 +127,6 @@ const Profile = (props) => {
           return (
               
             <div className="profile-move-div" key={sidemount.id}>
-                {/* <h1>Side Control Moves</h1> */}
               <h2 lassName="profile-move-name">{sidemount.name}</h2>
    <img className="profile-move-img" src={sidemount.image_url}  />
               <p className="profile-move-description">{sidemount.description}</p>
@@ -149,7 +146,6 @@ const Profile = (props) => {
         {chosenback.map((back) => {
           return (
             <div className="profile-move-div" key={back.id}>
-                {/* <h1>Back Control Moves</h1> */}
               <h2 lassName="profile-move-name">{back.name}</h2>
    <img className="profile-move-img" src={back.image_url}  />
               <p className="profile-move-description">{back.description}</p>

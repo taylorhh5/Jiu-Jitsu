@@ -33,7 +33,6 @@ const Review = () => {
     
 
       <h3 className="left-title">Review Moves</h3>
-      {/* //links/routes to components, takedowns/ mount/ guard/ escapes */}
       <ul>
         <li>
           <Link to="/Takedowns">Takedowns</Link>
@@ -65,7 +64,6 @@ const Review = () => {
       <div className="review-right">
         <h2>Want to contribute?</h2>
         <p>Add your own move.</p>
-      {/* <h2> You can add your own move <Link to="/postmove">here.</Link></h2> */}
       <PostMove/>
       </div>
       </div>

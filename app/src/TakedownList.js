@@ -46,7 +46,6 @@ const TakedownList = (props) => {
           return (
             <div className="movelist-move">
               <Link className="movelist-link" to={`/takedown/${takedown.id}`}>
-              {/* <img className="movelist-img"  src={takedown.image_url}  /> */}
 
                 <h1 className="movelist-name"> {takedown.name}</h1>
               </Link>
@@ -55,8 +54,7 @@ const TakedownList = (props) => {
         })}
       </section>
 
-      {/* list of mapped takedowns */}
-      {/* post- get userid from local storage, saved from sign in */}
+    
     </div>
   );
 };
