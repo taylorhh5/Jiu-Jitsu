@@ -22,13 +22,10 @@ const Login = (props) => {
     event.preventDefault();
     props.login(login, props.history);
   };
-  // if(props.moves.error.data){
-  //     alert("Make sure you're logged in")
-  //    }
+
   return (
     <>
       <form className="loginForm" onSubmit={handleLogin}>
-        {/* <h1 className="signp">Login</h1> */}
         <label className ="loginLabel">
           Email
           <input
@@ -37,7 +34,6 @@ const Login = (props) => {
             name="email"
             value={login.email}
             onChange={handleChange}
-            // placeholder=" Email"
           />
         </label>
         <label className ="loginLabel">
@@ -51,7 +47,6 @@ const Login = (props) => {
         />
 </label>
         <button className="loginButton">Log In</button>
-        {/* <Link to="/login">Already a member?</Link> */}
       </form>
     </>
   );

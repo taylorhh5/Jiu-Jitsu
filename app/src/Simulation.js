@@ -10,7 +10,6 @@ const Simulation = () => {
   return (
     <div className="sim-container">
       <h1 className="sim-title">Training begins now.</h1>
-      {/* <p className="sim-description">Here you get to choose your choose your moves against your opponent.</p> */}
       <img className="sim-img" src={jjopponent} alt="A man in a BJJ gi" />
 
       <div className="sim-intro-container">

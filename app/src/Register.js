@@ -49,7 +49,6 @@ const Register = (props) => {
             />
       
             <button className="signup-button">Sign up</button>
-            {/* <Link to="/login">Already a member?</Link> */}
           </form>
         </>
       );
