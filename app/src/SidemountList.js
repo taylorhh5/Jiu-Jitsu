@@ -36,7 +36,7 @@ const SidemountList = (props) => {
           name='takedown.name'
           value={filteredSidemount.name}
           onChange={handleChange}
-          placeholder='Search Takedowns'
+          placeholder='Search Side Control Moves'
         />
              <h2>Choose your move...</h2>
       <section className="movelist-section">

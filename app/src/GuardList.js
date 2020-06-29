@@ -38,7 +38,7 @@ const GuardList = (props) => {
           name='takedown.name'
           value={filteredGuard.name}
           onChange={handleChange}
-          placeholder='Search Takedowns'
+          placeholder='Search Guard Moves'
         />
             <h2>Choose your move...</h2>
 

@@ -35,7 +35,7 @@ const MountList = (props) => {
           name='takedown.name'
           value={filteredMount.name}
           onChange={handleChange}
-          placeholder='Search Takedowns'
+          placeholder='Search Mount Moves'
         />
              <h2>Choose your move...</h2>
 

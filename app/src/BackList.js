@@ -33,7 +33,7 @@ const BackList = (props) => {
           name='takedown.name'
           value={filteredBack.name}
           onChange={handleChange}
-          placeholder='Search Takedowns'
+          placeholder='Search Back Moves'
         />
   <h2 >Choose your move...</h2>
 
