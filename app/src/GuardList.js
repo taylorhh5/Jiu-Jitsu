@@ -30,7 +30,7 @@ const GuardList = (props) => {
   return (
     <div className="list-container">
          <h1 className="h1title">You have your opponent in guard!</h1>
-            <p>Explain guard overview</p>
+            {/* <p>Explain guard overview</p> */}
 
             <input
           className='search-input'
@@ -45,11 +45,11 @@ const GuardList = (props) => {
       <section className="movelist-section">
         {filteredGuard.map((guard) => {
           return (
-            <div className="movelist-move">
-              <Link className="movelist-link" to={`/guard/${guard.id}`}>
+            // <div className="movelist-move">
+              <Link className="movelist-move" to={`/guard/${guard.id}`}>
                 <h1 className="movelist-name"> {guard.name}</h1>
               </Link>
-            </div>
+            // </div>
           );
         })}
       </section>

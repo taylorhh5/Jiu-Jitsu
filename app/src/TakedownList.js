@@ -44,12 +44,15 @@ const TakedownList = (props) => {
       <section className="movelist-section">
         {filteredTakedowns.map((takedown) => {
           return (
-            <div className="movelist-move">
-              <Link className="movelist-link" to={`/takedown/${takedown.id}`}>
+                          <Link className="movelist-move" to={`/takedown/${takedown.id}`}>
+
+            {/* <div className="movelist-move"> */}
 
                 <h1 className="movelist-name"> {takedown.name}</h1>
-              </Link>
-            </div>
+             
+            {/* </div> */}
+ </Link>
+
           );
         })}
       </section>

@@ -42,11 +42,11 @@ const MountList = (props) => {
       <section className="movelist-section">
         {filteredMount.map((mount) => {
           return (
-            <div  className="movelist-move">
-              <Link className="movelist-link" to={`/mount/${mount.id}`}>
+            // <div  className="movelist-move">
+              <Link className="movelist-move" to={`/mount/${mount.id}`}>
                 <h1 className="movelist-name"> {mount.name}</h1>
               </Link>
-            </div>
+            // </div>
           );
         })}
       </section>

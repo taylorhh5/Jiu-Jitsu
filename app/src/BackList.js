@@ -40,11 +40,11 @@ const BackList = (props) => {
       <section className="movelist-section">
         {filteredBack.map((back) => {
           return (
-            <div className="movelist-move">
-              <Link className="movelist-link" to={`/back/${back.id}`}>
+            // <div className="movelist-move">
+              <Link className="movelist-move" to={`/back/${back.id}`}>
                 <h1 className="movelist-name"> {back.name}</h1>
               </Link>
-            </div>
+            // </div>
           );
         })}
       </section>

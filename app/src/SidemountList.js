@@ -42,11 +42,11 @@ const SidemountList = (props) => {
       <section className="movelist-section">
         {filteredSidemount.map((sidemount) => {
           return (
-            <div className="movelist-move">
-              <Link className="movelist-link" to={`/sidemount/${sidemount.id}`}>
+            // <div className="movelist-move">
+              <Link className="movelist-move" to={`/sidemount/${sidemount.id}`}>
                 <h1 className="movelist-name"> {sidemount.name}</h1>
               </Link>
-            </div>
+            // </div>
           );
         })}
       </section>
