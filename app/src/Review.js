@@ -1,5 +1,7 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
+import axios from 'axios'
+
 import TakedownList from "./TakedownList.js";
 import GuardList from "./GuardList.js";
 import MountList from "./MountList.js";
@@ -27,6 +29,18 @@ import bflag from './images/bflag.jpg'
 
 
 const Review = () => {
+
+
+  useEffect(() => {
+    axios
+      .get("https://jiujitsux.herokuapp.com/api/users/2")
+      .then(response => {
+        console.log("Welcome");
+        
+      })
+      .catch(error => console.log("error"));
+  }, []);
+
   return (
     <div className="review-container">
       <div className="review-left">

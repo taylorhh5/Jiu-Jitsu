@@ -1,17 +1,32 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Register from './Register.js'
 import Login from './Login'
+import axios from 'axios'
+
 import './Home.scss'
 import { withRouter } from "react-router";
+import { Link } from "react-router-dom";
+
 
 
 
 
 const Home = (props) => {
+
+    useEffect(() => {
+        axios
+          .get("https://jiujitsux.herokuapp.com/api/users/2")
+          .then(response => {
+            console.log("Welcome");
+            
+          })
+          .catch(error => console.log("error"));
+      }, []);
     return (
         <div>
             <div className="top-home">
-                    <h1 className="intro">Brazilian Jiu-Jitsu Trainer</h1>
+                    <Link to="/review"><h1 className="intro">Brazilian Jiu-Jitsu Trainer</h1></Link>
+
                     < Login/>
 </div>
         <div className= "container">

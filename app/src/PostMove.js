@@ -12,6 +12,8 @@ import "./PostMove.scss";
 
 const PostMove = (props) => {
 
+  const token = localStorage.getItem("token");
+
   const [drop, setDrop] = useState({
     move: "Takedown",
   });
@@ -40,7 +42,12 @@ const PostMove = (props) => {
   };
 
   const handleSubmit = (event) => {
-    if (drop.move === "Takedown") {
+
+    if (!token){
+      alert("Please log into your account if you would like to add a move.")
+    }
+
+    else if (drop.move === "Takedown") {
       event.preventDefault();
       props.addTakedown(form, props.history);
       // props.history.push("/profile");

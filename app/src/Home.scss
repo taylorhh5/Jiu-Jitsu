@@ -115,6 +115,9 @@
   text-align: center;
   align-items: center;
   align-content: center;
+  &:hover {
+    color: #050608b2;
+  }
 }
 
 .memberQuote {
