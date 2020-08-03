@@ -35,7 +35,7 @@ const NavBar = (props) => {
           <NavLink to="/profile">Profile</NavLink>
 
           <NavLink to="/" onClick={handleLogout}>
-            Logout
+            {token ? "Logout" : "Register"}
           </NavLink>
          
         </div>
