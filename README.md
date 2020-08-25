@@ -16,10 +16,10 @@ in the project directory, you can run:
 runs the app in development mode. open http://localhost:3000 to view in the browser.
 The page will reload if you make edits. You will also see any lint errors in the console.
 
-## npm build
+## yarn build
 Builds the app for production to the build folder. It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## npm eject
+## yarn eject
 Note: this is a one-way operation. Once you eject, you can’t go back!
 
 If you aren’t satisfied with the build tool and configuration choices, you can eject at any time. This command will remove the single build dependency from your project.
