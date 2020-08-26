@@ -17,7 +17,7 @@ cd into the app folder
 Run yarn install to install necessary packages
 Now you can run the scripts listed below to start the app in development mode or build the app for production.
 
-## Available Scripts
+# Available Scripts
 In the project directory, after running npm install or yarn install, you can run:
 
 ### yarn start
