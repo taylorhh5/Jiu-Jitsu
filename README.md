@@ -10,18 +10,26 @@ A way for people to **learn** and **share** their knowledge of Brazilian Jiu-Jit
 # Tech Stack
 CSS | JavaScript | React | Redux | Node.js/Express | PostgresSQL
 
-# Available Scripts 
-in the project directory, you can run:
-## yarn start 
+
+## Installation
+Clone the repository
+cd into the app folder
+Run yarn install to install necessary packages
+Now you can run the scripts listed below to start the app in development mode or build the app for production.
+
+## Available Scripts
+In the project directory, after running npm install or yarn install, you can run:
+
+### yarn start
 runs the app in development mode. open http://localhost:3000 to view in the browser.
 The page will reload if you make edits. You will also see any lint errors in the console.
 
+## yarn test
+Launches the test runner in the interactive watch mode.
+See the section about running tests for more information.
+
 ## yarn build
-Builds the app for production to the build folder. It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production to the build folder.
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## yarn eject
-Note: this is a one-way operation. Once you eject, you can’t go back!
-
-If you aren’t satisfied with the build tool and configuration choices, you can eject at any time. This command will remove the single build dependency from your project.
-
-You don’t have to ever use eject. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Your app is ready to be deployed!
