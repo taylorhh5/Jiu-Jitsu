@@ -1,9 +1,9 @@
 .container {
   font-family: "Open Sans Condensed", sans-serif;
   display: flex;
-    // height: 58vh;
-// border:1px solid red;
-  padding-top: .7rem;
+  // height: 58vh;
+  // border:1px solid red;
+  padding-top: 0.7rem;
   padding-bottom: 7.1rem;
   //   background-image: src={};
   background-image: url("https://images.pexels.com/photos/2253934/pexels-photo-2253934.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
@@ -20,13 +20,13 @@
   }
 }
 .home-right {
-    // border: 3px solid red;
-    // margin-top: 5rem;
+  // border: 3px solid red;
+  // margin-top: 5rem;
   padding-left: 8rem;
   width: 36%;
 
   .member {
-    padding-top: .6rem;
+    padding-top: 0.6rem;
     // border:1px solid red;
     // margin-bottom: 1.8rem;
     color: white;
@@ -46,7 +46,7 @@
   }
 
   @media screen and (max-width: 350px) {
- margin-right: 1.5rem;
+    margin-right: 1.5rem;
   }
 }
 
@@ -90,8 +90,8 @@
 }
 .top-home {
   // border:2px solid red;
-  padding-right: .5rem;
-  margin-top: .3rem;
+  padding-right: 0.5rem;
+  margin-top: 0.3rem;
   margin-bottom: 1.1rem;
   display: flex;
   align-items: center;
@@ -99,15 +99,14 @@
   justify-content: space-around;
   margin-left: 33%;
   @media screen and (max-width: 900px) {
-      
-  flex-direction: column;
+    flex-direction: column;
     margin-left: 0%;
     padding-bottom: 2rem;
-    padding-right: .5rem;
+    padding-right: 0.5rem;
   }
   @media screen and (max-width: 900px) {
     padding-bottom: 0rem;
- }
+  }
 }
 .intro {
   font-family: "Open Sans Condensed", sans-serif;
@@ -121,7 +120,7 @@
 }
 
 .memberQuote {
-  padding-top: .6rem;
+  padding-top: 0.6rem;
   // border:1px solid red;
   // margin-bottom: 1.8rem;
   color: white;
@@ -130,6 +129,17 @@
   text-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   @media screen and (max-width: 900px) {
     font-size: 1.2rem;
-    padding-right:1rem;
+    padding-right: 1rem;
+  }
+}
+.guestEnter {
+  margin-top: -2.9rem;
+  margin-bottom: 0.2rem;
+  color: cadetblue;
+  font-size: 1.6rem;
+  padding-right: 2.4rem;
+
+  @media screen and (max-width: 900px) {
+    margin-top: -.4rem;
   }
 }

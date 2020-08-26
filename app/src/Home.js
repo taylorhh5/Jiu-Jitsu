@@ -29,6 +29,7 @@ const Home = (props) => {
 
                     < Login/>
 </div>
+<Link to="/review"> <h2 className="guestEnter">CLICK TO ENTER</h2> </Link>
         <div className= "container">
             <div className="home-left">
                 
