@@ -10,9 +10,9 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
         if (localStorage.getItem('token')) {
           return <Component {...props} />;
         } else {
-            alert("You must be logged in to do that!")
+            alert('You are currently browsing as a guest. If you would like a profile, please click on "Register" and create an account.')
 
-           return<Redirect to="/" />;
+           return<Redirect to="/review" />;
         }
       }}
     />
