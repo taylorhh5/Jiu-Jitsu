@@ -7,11 +7,11 @@ A way for people to **learn** and **share** their knowledge of Brazilian Jiu-Jit
 * Users can "Get on the mat" in a simulation where users are given moves to use based off of positions they've chosen.
 * Users can view moves added by others.
 
-# Tech Stack
+## Tech Stack
 CSS | JavaScript | React | Redux | Node.js/Express | PostgresSQL
 
 
-## Installation
+# Installation
 Clone the repository
 cd into the app folder
 Run yarn install to install necessary packages
