@@ -1,5 +1,13 @@
 import axios from 'axios'
 import { axiosWithAuth } from '../utils/axiosWithAuth.js'
+//firebase
+import { collection, addDoc, doc, query, where, onSnapshot, deleteDoc, updateDoc } from 'firebase/firestore'
+
+import { db } from '../utils/Firebase.js'
+
+// //collection ref
+const colRef = collection(db, 'moves')
+
 
 
 export const TAKEDOWN_FETCHING = "TAKEDOWN_FETCHING"
@@ -42,11 +50,7 @@ export const POST_BACK_START = "POST_BACK_START"
 export const POST_BACK_SUCCESS = "POST_BACK_SUCCESS"
 export const POST_BACK_FAILURE = "POST_BACK_FAILURE"
 
-// export const POST_START = "FETCH_START"
-// export const POST_SUCCESS = "TAKEDOWN_SUCCESS"
-// export const POST_FAILURE = "TAKEDOWN_FAILURE"
-// export const DELETE_SUCCESS = "DELETE_SUCCESS"
-// export const DELETE_START = "DELETE_START"
+
 export const EDIT_TAKEDOWN_START = "EDIT_TAKEDOWN_START"
 export const EDIT_TAKEDOWN_SUCCESS = "EDIT_TAKEDOWN_SUCCESS"
 export const EDIT_TAKEDOWN_FAILURE = "EDIT_TAKEDOWN_FAILURE"
@@ -72,30 +76,31 @@ export const fetchTakedown = () => {
     return dispatch => {
         dispatch({ type: TAKEDOWN_FETCHING });
 
-        axios
-            .get('https://jiujitsux.herokuapp.com/api/moves/takedown')
-            // .then(response => console.log (response.data, "From API"))
-            .then(response => dispatch({ type: TAKEDOWN_SUCCESS, payload: response.data })
-            )
-            
-        .catch(error => dispatch({ type: TAKEDOWN_FAILURE, payload: error.response }))
+        const takedownRef = query(collection(db, 'moves'), where('category', '==', 'takedown'));
 
+        onSnapshot(takedownRef, snapshot => {
+            const takedowns = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            dispatch({ type: TAKEDOWN_SUCCESS, payload: takedowns });
+        }, error => {
+            dispatch({ type: TAKEDOWN_FAILURE, payload: error });
+        });
     };
 };
+
 
 
 export const fetchGuard = () => {
     return dispatch => {
         dispatch({ type: GUARD_FETCHING });
 
-        axios
-            .get('https://jiujitsux.herokuapp.com/api/moves/guard')
-            // .then(response => console.log (response.data, "From GUARD API"))
-            .then(response => dispatch({ type: GUARD_SUCCESS, payload: response.data })
-            )
-            
-        .catch(error => dispatch({ type: GUARD_FAILURE, payload: error.response }))
+        const guardRef = query(collection(db, 'moves'), where('category', '==', 'guard'));
 
+        onSnapshot(guardRef, snapshot => {
+            const guards = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            dispatch({ type: GUARD_SUCCESS, payload: guards });
+        }, error => {
+            dispatch({ type: GUARD_FAILURE, payload: error });
+        });
     };
 };
 
@@ -103,87 +108,281 @@ export const fetchMount = () => {
     return dispatch => {
         dispatch({ type: MOUNT_FETCHING });
 
-        axios
-            .get('https://jiujitsux.herokuapp.com/api/moves/mount')
-            // .then(response => console.log (response.data, "From GUARD API"))
-            .then(response => dispatch({ type: MOUNT_SUCCESS, payload: response.data })
-            )
-            
-        .catch(error => dispatch({ type: MOUNT_FAILURE, payload: error.response }))
+        const mountRef = query(collection(db, 'moves'), where('category', '==', 'mount'));
 
+        onSnapshot(mountRef, snapshot => {
+            const mounts = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            dispatch({ type: MOUNT_SUCCESS, payload: mounts });
+        }, error => {
+            dispatch({ type: MOUNT_FAILURE, payload: error });
+        });
     };
 };
-
 
 export const fetchBack = () => {
     return dispatch => {
         dispatch({ type: BACK_FETCHING });
 
-        axios
-            .get('https://jiujitsux.herokuapp.com/api/moves/back')
-            // .then(response => console.log (response.data, "From GUARD API"))
-            .then(response => dispatch({ type: BACK_SUCCESS, payload: response.data })
-            )
-            
-        .catch(error => dispatch({ type: BACK_FAILURE, payload: error.response }))
+        const backRef = query(collection(db, 'moves'), where('category', '==', 'back'));
 
+        onSnapshot(backRef, snapshot => {
+            const backs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            dispatch({ type: BACK_SUCCESS, payload: backs });
+        }, error => {
+            dispatch({ type: BACK_FAILURE, payload: error });
+        });
     };
 };
-
 
 export const fetchSidemount = () => {
     return dispatch => {
         dispatch({ type: SIDEMOUNT_FETCHING });
 
-        axios
-            .get('https://jiujitsux.herokuapp.com/api/moves/sidemount')
-            // .then(response => console.log (response.data, "From GUARD API"))
-            .then(response => dispatch({ type: SIDEMOUNT_SUCCESS, payload: response.data })
-            )
-            
-        .catch(error => dispatch({ type: SIDEMOUNT_FAILURE, payload: error.response }))
+        const sidemountRef = query(collection(db, 'moves'), where('category', '==', 'sidemount'));
 
+        onSnapshot(sidemountRef, snapshot => {
+            const sidemounts = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            dispatch({ type: SIDEMOUNT_SUCCESS, payload: sidemounts });
+        }, error => {
+            dispatch({ type: SIDEMOUNT_FAILURE, payload: error });
+        });
     };
 };
 
-//POSTS
-
-export const addTakedown = (form, history) => {
+export const addTakedown = (form, move, history) => {
     return dispatch => {
         dispatch({ type: POST_TAKEDOWN_START });
 
-        axiosWithAuth()
-        
-            .post('https://jiujitsux.herokuapp.com/api/moves/takedown', form)
-            // .then((response) => {
-            //     console.log(response, 'POST takedown')
-            //     // window.location.reload();
-            // })
-        .then(response => {dispatch({ type: POST_TAKEDOWN_SUCCESS, payload: response.data })
-        history.push("/profile");
+        const mapper = {
+            Takedown: "takedown",
+            Guard: "guard",
+            Mount: "mount",
+            Sidemount: "sidemount",
+            Back: "back",
+        };
 
-    })
-        .catch(error => dispatch({ type: POST_TAKEDOWN_FAILURE, payload: error.response }))
+        const category = mapper[move];
 
+        const newTakedown = {
+            category: category,
+            name: form.name,
+            description: form.description,
+            image_url: form.image_url,
+            user_id: form.user_id
+
+        };
+
+        addDoc(colRef, newTakedown)
+            .then(() => {
+                dispatch({ type: POST_TAKEDOWN_SUCCESS });
+                history.push("/profile");
+            })
+            .catch(error => {
+                dispatch({ type: POST_TAKEDOWN_FAILURE, payload: error });
+            });
     };
 };
+
+export const editTakedown = (form, history) => {
+    return dispatch => {
+        const movesRef = doc(db, "moves", form.id);
+
+        updateDoc(movesRef, form)
+            .then(() => {
+                history.push("/profile");
+            })
+            .catch(error => {
+                dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error });
+            });
+    };
+};
+
+
+
+
+
+
+//EVERYTHING BELOW HERE FOR OLD BACKEND WITHOUT FIREBASE
+
+// export const fetchTakedown = () => {
+//     return dispatch => {
+//         dispatch({ type: TAKEDOWN_FETCHING });
+//         console.log('ran takedown')
+
+//         // axios
+//         //     .get('https://jiujitsux.herokuapp.com/api/moves/takedown')
+//             // .then(response => console.log (response.data, "From API"))
+//             getDocs(colRef)
+//                         .then(snapshot => console.log (snapshot.docs, "From API"))
+
+//             // .then(response => dispatch({ type: TAKEDOWN_SUCCESS, payload: response.data })
+//             // )
+
+//         .catch(error => dispatch({ type: TAKEDOWN_FAILURE, payload: error }))
+
+//     };
+// };
+
+
+// export const fetchGuard = () => {
+//     return dispatch => {
+//         dispatch({ type: GUARD_FETCHING });
+
+//         axios
+//             .get('https://jiujitsux.herokuapp.com/api/moves/guard')
+//             // .then(response => console.log (response.data, "From GUARD API"))
+//             .then(response => dispatch({ type: GUARD_SUCCESS, payload: response.data })
+//             )
+
+//         .catch(error => dispatch({ type: GUARD_FAILURE, payload: error.response }))
+
+//     };
+// };
+
+
+// export const fetchMount = () => {
+//     return dispatch => {
+//         dispatch({ type: MOUNT_FETCHING });
+
+//         axios
+//             .get('https://jiujitsux.herokuapp.com/api/moves/mount')
+//             // .then(response => console.log (response.data, "From GUARD API"))
+//             .then(response => dispatch({ type: MOUNT_SUCCESS, payload: response.data })
+//             )
+
+//         .catch(error => dispatch({ type: MOUNT_FAILURE, payload: error.response }))
+
+//     };
+// };
+
+
+// export const fetchBack = () => {
+//     return dispatch => {
+//         dispatch({ type: BACK_FETCHING });
+
+//         axios
+//             .get('https://jiujitsux.herokuapp.com/api/moves/back')
+//             // .then(response => console.log (response.data, "From GUARD API"))
+//             .then(response => dispatch({ type: BACK_SUCCESS, payload: response.data })
+//             )
+
+//         .catch(error => dispatch({ type: BACK_FAILURE, payload: error.response }))
+
+//     };
+// };
+
+
+// export const fetchSidemount = () => {
+//     return dispatch => {
+//         dispatch({ type: SIDEMOUNT_FETCHING });
+
+//         axios
+//             .get('https://jiujitsux.herokuapp.com/api/moves/sidemount')
+//             // .then(response => console.log (response.data, "From GUARD API"))
+//             .then(response => dispatch({ type: SIDEMOUNT_SUCCESS, payload: response.data })
+//             )
+
+//         .catch(error => dispatch({ type: SIDEMOUNT_FAILURE, payload: error.response }))
+
+//     };
+// };
+
+//POSTS
+// export const addTakedown = (form, history) => {
+//   return dispatch => {
+//     dispatch({ type: POST_TAKEDOWN_START });
+
+//     const db = getFirestore();
+//     const colRef = db.collection('moves');
+
+//     // Add the new takedown move to Firestore
+//     colRef.add({
+//       category: form.category,
+//       name: form.name,
+//       description: form.description,
+//       image_url: form.image_url
+//     }).then(docRef => {
+//       // Takedown move added successfully
+//       dispatch({ type: POST_TAKEDOWN_SUCCESS });
+//       history.push("/profile");
+//     }).catch(error => {
+//       // Error adding takedown move
+//       dispatch({ type: POST_TAKEDOWN_FAILURE, payload: error });
+//     });
+//   };
+// };
+// import { getFirestore, collection, addDoc } from 'firebase/firestore';
+
+// export const addTakedown = (form, history) => {
+//   return async (dispatch) => {
+//     dispatch({ type: POST_TAKEDOWN_START });
+
+//     try {
+//       const db = getFirestore();
+//       const takedownColRef = collection(db, 'moves');
+
+//       // Add the new takedown document to the "moves" collection
+//       const newTakedownRef = await addDoc(takedownColRef, {
+//         category: 'takedown',
+//         name: form.name,
+//         description: form.description,
+//         image_url: form.image_url,
+//       });
+
+//       dispatch({ type: POST_TAKEDOWN_SUCCESS, payload: newTakedownRef.id });
+//       history.push('/profile');
+//     } catch (error) {
+//       dispatch({ type: POST_TAKEDOWN_FAILURE, payload: error });
+//     }
+//   };
+// };
+
+
+
+
+
+// export const addTakedown = (form, history) => {
+//     return dispatch => {
+//         dispatch({ type: POST_TAKEDOWN_START });
+
+//         axiosWithAuth()
+
+//             .post('https://jiujitsux.herokuapp.com/api/moves/takedown', form)
+//             // .then((response) => {
+//             //     console.log(response, 'POST takedown')
+//             //     // window.location.reload();
+//             // })
+//             .then(response => {
+//                 dispatch({ type: POST_TAKEDOWN_SUCCESS, payload: response.data })
+//                 history.push("/profile");
+
+//             })
+//             .catch(error => dispatch({ type: POST_TAKEDOWN_FAILURE, payload: error.response }))
+
+//     };
+// };
 
 export const addGuard = (form, history) => {
     return dispatch => {
         dispatch({ type: POST_GUARD_START });
 
-        axiosWithAuth()
-        
-            .post('https://jiujitsux.herokuapp.com/api/moves/guard', form)
-            // .then((response) => {
-            //     console.log(response, 'POST takedown')
-            //     // window.location.reload();
-            // })
-        .then(response => {dispatch({ type: POST_GUARD_SUCCESS, payload: response.data })
-        history.push("/profile");
+ 
+        const newGuard = {
+            category: 'guard',
+            name: form.name,
+            description: form.description,
+            image_url: form.image_url,
+            user_id: form.user_id
 
-    })
-        .catch(error => dispatch({ type: POST_GUARD_FAILURE, payload: error.response }))
+        };
+
+        addDoc(colRef, newGuard)
+            .then(response => {
+                dispatch({ type: POST_GUARD_SUCCESS, payload: response.data })
+                history.push("/profile");
+
+            })
+            .catch(error => dispatch({ type: POST_GUARD_FAILURE, payload: error.response }))
 
     };
 };
@@ -192,18 +391,23 @@ export const addMount = (form, history) => {
     return dispatch => {
         dispatch({ type: POST_MOUNT_START });
 
-        axiosWithAuth()
-        
-            .post('https://jiujitsux.herokuapp.com/api/moves/mount', form)
-            // .then((response) => {
-            //     console.log(response, 'POST takedown')
-            //     // window.location.reload();
-            // })
-        .then(response => {dispatch({ type: POST_MOUNT_SUCCESS, payload: response.data })
-        history.push("/profile");
+    
+        const newMount = {
+            category: 'mount',
+            name: form.name,
+            description: form.description,
+            image_url: form.image_url,
+            user_id: form.user_id
 
-    })
-        .catch(error => dispatch({ type: POST_MOUNT_FAILURE, payload: error.response }))
+        };
+
+        addDoc(colRef, newMount)
+            .then(response => {
+                dispatch({ type: POST_MOUNT_SUCCESS, payload: response.data })
+                history.push("/profile");
+
+            })
+            .catch(error => dispatch({ type: POST_MOUNT_FAILURE, payload: error.response }))
 
     };
 };
@@ -212,18 +416,23 @@ export const addSidemount = (form, history) => {
     return dispatch => {
         dispatch({ type: POST_SIDEMOUNT_START });
 
-        axiosWithAuth()
-        
-            .post('https://jiujitsux.herokuapp.com/api/moves/sidemount', form)
-            // .then((response) => {
-            //     console.log(response, 'POST takedown')
-            //     // window.location.reload();
-            // })
-        .then(response => {dispatch({ type: POST_SIDEMOUNT_SUCCESS, payload: response.data })
-        history.push("/profile");
+  
+        const newSidemount = {
+            category: 'sidemount',
+            name: form.name,
+            description: form.description,
+            image_url: form.image_url,
+            user_id: form.user_id
 
-    })
-        .catch(error => dispatch({ type: POST_SIDEMOUNT_FAILURE, payload: error.response }))
+        };
+
+        addDoc(colRef, newSidemount)
+            .then(response => {
+                dispatch({ type: POST_SIDEMOUNT_SUCCESS, payload: response.data })
+                history.push("/profile");
+
+            })
+            .catch(error => dispatch({ type: POST_SIDEMOUNT_FAILURE, payload: error.response }))
 
     };
 };
@@ -232,54 +441,63 @@ export const addBack = (form, history) => {
     return dispatch => {
         dispatch({ type: POST_BACK_START });
 
-        axiosWithAuth()
-        
-            .post('https://jiujitsux.herokuapp.com/api/moves/back', form)
-            // .then((response) => {
-            //     console.log(response, 'POST takedown')
-            //     // window.location.reload();
-            // })
-        .then(response => {dispatch({ type: POST_BACK_SUCCESS, payload: response.data })
-        history.push("/profile");
+      
+        const newBack = {
+            category: 'back',
+            name: form.name,
+            description: form.description,
+            image_url: form.image_url,
+            user_id: form.user_id
 
-    })
-        .catch(error => dispatch({ type: POST_BACK_FAILURE, payload: error.response }))
+        };
 
-    };
-};
+        addDoc(colRef, newBack)
+            .then(response => {
+                dispatch({ type: POST_BACK_SUCCESS, payload: response.data })
+                history.push("/profile");
 
-export const editTakedown = (form, history) => {
-    // console.log(editTakedown,"edit in action")
-    return dispatch => {
-
-    
-
-        axiosWithAuth()
-            .put(`https://jiujitsux.herokuapp.com/api/moves/takedown/${form.id}`, form)
-            // .then(response => console.log (form, "edit"))
-            .then(response => {dispatch({ type: EDIT_TAKEDOWN_SUCCESS, payload:response.data })
-            history.push("/profile");
-
-        })
-        // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
+            })
+            .catch(error => dispatch({ type: POST_BACK_FAILURE, payload: error.response }))
 
     };
 };
+
+
+
+// export const editTakedown = (form, history) => {
+//     // console.log(editTakedown,"edit in action")
+//     return dispatch => {
+
+
+
+//         axiosWithAuth()
+//             .put(`https://jiujitsux.herokuapp.com/api/moves/takedown/${form.id}`, form)
+//             // .then(response => console.log (form, "edit"))
+//             .then(response => {
+//                 dispatch({ type: EDIT_TAKEDOWN_SUCCESS, payload: response.data })
+//                 history.push("/profile");
+
+//             })
+//         // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
+
+//     };
+// };
 
 
 export const editGuard = (form, history) => {
     // console.log(editTakedown,"edit in action")
     return dispatch => {
 
-    
+
 
         axiosWithAuth()
             .put(`https://jiujitsux.herokuapp.com/api/moves/guard/${form.id}`, form)
             // .then(response => console.log (form, "edit"))
-            .then(response => {dispatch({ type: EDIT_GUARD_SUCCESS, payload:response.data })
-            history.push("/profile");
+            .then(response => {
+                dispatch({ type: EDIT_GUARD_SUCCESS, payload: response.data })
+                history.push("/profile");
 
-        })
+            })
         // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
 
     };
@@ -289,15 +507,16 @@ export const editMount = (form, history) => {
     // console.log(editTakedown,"edit in action")
     return dispatch => {
 
-    
+
 
         axiosWithAuth()
             .put(`https://jiujitsux.herokuapp.com/api/moves/mount/${form.id}`, form)
             // .then(response => console.log (form, "edit"))
-            .then(response => {dispatch({ type: EDIT_MOUNT_SUCCESS, payload:response.data })
-            history.push("/profile");
+            .then(response => {
+                dispatch({ type: EDIT_MOUNT_SUCCESS, payload: response.data })
+                history.push("/profile");
 
-        })
+            })
         // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
 
     };
@@ -307,15 +526,16 @@ export const editSidemount = (form, history) => {
     // console.log(editTakedown,"edit in action")
     return dispatch => {
 
-    
+
 
         axiosWithAuth()
             .put(`https://jiujitsux.herokuapp.com/api/moves/sidemount/${form.id}`, form)
             // .then(response => console.log (form, "edit"))
-            .then(response => {dispatch({ type: EDIT_SIDEMOUNT_SUCCESS, payload:response.data })
-            history.push("/profile");
+            .then(response => {
+                dispatch({ type: EDIT_SIDEMOUNT_SUCCESS, payload: response.data })
+                history.push("/profile");
 
-        })
+            })
         // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
 
     };
@@ -324,26 +544,28 @@ export const editBack = (form, history) => {
     // console.log(editTakedown,"edit in action")
     return dispatch => {
 
-    
+
 
         axiosWithAuth()
             .put(`https://jiujitsux.herokuapp.com/api/moves/back/${form.id}`, form)
             // .then(response => console.log (form, "edit"))
-            .then(response => {dispatch({ type: EDIT_BACK_SUCCESS, payload:response.data })
-            history.push("/profile");
+            .then(response => {
+                dispatch({ type: EDIT_BACK_SUCCESS, payload: response.data })
+                history.push("/profile");
 
-        })
+            })
         // .catch(error => dispatch({ type: EDIT_TAKEDOWN_FAILURE, payload: error.response }))
 
     };
 };
+
 export const deleteTakedown = (id, history) => {
     return dispatch => {
-        // dispatch({ type: DELETE_TAKEDOWN_START });
+        const movesRef = doc(db, "moves", id);
 
-        axiosWithAuth()
-            .delete(`https://jiujitsux.herokuapp.com/api/moves/takedown/${id}`)
-            .then((response) => {
+        deleteDoc(movesRef, id)
+
+            .then(() => {
                 // console.log(response, 'd r')
                 history.push("/profile");
 

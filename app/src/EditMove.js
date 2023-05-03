@@ -116,32 +116,33 @@ const EditMove = (props) => {
       const handleSubmit = event => {
         event.preventDefault();
 
-        if(move ==="Takedown"){
+        // if(move ==="Takedown"){
             props.editTakedown(form, props.history);
     
+      // below was before switch to firebase. This is no longer needed
           
-          return;
-        }else if (move ==="Guard"){
-            event.preventDefault();
+        //   return;
+        // }else if (move ==="Guard"){
+        //     event.preventDefault();
 
-            props.editGuard(form, props.history);
-            return;
-        }else if (move ==="Mount"){
-            event.preventDefault();
+        //     props.editGuard(form, props.history);
+        //     return;
+        // }else if (move ==="Mount"){
+        //     event.preventDefault();
 
-            props.editMount(form, props.history);
-            return;
-        }else if (move ==="Sidemount"){
-            event.preventDefault();
+        //     props.editMount(form, props.history);
+        //     return;
+        // }else if (move ==="Sidemount"){
+        //     event.preventDefault();
 
-            props.editSidemount(form, props.history);
-            return;
-        }else if (move ==="Back"){
-            event.preventDefault();
+        //     props.editSidemount(form, props.history);
+        //     return;
+        // }else if (move ==="Back"){
+        //     event.preventDefault();
 
-            props.editBack(form, props.history);
-            return;
-        }
+        //     props.editBack(form, props.history);
+        //     return;
+        // }
 
        
     

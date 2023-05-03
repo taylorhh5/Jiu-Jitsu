@@ -91,36 +91,39 @@ const DeleteMove = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (move === "Takedown") {
+    // if (move === "Takedown") {
       props.deleteTakedown(props.match.params.id, props.history);
+
+      // below was before switch to firebase. This is no longer needed
+      
       // props.history.push("/profile");
 
-      return;
-    } else if (move === "Guard") {
-      event.preventDefault();
+    //   return;
+    // } else if (move === "Guard") {
+    //   event.preventDefault();
 
-      props.deleteGuard(props.match.params.id, props.history);
-      // props.history.push("/profile");
-      return;
-    } else if (move === "Mount") {
-      event.preventDefault();
+    //   props.deleteGuard(props.match.params.id, props.history);
+    //   // props.history.push("/profile");
+    //   return;
+    // } else if (move === "Mount") {
+    //   event.preventDefault();
 
-      props.deleteMount(props.match.params.id, props.history);
-      // props.history.push("/profile");
-      return;
-    } else if (move === "Sidemount") {
-      event.preventDefault();
+    //   props.deleteMount(props.match.params.id, props.history);
+    //   // props.history.push("/profile");
+    //   return;
+    // } else if (move === "Sidemount") {
+    //   event.preventDefault();
 
-      props.deleteSidemount(props.match.params.id, props.history);
-      // props.history.push("/profile");
-      return;
-    } else if (move === "Back") {
-      event.preventDefault();
+    //   props.deleteSidemount(props.match.params.id, props.history);
+    //   // props.history.push("/profile");
+    //   return;
+    // } else if (move === "Back") {
+    //   event.preventDefault();
 
-      props.deleteBack(props.match.params.id, props.history);
-      // props.history.push("/profile");
-      return;
-    }
+    //   props.deleteBack(props.match.params.id, props.history);
+    //   // props.history.push("/profile");
+    //   return;
+    // }
   };
 
   // if(props.moves.error.data){

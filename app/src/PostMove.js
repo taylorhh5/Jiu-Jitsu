@@ -47,29 +47,33 @@ const PostMove = (props) => {
       alert("Please log into your account if you would like to add a move.")
     }
 
-    else if (drop.move === "Takedown") {
+    // else if (drop.move === "Takedown") {
       event.preventDefault();
-      props.addTakedown(form, props.history);
+      props.addTakedown(form, drop.move, props.history);
+
+      //code below no longer needed after switching to firebase
+      
       // props.history.push("/profile");
 
-      return;
-    } else if (drop.move === "Guard") {
-      event.preventDefault();
-      props.addGuard(form, props.history);
-      // props.history.push("/profile");
-    } else if (drop.move === "Mount") {
-      event.preventDefault();
-      props.addMount(form, props.history);
-      // props.history.push("/profile");
-    } else if (drop.move === "Sidemount") {
-      event.preventDefault();
-      props.addSidemount(form, props.history);
-      // props.history.push("/profile");
-    } else if (drop.move === "Back") {
-      event.preventDefault();
-      props.addBack(form, props.history);
-      // props.history.push("/profile");
-    }
+      // return;
+    // } 
+    // else if (drop.move === "Guard") {
+    //   event.preventDefault();
+    //   props.addGuard(form, props.history);
+    //   // props.history.push("/profile");
+    // } else if (drop.move === "Mount") {
+    //   event.preventDefault();
+    //   props.addMount(form, props.history);
+    //   // props.history.push("/profile");
+    // } else if (drop.move === "Sidemount") {
+    //   event.preventDefault();
+    //   props.addSidemount(form, props.history);
+    //   // props.history.push("/profile");
+    // } else if (drop.move === "Back") {
+    //   event.preventDefault();
+    //   props.addBack(form, props.history);
+    //   // props.history.push("/profile");
+    // }
   };
 
   // if(props.moves.error.data){
