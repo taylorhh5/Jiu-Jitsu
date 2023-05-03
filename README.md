@@ -1,6 +1,9 @@
 # Brazilian Jiu-Jitsu Trainer
 A way for people to **learn** and **share** their knowledge of Brazilian Jiu-Jitsu.
 
+## See the app in action
+https://jiu-jitsu-backend.web.app/
+
 ## Key features
 * Users can create profiles.
 * Users have the ability to add, edit, and delete moves.
