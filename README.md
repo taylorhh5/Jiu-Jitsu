@@ -2,6 +2,7 @@
 A way for people to **learn** and **share** their knowledge of Brazilian Jiu-Jitsu.
 
 ## See the app in action
+![JiuJitsuReactApp](https://github.com/taylorhh5/Jiu-Jitsu/assets/52665999/0ce513b4-62c7-4b2f-bc28-6d3c3167d73d)
 https://jiu-jitsu-backend.web.app/
 
 ## Key features
